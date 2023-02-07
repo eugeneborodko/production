@@ -15,6 +15,7 @@ export const buildWebpackConfig = (
     entry: paths.entry,
     output: {
       filename: '[name].[contenthash].js',
+      assetModuleFilename: isDev ? undefined : 'images/[hash].[ext]',
       path: paths.build,
       clean: true,
     },
