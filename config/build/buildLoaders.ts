@@ -7,6 +7,7 @@ export const buildLoaders = ({
 }: BuildOptions): webpack.RuleSetRule[] => {
   const svgLoader: webpack.RuleSetRule = {
     test: /\.svg$/,
+    use: ['@svgr/webpack'],
     type: 'asset/resource',
   }
 

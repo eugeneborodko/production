@@ -5,8 +5,13 @@ export enum Theme {
   DARK = 'dark',
 }
 
+export enum ThemeIconColors {
+  YELLOW = 'yellow',
+  BLUE = 'blue',
+}
+
 export interface ThemeContextProps {
-  theme?: Theme;
+  theme?: Theme
   setTheme?: (theme: Theme) => void
 }
 
