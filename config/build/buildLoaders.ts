@@ -6,9 +6,9 @@ export const buildLoaders = ({
   isDev,
 }: BuildOptions): webpack.RuleSetRule[] => {
   const svgLoader: webpack.RuleSetRule = {
-    test: /\.svg$/,
+    test: /\.svg$/i,
+    issuer: /\.[jt]sx?$/,
     use: ['@svgr/webpack'],
-    type: 'asset/resource',
   }
 
   const imgLoader: webpack.RuleSetRule = {
