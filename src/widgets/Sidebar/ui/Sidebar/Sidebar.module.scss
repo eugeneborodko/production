@@ -1,0 +1,16 @@
+.sidebar {
+  padding: 20px;
+  height: calc(100vh - var(--navbar-height));
+  width: var(--sidebar-width);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+  background: var(--inverted-bg-color);
+  transform: translateX(0);
+  transition: transform 0.3s;
+}
+
+.collapsed {
+  transform: translateX(calc(var(--sidebar-width) / -1.7));
+}
