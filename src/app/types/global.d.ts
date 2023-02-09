@@ -5,4 +5,4 @@ declare module '*.svg' {
   export default content;
 }
 declare module '*.png'
-declare const __IS_DEV__: boolean
+declare const __IS_DEV__: boolean;
