@@ -5,6 +5,7 @@ import { BuildOptions } from './types/config'
 
 export const buildPlugins = ({
   paths,
+  isDev
 }: BuildOptions): webpack.WebpackPluginInstance[] => {
   return [
     new HTMLWebpackPlugin({
@@ -15,5 +16,8 @@ export const buildPlugins = ({
       filename: 'css/[name].[contenthash:5].css',
       chunkFilename: 'css/[name].[contenthash:5].css',
     }),
+    new webpack.DefinePlugin({
+      __IS_DEV__: JSON.stringify(isDev)
+    })
   ]
 }

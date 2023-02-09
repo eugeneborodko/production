@@ -1,5 +1,6 @@
-import { ThemeSwitcher } from 'features/ThemeSwitcher'
 import { FC, useState } from 'react'
+import { LanguageSwitcher } from 'features/LanguageSwitcher'
+import { ThemeSwitcher } from 'features/ThemeSwitcher'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonVariants } from 'shared/ui/Button/Button'
 import classes from './Sidebar.module.scss'
@@ -31,7 +32,8 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
         >
           toggle
         </Button>
-          <ThemeSwitcher />
+        <LanguageSwitcher />
+        <ThemeSwitcher />
       </aside>
     </>
   )
