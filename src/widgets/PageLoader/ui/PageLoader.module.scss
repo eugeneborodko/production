@@ -1,0 +1,6 @@
+.pageLoader {
+  width: calc(100% - (var(--sidebar-width)));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
