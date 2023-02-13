@@ -3,5 +3,7 @@
   "main page": "main page",
   "about page": "about us",
   "toggle button": "toggle",
-  "page not found": "page not found"
+  "page not found": "page not found",
+  "error occurred": "error occurred",
+  "refresh page": "refresh page"
 }

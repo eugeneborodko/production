@@ -3,5 +3,7 @@
   "main page": "главная",
   "about page": "о нас",
   "toggle button": "сдвиг",
-  "page not found": "страница не найдена"
+  "page not found": "страница не найдена",
+  "error occurred": "произошла ошибка",
+  "refresh page": "обновить страницу"
 }
