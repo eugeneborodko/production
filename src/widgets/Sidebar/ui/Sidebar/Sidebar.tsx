@@ -25,9 +25,11 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
         { [classes.collapsed]: isCollapsed },
         [className],
       )}
+      data-testid="sidebar"
     >
       <Button
         className={classes.toggleButton}
+        data-testid="sidebar-toggle-button"
         variant={ButtonVariants.CONTAINED}
         onClick={onToggle}
       >
