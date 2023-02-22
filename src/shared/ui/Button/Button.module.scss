@@ -1,5 +1,17 @@
 .button {
+  color: var(--primary-color);
   cursor: pointer;
+}
+
+.text {
+  background: none;
+  border: 0;
+}
+
+.outlined {
+  padding: 10px 15px;
+  border: 1px solid var(--primary-color);
+  background: none;
 }
 
 .icon {

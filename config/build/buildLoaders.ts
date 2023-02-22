@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 import { buildScssLoader } from './loaders/buildScssLoader';
+import { buildSvgLoader } from './loaders/buildSvgLoader';
 
 export const buildLoaders = ({
   isDev,
@@ -16,12 +17,6 @@ export const buildLoaders = ({
     },
   };
 
-  const svgLoader: webpack.RuleSetRule = {
-    test: /\.svg$/i,
-    issuer: /\.[jt]sx?$/,
-    use: ['@svgr/webpack'],
-  };
-
   const imgLoader: webpack.RuleSetRule = {
     test: /\.(png|jpg|jpeg|gif)$/i,
     type: 'asset/resource',
@@ -34,6 +29,7 @@ export const buildLoaders = ({
   };
 
   const scssLoader = buildScssLoader(isDev);
+  const svgLoader = buildSvgLoader();
 
   return [babelLoader, typescriptLoader, scssLoader, svgLoader, imgLoader];
 };
