@@ -4,17 +4,19 @@ import { Button, ButtonVariants } from 'shared/ui/Button/Button';
 import Svg from 'shared/assets/icons/theme.svg';
 
 interface ThemeSwitcherProps {
-  className?: string
+  themeColor?: string;
 }
 
-export const ThemeSwitcher: FC<ThemeSwitcherProps> = () => {
+export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ themeColor }) => {
   const { theme, toggleTheme } = useTheme();
 
-  const themeIconColor = theme === Theme.LIGHT ? ThemeIconColors.YELLOW : ThemeIconColors.BLUE;
+  const themeIconColor = theme === Theme.LIGHT
+    ? ThemeIconColors.YELLOW
+    : ThemeIconColors.BLUE;
 
   return (
     <Button variant={ButtonVariants.ICON} onClick={toggleTheme}>
-      <Svg fill={themeIconColor} />
+      <Svg fill={themeColor || themeIconColor} />
     </Button>
   );
 };
