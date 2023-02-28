@@ -1,5 +1,5 @@
+import webpack from 'webpack';
 import path from 'path';
-import webpack, { RuleSetRule } from 'webpack';
 import { buildScssLoader } from '../build/loaders/buildScssLoader';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
 import { BuildPaths } from '../build/types/config';
@@ -12,10 +12,14 @@ export default ({ config }: { config: webpack.Configuration }) => {
     src: path.resolve(__dirname, '..', '..', 'src'),
   };
 
-  config.resolve?.modules?.push(paths.src);
-  config.resolve?.extensions?.push('ts', 'tsx');
+  const modules = config.resolve?.modules;
+  const extensions = config.resolve?.extensions;
 
-  config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
+  modules?.push(paths.src);
+  extensions?.push('.ts', '.tsx');
+
+  let rules = config?.module?.rules;
+  rules = rules?.map((rule: any) => {
     if (/svg/.test(rule.test as string)) {
       return { ...rule, exclude: /\.svg$/i };
     }
@@ -23,8 +27,11 @@ export default ({ config }: { config: webpack.Configuration }) => {
     return rule;
   });
 
-  config.module?.rules?.push(buildSvgLoader());
-  config.module?.rules?.push(buildScssLoader(true));
+  rules?.push(buildSvgLoader());
+
+  if (config?.module?.rules) {
+    config.module.rules.push(buildScssLoader(true));
+  }
 
   return config;
 };

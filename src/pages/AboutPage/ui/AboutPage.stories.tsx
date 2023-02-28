@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Story, ComponentMeta } from '@storybook/react';
 import AboutPage from './AboutPage';
 
 export default {
@@ -6,9 +6,7 @@ export default {
   component: AboutPage,
 } as ComponentMeta<typeof AboutPage>;
 
-const Template: ComponentStory<typeof AboutPage> = (args) => (
-  <AboutPage {...args} />
-);
+const Template: Story<typeof AboutPage> = (args) => <AboutPage {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {};
