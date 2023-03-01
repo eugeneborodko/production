@@ -1,6 +1,5 @@
-import { FC, useContext, useState } from 'react';
+import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ThemeContext } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import { LanguageSwitcher } from 'features/LanguageSwitcher';
 import { ThemeSwitcher } from 'features/ThemeSwitcher';
 import { classNames } from 'shared/lib/classNames/classNames';
