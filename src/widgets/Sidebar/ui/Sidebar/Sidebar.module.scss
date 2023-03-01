@@ -5,12 +5,41 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: end;
+  align-items: center;
   background: var(--inverted-bg-color);
   transform: translateX(0);
   transition: transform 0.3s;
 }
 
 .collapsed {
+  padding-left: 0;
+  align-items: end;
   transform: translateX(calc(var(--sidebar-width) / -1.7));
+
+  .link {
+    width: 0;
+    opacity: 0;
+  }
+}
+
+.toggleButton {
+  position: absolute;
+  right: calc(var(--font-line-large) * -1);
+  bottom: var(--font-line-large);
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  padding: 6px 0;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 10px;
+  fill: var(--inverted-primary-color);
 }

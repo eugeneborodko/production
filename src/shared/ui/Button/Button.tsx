@@ -9,22 +9,40 @@ export enum ButtonVariants {
   ICON = 'icon',
 }
 
+export enum ButtonSizes {
+  M = 'M',
+  L = 'L',
+  XL = 'XL',
+}
+
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string
-  variant?: ButtonVariants
+  className?: string;
+  variant?: ButtonVariants;
+  square?: boolean;
+  size?: ButtonSizes;
 }
 
 export const Button: FC<ButtonProps> = ({
   className,
   variant = ButtonVariants.CONTAINED,
+  square,
+  size = ButtonSizes.M,
   children,
   ...props
-}) => (
-  <button
-    {...props}
-    className={classNames(classes.button, {}, [className, classes[variant]])}
-    type="button"
-  >
-    {children}
-  </button>
-);
+}) => {
+  const modes: Record<string, boolean> = {
+    [classes.square]: square,
+  };
+
+  const additionalClasses = [className, classes[variant], classes[size]];
+
+  return (
+    <button
+      {...props}
+      className={classNames(classes.button, modes, additionalClasses)}
+      type="button"
+    >
+      {children}
+    </button>
+  );
+};

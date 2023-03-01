@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, ButtonVariants } from 'shared/ui/Button/Button';
 
 interface LanguageSwitcherProps {
-  className?: string
+  short?: boolean;
 }
 
 enum Languages {
@@ -11,7 +11,7 @@ enum Languages {
   RU = 'ru',
 }
 
-export const LanguageSwitcher: FC<LanguageSwitcherProps> = () => {
+export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ short }) => {
   const { t, i18n } = useTranslation();
 
   const toggleLanguage = () => {
@@ -27,7 +27,7 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = () => {
   return (
     <div>
       <Button variant={ButtonVariants.CONTAINED} onClick={toggleLanguage}>
-        {t('language')}
+        {short ? t('short language') : t('language')}
       </Button>
     </div>
   );

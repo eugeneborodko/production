@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Button, ButtonVariants } from 'shared/ui/Button/Button';
 
 export const BugButton = () => {
   const { t } = useTranslation();
@@ -16,8 +17,8 @@ export const BugButton = () => {
   }, [error]);
 
   return (
-    <button type="button" onClick={throwError}>
+    <Button variant={ButtonVariants.CONTAINED} onClick={throwError}>
       {t('throw error')}
-    </button>
+    </Button>
   );
 };
