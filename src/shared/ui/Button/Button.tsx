@@ -6,6 +6,7 @@ export enum ButtonVariants {
   TEXT = 'text',
   CONTAINED = 'contained',
   OUTLINED = 'outlined',
+  OUTLINED_INVERTED = 'outlinedInverted',
   ICON = 'icon',
 }
 

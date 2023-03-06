@@ -10,9 +10,19 @@
   border: 0;
 }
 
-.outlined {
-  border: 1px solid var(--primary-color);
+.outlined,
+.outlinedInverted {
   background: none;
+}
+
+.outlined {
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.outlinedInverted {
+  color: var(--inverted-primary-color);
+  border: 1px solid var(--inverted-primary-color);
 }
 
 .contained {

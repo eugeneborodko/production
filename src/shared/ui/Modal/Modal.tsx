@@ -1,11 +1,8 @@
 import {
-  FC,
-  MouseEvent,
-  ReactNode,
-  useCallback,
-  useEffect,
+  FC, MouseEvent, ReactNode, useCallback, useEffect,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Portal } from '../Portal/Portal';
 import classes from './Modal.module.scss';
 
 interface ModalProps {
@@ -64,12 +61,14 @@ export const Modal: FC<ModalProps> = ({
   // }
 
   return (
-    <div className={classNames(classes.modal, modes, [className])}>
-      <div className={classes.overlay} onClick={onModalClose}>
-        <div className={classes.content} onClick={onContentClick}>
-          {children}
+    <Portal>
+      <div className={classNames(classes.modal, modes, [className])}>
+        <div className={classes.overlay} onClick={onModalClose}>
+          <div className={classes.content} onClick={onContentClick}>
+            {children}
+          </div>
         </div>
       </div>
-    </div>
+    </Portal>
   );
 };

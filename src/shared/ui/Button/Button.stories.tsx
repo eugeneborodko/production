@@ -28,6 +28,12 @@ Outlined.args = {
   variant: ButtonVariants.OUTLINED,
 };
 
+export const OutlinedInverted = Template.bind({});
+OutlinedInverted.args = {
+  children: 'Button',
+  variant: ButtonVariants.OUTLINED_INVERTED,
+};
+
 export const OutlinedSizeM = Template.bind({});
 OutlinedSizeM.args = {
   children: 'Button',
