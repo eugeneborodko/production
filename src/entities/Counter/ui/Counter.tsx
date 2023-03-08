@@ -19,9 +19,9 @@ export const Counter: FC<CounterProps> = () => {
 
   return (
     <div>
-      <h1>{counterValue}</h1>
-      <Button onClick={plus}>Plus</Button>
-      <Button onClick={minus}>Minus</Button>
+      <h1 data-testid="counter-title">{counterValue}</h1>
+      <Button data-testid="plus" onClick={plus}>Plus</Button>
+      <Button data-testid="minus" onClick={minus}>Minus</Button>
     </div>
   );
 };

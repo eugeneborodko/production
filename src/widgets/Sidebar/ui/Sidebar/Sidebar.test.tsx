@@ -12,9 +12,7 @@ describe('Sidebar', () => {
   it('should collapse sidebar after collapse button is clicked', async () => {
     renderComponent(<Sidebar />);
     const toggleButton = screen.getByTestId('sidebar-toggle-button');
-    screen.debug();
     await userEvent.click(toggleButton);
-    screen.debug();
     expect(screen.getByTestId('sidebar')).toHaveClass('collapsed');
   });
 });
