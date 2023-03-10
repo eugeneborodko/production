@@ -20,7 +20,8 @@
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "analyze": "cross-env analyze=1 webpack --env mode=development",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
-    "storybook:build": "build-storybook -c ./config/storybook"
+    "storybook:build": "build-storybook -c ./config/storybook",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -77,7 +78,8 @@
     "ts-node": "^10.6.0",
     "typescript": "^4.6.4",
     "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.7.4"
+    "webpack-dev-server": "^4.7.4",
+    "husky": "^8.0.0"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
