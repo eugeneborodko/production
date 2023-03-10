@@ -23,7 +23,7 @@ describe('Counter', () => {
         },
       },
     });
-    const button = screen.getByRole('button', { name: /plus/i });
+    const button = screen.getByTestId('plus');
     const counter = screen.getByTestId('counter-title');
     await userEvent.click(button);
     expect(counter).toHaveTextContent('11');
@@ -37,7 +37,7 @@ describe('Counter', () => {
         },
       },
     });
-    const button = screen.getByRole('button', { name: /minus/i });
+    const button = screen.getByTestId('minus');
     const counter = screen.getByTestId('counter-title');
     await userEvent.click(button);
     expect(counter).toHaveTextContent('9');
