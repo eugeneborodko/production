@@ -1,5 +1,10 @@
 import {
-  FC, MouseEvent, ReactNode, useCallback, useEffect,
+  FC,
+  MouseEvent,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useState,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from '../Portal/Portal';
@@ -9,6 +14,7 @@ interface ModalProps {
   className?: string;
   children: ReactNode;
   isOpened?: boolean;
+  // lazy?: boolean;
   onClose?: () => void;
 }
 
@@ -56,9 +62,9 @@ export const Modal: FC<ModalProps> = ({
     };
   }, [isOpened, onKeyDown]);
 
-  // if (!isOpened) {
-  //   return null;
-  // }
+  if (!isOpened) {
+    return null;
+  }
 
   return (
     <Portal>
