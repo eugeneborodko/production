@@ -1,5 +1,5 @@
 // @ts-nocheck
-import webpack, { RuleSetRule } from 'webpack';
+import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
 import { buildScssLoader } from '../build/loaders/buildScssLoader';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
@@ -13,7 +13,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     src: path.resolve(__dirname, '..', '..', 'src'),
   };
 
-  config.resolve.modules.push(paths.src);
+  config.resolve.modules = [paths.src, 'node_modules'];
   config.resolve.extensions.push('.ts', '.tsx');
 
   // eslint-disable-next-line no-param-reassign
@@ -27,6 +27,10 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
   config.module.rules.push(buildSvgLoader());
   config.module.rules.push(buildScssLoader(true));
+
+  config.plugins?.push(new DefinePlugin({
+    __IS_DEV__: true,
+  }));
 
   return config;
 };

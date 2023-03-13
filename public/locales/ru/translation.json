@@ -9,5 +9,8 @@
   "short language": "ru",
   "Log in": "войти",
   "enter password": "введите пароль",
-  "enter username": "введите имя пользователя"
+  "enter username": "введите имя пользователя",
+  "Login": "Авторизация",
+  "wrong login or password": "Неправильное имя пользователя или пароль",
+  "Log out": "выйти"
 }

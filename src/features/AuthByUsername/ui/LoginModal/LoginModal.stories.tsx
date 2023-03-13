@@ -1,4 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 import { LoginModal } from './LoginModal';
 
 export default {
@@ -14,3 +15,5 @@ export const Primary = Template.bind({});
 Primary.args = {
   isOpened: true,
 };
+
+Primary.decorators = [StoreDecorator({})];

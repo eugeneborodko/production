@@ -9,5 +9,8 @@
   "short language": "en",
   "Log in": "log in",
   "enter password": "enter password",
-  "enter username": "enter username"
+  "enter username": "enter username",
+  "Login": "login",
+  "wrong login or password": "Wrong login or password",
+  "Log out": "log out"
 }

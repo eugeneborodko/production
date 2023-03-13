@@ -3,6 +3,10 @@
   color: var(--primary-color);
   border: 0;
   cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+  }
 }
 
 .text {
