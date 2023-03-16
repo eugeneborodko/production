@@ -1,7 +1,6 @@
-import {
-  getUserAuthData, logout, setAuthData, User,
-} from 'entities/User';
+import { getUserAuthData, logout } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
+import { getLoginState } from 'features/AuthByUsername/model/selectors/getLoginState/getLoginState';
 import { resetLoginError } from 'features/AuthByUsername/model/slice/loginSlice';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -21,11 +20,14 @@ export const Navbar = ({ className }: NavBarProps) => {
   const dispatch = useDispatch();
   const [isLoginModalOpened, setIsLoginModalOpened] = useState<boolean>(false);
   const authData = useSelector(getUserAuthData);
+  const { error } = useSelector(getLoginState);
 
   const onModalClose = useCallback(() => {
     setIsLoginModalOpened(false);
-    dispatch(resetLoginError());
-  }, [dispatch]);
+    if (error) {
+      dispatch(resetLoginError());
+    }
+  }, [dispatch, error]);
 
   const onModalOpen = useCallback(() => {
     setIsLoginModalOpened(true);
@@ -33,6 +35,7 @@ export const Navbar = ({ className }: NavBarProps) => {
 
   const onLogout = useCallback(() => {
     dispatch(logout());
+    localStorage.removeItem(LOCAL_STORAGE_USER_KEY);
   }, [dispatch]);
 
   return (

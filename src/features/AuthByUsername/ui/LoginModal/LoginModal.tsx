@@ -1,5 +1,7 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { Modal } from 'shared/ui';
+import { getUserAuthData } from 'entities/User';
+import { useSelector } from 'react-redux';
 import { LoginForm } from '../LoginForm/LoginForm';
 
 interface LoginModalProps {
@@ -10,11 +12,20 @@ interface LoginModalProps {
 export const LoginModal: FC<LoginModalProps> = ({
   isOpened,
   onClose,
-}) => (
-  <Modal
-    isOpened={isOpened}
-    onClose={onClose}
-  >
-    <LoginForm />
-  </Modal>
-);
+}) => {
+  const authData = useSelector(getUserAuthData);
+  useEffect(() => {
+    if (authData) {
+      onClose();
+    }
+  }, [authData, onClose]);
+
+  return (
+    <Modal
+      isOpened={isOpened}
+      onClose={onClose}
+    >
+      <LoginForm />
+    </Modal>
+  );
+};

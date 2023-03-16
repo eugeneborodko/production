@@ -4,7 +4,6 @@ import {
   ReactNode,
   useCallback,
   useEffect,
-  useState,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from '../Portal/Portal';
@@ -14,7 +13,6 @@ interface ModalProps {
   className?: string;
   children: ReactNode;
   isOpened?: boolean;
-  // lazy?: boolean;
   onClose?: () => void;
 }
 

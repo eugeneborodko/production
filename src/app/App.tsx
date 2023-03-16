@@ -1,6 +1,7 @@
 import { initAuthData } from 'entities/User';
 import { Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { LOCAL_STORAGE_USER_KEY } from 'shared/const/localstorage';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
@@ -10,7 +11,11 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(initAuthData());
+    const user = localStorage.getItem(LOCAL_STORAGE_USER_KEY);
+
+    if (user) {
+      dispatch(initAuthData(JSON.parse(user)));
+    }
   }, [dispatch]);
 
   return (
