@@ -1,18 +1,15 @@
-import { FC, useEffect } from 'react';
-import { Modal } from 'shared/ui';
+import { FC, Suspense, useEffect } from 'react';
+import { Loader, Modal } from 'shared/ui';
 import { getUserAuthData } from 'entities/User';
 import { useSelector } from 'react-redux';
-import { LoginForm } from '../LoginForm/LoginForm';
+import { LoginFormLazy } from '../LoginForm/LoginForm.lazy';
 
 interface LoginModalProps {
   isOpened: boolean;
   onClose: () => void;
 }
 
-export const LoginModal: FC<LoginModalProps> = ({
-  isOpened,
-  onClose,
-}) => {
+export const LoginModal: FC<LoginModalProps> = ({ isOpened, onClose }) => {
   const authData = useSelector(getUserAuthData);
   useEffect(() => {
     if (authData) {
@@ -21,11 +18,10 @@ export const LoginModal: FC<LoginModalProps> = ({
   }, [authData, onClose]);
 
   return (
-    <Modal
-      isOpened={isOpened}
-      onClose={onClose}
-    >
-      <LoginForm />
+    <Modal isOpened={isOpened} onClose={onClose}>
+      <Suspense fallback={Loader}>
+        <LoginFormLazy />
+      </Suspense>
     </Modal>
   );
 };

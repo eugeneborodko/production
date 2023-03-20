@@ -1,6 +1,6 @@
 import { getUserAuthData, logout } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
-import { getLoginState } from 'features/AuthByUsername/model/selectors/getLoginState/getLoginState';
+import { getLoginError } from 'features/AuthByUsername/model/selectors/getLoginError/getLoginError';
 import { resetLoginError } from 'features/AuthByUsername/model/slice/loginSlice';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -20,7 +20,7 @@ export const Navbar = ({ className }: NavBarProps) => {
   const dispatch = useDispatch();
   const [isLoginModalOpened, setIsLoginModalOpened] = useState<boolean>(false);
   const authData = useSelector(getUserAuthData);
-  const { error } = useSelector(getLoginState);
+  const error = useSelector(getLoginError);
 
   const onModalClose = useCallback(() => {
     setIsLoginModalOpened(false);
