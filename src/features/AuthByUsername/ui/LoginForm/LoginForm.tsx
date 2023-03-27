@@ -3,10 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Input, Typography } from 'shared/ui';
 import { TypographyVariants } from 'shared/ui/Typography/Typography';
-import {
-  ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
+import { useDynamicModuleLoader, ReducersList } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
