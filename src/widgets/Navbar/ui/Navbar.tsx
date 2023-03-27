@@ -4,9 +4,10 @@ import { getLoginError } from 'features/AuthByUsername/model/selectors/getLoginE
 import { resetLoginError } from 'features/AuthByUsername/model/slice/loginSlice';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { LOCAL_STORAGE_USER_KEY } from 'shared/const/localstorage';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Button } from 'shared/ui';
 import { ButtonVariants } from 'shared/ui/Button/Button';
 import classes from './Navbar.module.scss';
@@ -17,7 +18,7 @@ interface NavBarProps {
 
 export const Navbar = ({ className }: NavBarProps) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [isLoginModalOpened, setIsLoginModalOpened] = useState<boolean>(false);
   const authData = useSelector(getUserAuthData);
   const error = useSelector(getLoginError);

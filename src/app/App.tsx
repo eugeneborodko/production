@@ -1,15 +1,15 @@
 import { initAuthData } from 'entities/User';
 import { Suspense, useContext, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { LOCAL_STORAGE_USER_KEY } from 'shared/const/localstorage';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { AppRouter } from './providers/router';
 import { ThemeContext } from './providers/ThemeProvider/lib/ThemeContext';
 
 const App = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
