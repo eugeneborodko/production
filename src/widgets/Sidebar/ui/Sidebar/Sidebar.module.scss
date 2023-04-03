@@ -15,11 +15,6 @@
   padding-left: 0;
   align-items: end;
   transform: translateX(calc(var(--sidebar-width) / -1.7));
-
-  .link {
-    width: 0;
-    opacity: 0;
-  }
 }
 
 .toggleButton {
@@ -31,15 +26,4 @@
 .links {
   display: flex;
   flex-direction: column;
-}
-
-.item {
-  padding: 6px 0;
-  display: flex;
-  align-items: center;
-}
-
-.icon {
-  margin-right: 10px;
-  fill: var(--inverted-primary-color);
 }

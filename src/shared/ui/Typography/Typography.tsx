@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import classes from './Typography.module.scss';
 
@@ -14,12 +14,12 @@ interface TypographyProps {
   variant?: TypographyVariants;
 }
 
-export const Typography: FC<TypographyProps> = ({
+export const Typography = memo(({
   className,
   title,
   text,
   variant = TypographyVariants.PRIMARY,
-}) => (
+}: TypographyProps) => (
   <div
     className={classNames(classes.typography, {}, [
       className,
@@ -31,4 +31,4 @@ export const Typography: FC<TypographyProps> = ({
     )}
     {text && <p className={classes.text}>{text}</p>}
   </div>
-);
+));

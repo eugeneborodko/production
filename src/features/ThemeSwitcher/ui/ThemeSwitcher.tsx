@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { memo } from 'react';
 import { useTheme, Theme, ThemeIconColors } from 'app/providers/ThemeProvider';
 import { Button, ButtonVariants } from 'shared/ui/Button/Button';
 import Svg from 'shared/assets/icons/theme.svg';
@@ -7,7 +7,7 @@ interface ThemeSwitcherProps {
   themeColor?: string;
 }
 
-export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ themeColor }) => {
+export const ThemeSwitcher = memo(({ themeColor }: ThemeSwitcherProps) => {
   const { theme, toggleTheme } = useTheme();
 
   const themeIconColor = theme === Theme.LIGHT
@@ -19,4 +19,4 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ themeColor }) => {
       <Svg fill={themeColor || themeIconColor} />
     </Button>
   );
-};
+});

@@ -1,0 +1,26 @@
+import { t } from 'i18next';
+import { memo } from 'react';
+import { AppLink } from 'shared/ui';
+import { AppLinkVariant } from 'shared/ui/AppLink/AppLink';
+import { classNames } from 'shared/lib/classNames/classNames';
+import classes from './SidebarItem.module.scss';
+import { SidebarItemType } from '../../model/items';
+
+interface SidebarItemProps {
+  item?: SidebarItemType;
+  isCollapsed: boolean;
+}
+
+export const SidebarItem = memo(({ item, isCollapsed }: SidebarItemProps) => {
+  const { Icon, path, text } = item;
+  return (
+    <AppLink
+      className={classNames(classes.item, { [classes.collapsed]: isCollapsed })}
+      to={path}
+      variant={AppLinkVariant.SECONDARY}
+    >
+      <Icon className={classes.icon} />
+      <span className={classes.link}>{t(text)}</span>
+    </AppLink>
+  );
+});

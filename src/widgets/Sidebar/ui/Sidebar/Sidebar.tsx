@@ -1,21 +1,17 @@
-import { FC, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { LanguageSwitcher } from 'features/LanguageSwitcher';
 import { ThemeSwitcher } from 'features/ThemeSwitcher';
+import { memo, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonSizes, ButtonVariants } from 'shared/ui/Button/Button';
-import { AppLink, AppLinkVariant } from 'shared/ui/AppLink/AppLink';
-import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
-import SVGHome from 'shared/assets/icons/home.svg';
-import SVGAbout from 'shared/assets/icons/about.svg';
+import { SidebarItemsList } from '../../model/items';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
 import classes from './Sidebar.module.scss';
 
 interface SidebarProps {
   className?: string;
 }
 
-export const Sidebar: FC<SidebarProps> = ({ className }) => {
-  const { t } = useTranslation();
+export const Sidebar = memo(({ className }: SidebarProps) => {
   const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
 
   const onToggle = () => {
@@ -32,22 +28,9 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
       data-testid="sidebar"
     >
       <div className={classes.links}>
-        <AppLink
-          className={classes.item}
-          to={RoutePaths.main}
-          variant={AppLinkVariant.SECONDARY}
-        >
-          <SVGHome className={classes.icon} />
-          <span className={classes.link}>{t('main page')}</span>
-        </AppLink>
-        <AppLink
-          className={classes.item}
-          to={RoutePaths.about}
-          variant={AppLinkVariant.SECONDARY}
-        >
-          <SVGAbout className={classes.icon} />
-          <span className={classes.link}>{t('about page')}</span>
-        </AppLink>
+        {SidebarItemsList.map((item) => (
+          <SidebarItem item={item} isCollapsed={isCollapsed} key={item.path} />
+        ))}
       </div>
       <Button
         className={classes.toggleButton}
@@ -63,4 +46,4 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
       <ThemeSwitcher />
     </aside>
   );
-};
+});

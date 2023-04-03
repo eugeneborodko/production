@@ -2,7 +2,7 @@ import { getUserAuthData, logout } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
 import { getLoginError } from 'features/AuthByUsername/model/selectors/getLoginError/getLoginError';
 import { resetLoginError } from 'features/AuthByUsername/model/slice/loginSlice';
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { LOCAL_STORAGE_USER_KEY } from 'shared/const/localstorage';
@@ -16,7 +16,7 @@ interface NavBarProps {
   className?: string;
 }
 
-export const Navbar = ({ className }: NavBarProps) => {
+export const Navbar = memo(({ className }: NavBarProps) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const [isLoginModalOpened, setIsLoginModalOpened] = useState<boolean>(false);
@@ -62,4 +62,4 @@ export const Navbar = ({ className }: NavBarProps) => {
       <LoginModal isOpened={isLoginModalOpened} onClose={onModalClose} />
     </nav>
   );
-};
+});

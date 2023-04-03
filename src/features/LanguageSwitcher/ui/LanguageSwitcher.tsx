@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react';
+import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonVariants } from 'shared/ui/Button/Button';
 
@@ -11,7 +11,7 @@ enum Languages {
   RU = 'ru',
 }
 
-export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ short }) => {
+export const LanguageSwitcher = memo(({ short }: LanguageSwitcherProps) => {
   const { t, i18n } = useTranslation();
 
   const toggleLanguage = () => {
@@ -31,4 +31,4 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ short }) => {
       </Button>
     </div>
   );
-};
+});
