@@ -3,8 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { Button, Input, Typography } from 'shared/ui';
 import { TypographyVariants } from 'shared/ui/Typography/Typography';
-import { useDynamicModuleLoader, ReducersList } from 'shared/lib/hooks/useDynamicModuleLoader';
+import {
+  useDynamicModuleLoader,
+  ReducersList,
+} from 'shared/lib/hooks/useDynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useNavigate } from 'react-router-dom';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
@@ -28,6 +32,7 @@ export interface LoginFormProps {
 const LoginForm = memo(({ onSuccess }: LoginFormProps) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   useDynamicModuleLoader(initialReducers);
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
@@ -52,8 +57,9 @@ const LoginForm = memo(({ onSuccess }: LoginFormProps) => {
     const result = await dispatch(loginByUsername({ username, password }));
     if (result.meta.requestStatus === 'fulfilled') {
       onSuccess();
+      navigate('/profile');
     }
-  }, [dispatch, onSuccess, password, username]);
+  }, [dispatch, navigate, onSuccess, password, username]);
 
   return (
     <div className={classes.loginForm}>
