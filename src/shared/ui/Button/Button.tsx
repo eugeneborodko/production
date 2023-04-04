@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { Modes, classNames } from 'shared/lib/classNames/classNames';
 import classes from './Button.module.scss';
 
 export enum ButtonVariants {
@@ -31,7 +31,7 @@ export const Button = memo(({
   children,
   ...props
 }: ButtonProps) => {
-  const modes: Record<string, boolean> = {
+  const modes: Modes = {
     [classes.square]: square,
   };
 

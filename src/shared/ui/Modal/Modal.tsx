@@ -5,7 +5,7 @@ import {
   useCallback,
   useEffect,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { Modes, classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from '../Portal/Portal';
 import classes from './Modal.module.scss';
 
@@ -46,7 +46,7 @@ export const Modal: FC<ModalProps> = ({
     [onModalClose],
   );
 
-  const modes: Record<string, boolean> = {
+  const modes: Modes = {
     [classes.opened]: isOpened,
   };
 

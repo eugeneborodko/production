@@ -1,11 +1,23 @@
-import { useTranslation } from 'react-i18next';
+import { ProfileCard, fetchProfileData, profileReducer } from 'entities/Profile';
+import { useEffect } from 'react';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { ReducersList, useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
+
+const reducers: ReducersList = {
+  profile: profileReducer,
+};
 
 const ProfilePage = () => {
-  const { t } = useTranslation('profile');
+  const dispatch = useAppDispatch();
+  useDynamicModuleLoader(reducers);
+
+  useEffect(() => {
+    dispatch(fetchProfileData());
+  }, [dispatch]);
 
   return (
     <div>
-      {t('Profile page')}
+      <ProfileCard />
     </div>
   );
 };
