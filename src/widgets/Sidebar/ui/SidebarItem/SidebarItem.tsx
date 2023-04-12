@@ -1,8 +1,8 @@
-import { t } from 'i18next';
 import { memo } from 'react';
 import { AppLink } from 'shared/ui';
 import { AppLinkVariant } from 'shared/ui/AppLink/AppLink';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { useTranslation } from 'react-i18next';
 import classes from './SidebarItem.module.scss';
 import { SidebarItemType } from '../../model/items';
 
@@ -12,6 +12,7 @@ interface SidebarItemProps {
 }
 
 export const SidebarItem = memo(({ item, isCollapsed }: SidebarItemProps) => {
+  const { t } = useTranslation();
   const { Icon, path, text } = item;
   return (
     <AppLink

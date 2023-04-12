@@ -1,7 +1,20 @@
-import { ProfileCard, fetchProfileData, profileReducer } from 'entities/Profile';
+import {
+  ProfileCard,
+  fetchProfileData,
+  getProfileData,
+  getProfileError,
+  getProfileIsLoading,
+  profileReducer,
+} from 'entities/Profile';
+
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { ReducersList, useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
+import {
+  ReducersList,
+  useDynamicModuleLoader,
+} from 'shared/lib/hooks/useDynamicModuleLoader';
+import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -10,6 +23,9 @@ const reducers: ReducersList = {
 const ProfilePage = () => {
   const dispatch = useAppDispatch();
   useDynamicModuleLoader(reducers);
+  const data = useSelector(getProfileData);
+  const isLoading = useSelector(getProfileIsLoading);
+  const error = useSelector(getProfileError);
 
   useEffect(() => {
     dispatch(fetchProfileData());
@@ -17,7 +33,8 @@ const ProfilePage = () => {
 
   return (
     <div>
-      <ProfileCard />
+      <ProfilePageHeader />
+      <ProfileCard data={data} isLoading={isLoading} error={error} />
     </div>
   );
 };

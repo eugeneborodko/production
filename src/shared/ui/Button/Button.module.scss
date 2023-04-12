@@ -29,6 +29,11 @@
   border: 1px solid var(--inverted-primary-color);
 }
 
+.outlinedRed {
+  color: var(--red-dark);
+  border: 1px solid var(--red-dark);
+}
+
 .contained {
   color: var(--inverted-primary-color);
   background: var(--inverted-bg-color);

@@ -7,11 +7,18 @@ export enum TypographyVariants {
   ERROR = 'error',
 }
 
+export enum TextAlign {
+  LEFT = 'left',
+  RIGHT = 'right',
+  CENTER = 'center'
+}
+
 interface TypographyProps {
   className?: string;
   title?: string;
   text?: string;
   variant?: TypographyVariants;
+  align?: TextAlign;
 }
 
 export const Typography = memo(({
@@ -19,11 +26,13 @@ export const Typography = memo(({
   title,
   text,
   variant = TypographyVariants.PRIMARY,
+  align = TextAlign.LEFT,
 }: TypographyProps) => (
   <div
     className={classNames(classes.typography, {}, [
       className,
       classes[variant],
+      classes[align],
     ])}
   >
     {title && (
