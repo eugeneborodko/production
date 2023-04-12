@@ -1,13 +1,14 @@
 import {
   ProfileCard,
   fetchProfileData,
-  getProfileData,
   getProfileError,
+  getProfileFormData,
   getProfileIsLoading,
   profileReducer,
+  updateProfile,
 } from 'entities/Profile';
 
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import {
@@ -23,9 +24,25 @@ const reducers: ReducersList = {
 const ProfilePage = () => {
   const dispatch = useAppDispatch();
   useDynamicModuleLoader(reducers);
-  const data = useSelector(getProfileData);
+  const formData = useSelector(getProfileFormData);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
+
+  const onChangeFirstName = useCallback((value: string) => {
+    dispatch(updateProfile({ firstName: value }));
+  }, [dispatch]);
+
+  const onChangeLastName = useCallback((value: string) => {
+    dispatch(updateProfile({ lastName: value }));
+  }, [dispatch]);
+
+  const onChangeAge = useCallback((value: string) => {
+    dispatch(updateProfile({ age: Number(value) }));
+  }, [dispatch]);
+
+  const onChangeCity = useCallback((value: string) => {
+    dispatch(updateProfile({ city: value }));
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(fetchProfileData());
@@ -34,7 +51,15 @@ const ProfilePage = () => {
   return (
     <div>
       <ProfilePageHeader />
-      <ProfileCard data={data} isLoading={isLoading} error={error} />
+      <ProfileCard
+        data={formData}
+        isLoading={isLoading}
+        error={error}
+        onChangeFirstName={onChangeFirstName}
+        onChangeLastName={onChangeLastName}
+        onChangeAge={onChangeAge}
+        onChangeCity={onChangeCity}
+      />
     </div>
   );
 };

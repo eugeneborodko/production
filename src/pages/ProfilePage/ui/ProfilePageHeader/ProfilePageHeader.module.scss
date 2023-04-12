@@ -1,9 +1,9 @@
 .profilePageHeader {
   margin-bottom: 30px;
   display: flex;
+  justify-content: space-between;
 }
 
-.editButton,
 .cancelButton {
-  margin-left: auto;
+  margin-left: 20px;
 }

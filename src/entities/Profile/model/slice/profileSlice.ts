@@ -1,12 +1,14 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { Profile, ProfileSchema } from '../types/profile';
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
+import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 
 const initialState: ProfileSchema = {
   readonly: true,
   isLoading: false,
   error: undefined,
   data: undefined,
+  formData: undefined,
 };
 
 export const profileSlice = createSlice({
@@ -15,6 +17,20 @@ export const profileSlice = createSlice({
   reducers: {
     setReadOnlyProfile: (state, action: PayloadAction<boolean>) => {
       state.readonly = action.payload;
+    },
+    updateProfile: (state, action: PayloadAction<Profile>) => {
+      state.formData = {
+        ...state.formData,
+        ...action.payload,
+      };
+    },
+    cancelEdit: (state) => {
+      state.formData = state.data;
+      state.readonly = true;
+    },
+    saveProfile: (state) => {
+      state.data = state.formData;
+      state.readonly = true;
     },
   },
   extraReducers: (builder) => {
@@ -28,14 +44,33 @@ export const profileSlice = createSlice({
         (state, action: PayloadAction<Profile>) => {
           state.isLoading = false;
           state.data = action.payload;
+          state.formData = action.payload;
         },
       )
       .addCase(fetchProfileData.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(updateProfileData.pending, (state) => {
+        state.error = undefined;
+        state.isLoading = true;
+      })
+      .addCase(
+        updateProfileData.fulfilled,
+        (state, action: PayloadAction<Profile>) => {
+          state.isLoading = false;
+          state.data = action.payload;
+          state.formData = action.payload;
+        },
+      )
+      .addCase(updateProfileData.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });
   },
 });
 
-export const { setReadOnlyProfile } = profileSlice.actions;
+export const {
+  setReadOnlyProfile, updateProfile, cancelEdit, saveProfile,
+} = profileSlice.actions;
 export const { reducer: profileReducer } = profileSlice;

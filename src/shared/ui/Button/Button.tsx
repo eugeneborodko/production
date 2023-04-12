@@ -7,7 +7,8 @@ export enum ButtonVariants {
   CONTAINED = 'contained',
   OUTLINED = 'outlined',
   OUTLINED_INVERTED = 'outlinedInverted',
-  OUTLINED_GREEN = 'outlinedRed',
+  OUTLINED_RED = 'outlinedRed',
+  OUTLINED_GREEN = 'outlinedGreen',
   ICON = 'icon',
 }
 

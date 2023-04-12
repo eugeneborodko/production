@@ -26,9 +26,9 @@
     }
   ],
   "profile": {
-    "first": "Alex",
-    "lastname": "Thunder",
-    "age": 22,
+    "firstName": "Alex",
+    "lastName": "Thunder",
+    "age": 22211,
     "currency": "BYN",
     "country": "Belarus",
     "city": "Minsk",

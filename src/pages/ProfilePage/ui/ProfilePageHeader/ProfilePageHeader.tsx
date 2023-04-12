@@ -3,7 +3,13 @@ import { Typography, Button } from 'shared/ui';
 import { ButtonVariants } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { getProfileReadOnly, setReadOnlyProfile } from 'entities/Profile';
+import {
+  cancelEdit,
+  getProfileReadOnly,
+  saveProfile,
+  setReadOnlyProfile,
+  updateProfileData,
+} from 'entities/Profile';
 import { useSelector } from 'react-redux';
 import classes from './ProfilePageHeader.module.scss';
 
@@ -22,7 +28,12 @@ export const ProfilePageHeader = memo(
     }, [dispatch]);
 
     const onCancel = useCallback(() => {
-      dispatch(setReadOnlyProfile(true));
+      dispatch(cancelEdit());
+    }, [dispatch]);
+
+    const onSave = useCallback(() => {
+      dispatch(saveProfile());
+      dispatch(updateProfileData());
     }, [dispatch]);
 
     return (
@@ -37,13 +48,22 @@ export const ProfilePageHeader = memo(
             {t('edit profile')}
           </Button>
         ) : (
-          <Button
-            className={classes.cancelButton}
-            variant={ButtonVariants.OUTLINED_GREEN}
-            onClick={onCancel}
-          >
-            {t('cancel')}
-          </Button>
+          <div>
+            <Button
+              className={classes.saveButton}
+              variant={ButtonVariants.OUTLINED_GREEN}
+              onClick={onSave}
+            >
+              {t('save')}
+            </Button>
+            <Button
+              className={classes.cancelButton}
+              variant={ButtonVariants.OUTLINED_RED}
+              onClick={onCancel}
+            >
+              {t('cancel')}
+            </Button>
+          </div>
         )}
       </div>
     );

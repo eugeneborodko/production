@@ -12,6 +12,10 @@ interface ProfileCardProps {
   data: Profile | undefined;
   isLoading?: boolean;
   error?: string;
+  onChangeFirstName: (value: string) => void;
+  onChangeLastName: (value: string) => void;
+  onChangeAge: (value: string) => void;
+  onChangeCity: (value: string) => void;
 }
 
 export const ProfileCard: FC<ProfileCardProps> = ({
@@ -19,6 +23,10 @@ export const ProfileCard: FC<ProfileCardProps> = ({
   data,
   isLoading,
   error,
+  onChangeFirstName,
+  onChangeLastName,
+  onChangeAge,
+  onChangeCity,
 }) => {
   const { t } = useTranslation('profile');
 
@@ -38,16 +46,31 @@ export const ProfileCard: FC<ProfileCardProps> = ({
         <div className={classes.profileData}>
           <Input
             className={classes.input}
-            value={data?.first}
+            value={data?.firstName}
             placeholder={t('Your first name')}
-            onChange={() => console.log('1')}
+            onChange={onChangeFirstName}
             readOnly={readOnly}
           />
           <Input
             className={classes.input}
-            value={data?.lastname}
+            value={data?.lastName}
             placeholder={t('Your last name')}
-            onChange={() => console.log('2')}
+            onChange={onChangeLastName}
+            readOnly={readOnly}
+          />
+          <Input
+            className={classes.input}
+            type="number"
+            value={data?.age}
+            placeholder={t('Your age')}
+            onChange={onChangeAge}
+            readOnly={readOnly}
+          />
+          <Input
+            className={classes.input}
+            value={data?.city}
+            placeholder={t('Your city')}
+            onChange={onChangeCity}
             readOnly={readOnly}
           />
         </div>

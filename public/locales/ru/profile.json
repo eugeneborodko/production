@@ -3,5 +3,8 @@
   "edit profile": "редактировать профиль",
   "Your first name": "Ваше имя",
   "Your last name": "Ваша фамилия",
-  "cancel": "отменить"
+  "cancel": "отменить",
+  "save": "сохранить",
+  "Your age": "Ваш возраст",
+  "Your city": "Ваш город"
 }
