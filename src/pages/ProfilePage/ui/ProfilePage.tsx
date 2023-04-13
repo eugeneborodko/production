@@ -15,6 +15,7 @@ import {
   ReducersList,
   useDynamicModuleLoader,
 } from 'shared/lib/hooks/useDynamicModuleLoader';
+import { Currencies } from 'entities/Currency';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -28,29 +29,54 @@ const ProfilePage = () => {
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
 
-  const onChangeFirstName = useCallback((value?: string) => {
-    dispatch(updateProfile({ firstName: value || '' }));
-  }, [dispatch]);
+  const onChangeFirstName = useCallback(
+    (value?: string) => {
+      dispatch(updateProfile({ firstName: value || '' }));
+    },
+    [dispatch],
+  );
 
-  const onChangeLastName = useCallback((value?: string) => {
-    dispatch(updateProfile({ lastName: value || '' }));
-  }, [dispatch]);
+  const onChangeLastName = useCallback(
+    (value?: string) => {
+      dispatch(updateProfile({ lastName: value || '' }));
+    },
+    [dispatch],
+  );
 
-  const onChangeAge = useCallback((value?: string) => {
-    dispatch(updateProfile({ age: Number(value) || 0 }));
-  }, [dispatch]);
+  const onChangeAge = useCallback(
+    (value?: string) => {
+      dispatch(updateProfile({ age: Number(value) || 0 }));
+    },
+    [dispatch],
+  );
 
-  const onChangeCity = useCallback((value?: string) => {
-    dispatch(updateProfile({ city: value || '' }));
-  }, [dispatch]);
+  const onChangeCity = useCallback(
+    (value?: string) => {
+      dispatch(updateProfile({ city: value || '' }));
+    },
+    [dispatch],
+  );
 
-  const onChangeUsername = useCallback((value?: string) => {
-    dispatch(updateProfile({ username: value || '' }));
-  }, [dispatch]);
+  const onChangeUsername = useCallback(
+    (value?: string) => {
+      dispatch(updateProfile({ username: value || '' }));
+    },
+    [dispatch],
+  );
 
-  const onChangeAvatar = useCallback((value?: string) => {
-    dispatch(updateProfile({ avatar: value || '' }));
-  }, [dispatch]);
+  const onChangeAvatar = useCallback(
+    (value?: string) => {
+      dispatch(updateProfile({ avatar: value || '' }));
+    },
+    [dispatch],
+  );
+
+  const onChangeCurrency = useCallback(
+    (currency?: Currencies) => {
+      dispatch(updateProfile({ currency }));
+    },
+    [dispatch],
+  );
 
   useEffect(() => {
     dispatch(fetchProfileData());
@@ -69,6 +95,7 @@ const ProfilePage = () => {
         onChangeCity={onChangeCity}
         onChangeUsername={onChangeUsername}
         onChangeAvatar={onChangeAvatar}
+        onChangeCurrency={onChangeCurrency}
       />
     </div>
   );

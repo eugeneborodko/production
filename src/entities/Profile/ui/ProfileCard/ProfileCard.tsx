@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { Profile, getProfileReadOnly } from 'entities/Profile';
 import { TypographyVariants } from 'shared/ui/Typography/Typography';
 import { useSelector } from 'react-redux';
+import { Currencies, CurrencySelect } from 'entities/Currency';
 import classes from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -20,6 +21,7 @@ interface ProfileCardProps {
   onChangeCity?: (value?: string) => void;
   onChangeUsername?: (value?: string) => void;
   onChangeAvatar?: (value?: string) => void;
+  onChangeCurrency?: (currency?: Currencies) => void;
 }
 
 export const ProfileCard: FC<ProfileCardProps> = ({
@@ -33,6 +35,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
   onChangeCity,
   onChangeUsername,
   onChangeAvatar,
+  onChangeCurrency,
 }) => {
   const { t } = useTranslation('profile');
 
@@ -102,6 +105,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
             onChange={onChangeAvatar}
             readOnly={readOnly}
           />
+          <CurrencySelect value={data?.currency} onChange={onChangeCurrency} readOnly={readOnly} />
         </div>
       )}
     </div>
