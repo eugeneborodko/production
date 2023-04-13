@@ -1,6 +1,8 @@
 import { FC } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Input, Loader, Typography } from 'shared/ui';
+import { Modes, classNames } from 'shared/lib/classNames/classNames';
+import {
+  Avatar, Input, Loader, Typography,
+} from 'shared/ui';
 import { useTranslation } from 'react-i18next';
 import { Profile, getProfileReadOnly } from 'entities/Profile';
 import { TypographyVariants } from 'shared/ui/Typography/Typography';
@@ -9,13 +11,15 @@ import classes from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
   className?: string;
-  data: Profile | undefined;
+  data?: Profile | undefined;
   isLoading?: boolean;
   error?: string;
-  onChangeFirstName: (value: string) => void;
-  onChangeLastName: (value: string) => void;
-  onChangeAge: (value: string) => void;
-  onChangeCity: (value: string) => void;
+  onChangeFirstName?: (value?: string) => void;
+  onChangeLastName?: (value?: string) => void;
+  onChangeAge?: (value?: string) => void;
+  onChangeCity?: (value?: string) => void;
+  onChangeUsername?: (value?: string) => void;
+  onChangeAvatar?: (value?: string) => void;
 }
 
 export const ProfileCard: FC<ProfileCardProps> = ({
@@ -27,13 +31,19 @@ export const ProfileCard: FC<ProfileCardProps> = ({
   onChangeLastName,
   onChangeAge,
   onChangeCity,
+  onChangeUsername,
+  onChangeAvatar,
 }) => {
   const { t } = useTranslation('profile');
 
   const readOnly = useSelector(getProfileReadOnly);
 
+  const modes: Modes = {
+    [classes.editing]: !readOnly,
+  };
+
   return (
-    <div className={classNames(classes.profileCard, {}, [className])}>
+    <div className={classNames(classes.profileCard, modes, [className])}>
       {isLoading && <Loader />}
       {error && (
         <Typography
@@ -44,6 +54,11 @@ export const ProfileCard: FC<ProfileCardProps> = ({
       )}
       {!isLoading && !error && (
         <div className={classes.profileData}>
+          {data?.avatar && (
+            <div className={classes.avatarWrapper}>
+              <Avatar src={data.avatar} alt={data?.username} />
+            </div>
+          )}
           <Input
             className={classes.input}
             value={data?.firstName}
@@ -61,7 +76,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
           <Input
             className={classes.input}
             type="number"
-            value={data?.age}
+            value={String(data?.age)}
             placeholder={t('Your age')}
             onChange={onChangeAge}
             readOnly={readOnly}
@@ -71,6 +86,20 @@ export const ProfileCard: FC<ProfileCardProps> = ({
             value={data?.city}
             placeholder={t('Your city')}
             onChange={onChangeCity}
+            readOnly={readOnly}
+          />
+          <Input
+            className={classes.input}
+            value={data?.username}
+            placeholder={t('Your username')}
+            onChange={onChangeUsername}
+            readOnly={readOnly}
+          />
+          <Input
+            className={classes.input}
+            value={data?.avatar}
+            placeholder={t('Your avatar')}
+            onChange={onChangeAvatar}
             readOnly={readOnly}
           />
         </div>

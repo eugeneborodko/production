@@ -15,8 +15,8 @@ interface InputProps extends HTMLInputProps {
   id?: string;
   label?: string;
   type?: string;
-  onChange: (value: string) => void;
-  value?: string | number;
+  onChange?: (value: string) => void;
+  value?: string;
   readOnly?: boolean;
   autoFocus?: boolean;
 }
@@ -36,7 +36,7 @@ export const Input = memo(
     const ref = useRef<HTMLInputElement>(null);
 
     const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-      onChange(event.target.value);
+      onChange?.(event.target.value);
     };
 
     useEffect(() => {
