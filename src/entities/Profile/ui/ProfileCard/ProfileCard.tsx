@@ -8,6 +8,7 @@ import { Profile, getProfileReadOnly } from 'entities/Profile';
 import { TypographyVariants } from 'shared/ui/Typography/Typography';
 import { useSelector } from 'react-redux';
 import { Currencies, CurrencySelect } from 'entities/Currency';
+import { Countries, CountrySelect } from 'entities/Country';
 import classes from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -22,6 +23,7 @@ interface ProfileCardProps {
   onChangeUsername?: (value?: string) => void;
   onChangeAvatar?: (value?: string) => void;
   onChangeCurrency?: (currency?: Currencies) => void;
+  onChangeCountry?: (country?: Countries) => void;
 }
 
 export const ProfileCard: FC<ProfileCardProps> = ({
@@ -36,6 +38,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
   onChangeUsername,
   onChangeAvatar,
   onChangeCurrency,
+  onChangeCountry,
 }) => {
   const { t } = useTranslation('profile');
 
@@ -105,7 +108,18 @@ export const ProfileCard: FC<ProfileCardProps> = ({
             onChange={onChangeAvatar}
             readOnly={readOnly}
           />
-          <CurrencySelect value={data?.currency} onChange={onChangeCurrency} readOnly={readOnly} />
+          <div className={classes.selectWrapper}>
+            <CurrencySelect
+              value={data?.currency}
+              onChange={onChangeCurrency}
+              readOnly={readOnly}
+            />
+            <CountrySelect
+              value={data?.country}
+              onChange={onChangeCountry}
+              readOnly={readOnly}
+            />
+          </div>
         </div>
       )}
     </div>

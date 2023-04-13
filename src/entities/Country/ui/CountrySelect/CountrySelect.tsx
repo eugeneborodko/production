@@ -1,36 +1,36 @@
 import { memo, useCallback } from 'react';
 import { Select } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
-import { Currencies } from '../../model/types/currency';
+import { Countries } from '../../model/types/country';
 
-const currencies = [
-  { value: Currencies.BYN, content: Currencies.BYN },
+const countries = [
+  { value: Countries.USA, content: Countries.USA },
   {
-    value: Currencies.EUR,
-    content: Currencies.EUR,
+    value: Countries.POLAND,
+    content: Countries.POLAND,
   },
   {
-    value: Currencies.USD,
-    content: Currencies.USD,
+    value: Countries.BELARUS,
+    content: Countries.BELARUS,
   },
 ];
 
-interface CurrencySelectProps {
+interface CountrySelectProps {
   className?: string;
-  value?: Currencies;
-  onChange?: (value: Currencies) => void;
+  value?: Countries;
+  onChange?: (value: Countries) => void;
   readOnly?: boolean;
 }
 
-export const CurrencySelect = memo(
+export const CountrySelect = memo(
   ({
     className, value, onChange, readOnly,
-  }: CurrencySelectProps) => {
+  }: CountrySelectProps) => {
     const { t } = useTranslation();
 
     const onChangeHandler = useCallback(
       (value: string) => {
-        onChange?.(value as Currencies);
+        onChange?.(value as Countries);
       },
       [onChange],
     );
@@ -38,8 +38,8 @@ export const CurrencySelect = memo(
     return (
       <Select
         className={className}
-        label={t('Your currency')}
-        options={currencies}
+        label={t('Your country')}
+        options={countries}
         value={value}
         onChange={onChangeHandler}
         readOnly={readOnly}

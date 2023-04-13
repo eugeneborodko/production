@@ -15,3 +15,11 @@
 .editing {
   border: 2px solid var(--inverted-primary-color);
 }
+
+.selectWrapper {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}

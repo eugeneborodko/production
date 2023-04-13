@@ -1,5 +1,5 @@
 import { Currencies } from 'entities/Currency';
-import { Countries } from 'shared/const/common';
+import { Countries } from 'entities/Country';
 
 export interface Profile {
   firstName?: string;

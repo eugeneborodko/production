@@ -16,6 +16,7 @@ import {
   useDynamicModuleLoader,
 } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { Currencies } from 'entities/Currency';
+import { Countries } from 'entities/Country';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -78,6 +79,13 @@ const ProfilePage = () => {
     [dispatch],
   );
 
+  const onChangeCountry = useCallback(
+    (country?: Countries) => {
+      dispatch(updateProfile({ country }));
+    },
+    [dispatch],
+  );
+
   useEffect(() => {
     dispatch(fetchProfileData());
   }, [dispatch]);
@@ -96,6 +104,7 @@ const ProfilePage = () => {
         onChangeUsername={onChangeUsername}
         onChangeAvatar={onChangeAvatar}
         onChangeCurrency={onChangeCurrency}
+        onChangeCountry={onChangeCountry}
       />
     </div>
   );
