@@ -1,9 +1,11 @@
 import {
   ProfileCard,
+  ValidateProfileErrors,
   fetchProfileData,
   getProfileError,
   getProfileFormData,
   getProfileIsLoading,
+  getProfileValidateErrors,
   profileReducer,
   updateProfile,
 } from 'entities/Profile';
@@ -17,6 +19,9 @@ import {
 } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { Currencies } from 'entities/Currency';
 import { Countries } from 'entities/Country';
+import { Typography } from 'shared/ui';
+import { TypographyVariants } from 'shared/ui/Typography/Typography';
+import { useTranslation, TFunction } from 'react-i18next';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -24,11 +29,23 @@ const reducers: ReducersList = {
 };
 
 const ProfilePage = () => {
+  const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
   useDynamicModuleLoader(reducers);
   const formData = useSelector(getProfileFormData);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
+  const validateErrors = useSelector(getProfileValidateErrors);
+
+  const validationErrorTranslates: Record<ValidateProfileErrors, TFunction> = {
+    [ValidateProfileErrors.INCORRECT_USER_DATA]: t('incorrect user data'),
+    [ValidateProfileErrors.INCORRECT_CITY]: t('incorrect city'),
+    [ValidateProfileErrors.INCORRECT_COUNTRY]: t('incorrect country'),
+    [ValidateProfileErrors.INCORRECT_CURRENCY]: t('incorrect currency'),
+    [ValidateProfileErrors.NO_DATA]: t('no data'),
+    [ValidateProfileErrors.SERVER_ERROR]: t('server error'),
+    [ValidateProfileErrors.INCORRECT_AGE]: t('incorrect age'),
+  };
 
   const onChangeFirstName = useCallback(
     (value?: string) => {
@@ -93,6 +110,14 @@ const ProfilePage = () => {
   return (
     <div>
       <ProfilePageHeader />
+      {validateErrors?.length
+        && validateErrors.map((error) => (
+          <Typography
+            variant={TypographyVariants.ERROR}
+            text={validationErrorTranslates[error]}
+            key={error}
+          />
+        ))}
       <ProfileCard
         data={formData}
         isLoading={isLoading}

@@ -9,5 +9,12 @@
   "Your city": "Your city",
   "Your username": "Your username",
   "Your avatar": "Your avatar",
-  "Your currency": "Your currency"
+  "Your currency": "Your currency",
+  "incorrect user data": "Incorrect user data (firsname, lastname or username)",
+  "incorrect city": "Incorrect city",
+  "incorrect country": "Incorrect country",
+  "incorrect currency": "incorrect currency",
+  "no data": "No data. Please fill in the files",
+  "server error": "Server error",
+  "incorrect age": "Incorrect age"
 }

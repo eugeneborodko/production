@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { TFunction } from 'react-i18next';
 import classes from './Typography.module.scss';
 
 export enum TypographyVariants {
@@ -16,7 +17,7 @@ export enum TextAlign {
 interface TypographyProps {
   className?: string;
   title?: string;
-  text?: string;
+  text?: string | TFunction;
   variant?: TypographyVariants;
   align?: TextAlign;
 }

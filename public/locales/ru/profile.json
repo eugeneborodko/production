@@ -9,5 +9,12 @@
   "Your city": "Ваш город",
   "Your username": "Ваше имя пользователя",
   "Your avatar": "Ваш аватар",
-  "Your currency": "Ваша валюта"
+  "Your currency": "Ваша валюта",
+  "incorrect user data": "Некорректные данные (имя, фамилия или имя пользователя)",
+  "incorrect city": "Неверный город",
+  "incorrect country": "Неверная страна",
+  "incorrect currency": "Несуществующая валюта",
+  "no data": "Данные не введены. Пожалуйста заполните поля",
+  "server error": "Серверная ошибка",
+  "incorrect age": "Неверный возраст"
 }
