@@ -28,7 +28,6 @@ WithError.decorators = [StoreDecorator({
     username: 'username',
     password: 'password12345',
     error: 'Error',
-    // isLoading: false,
   },
 })];
 
@@ -38,6 +37,5 @@ Loading.decorators = [StoreDecorator({
   loginForm: {
     username: 'username',
     password: 'password12345',
-    // isLoading: true,
   },
 })];

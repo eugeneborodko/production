@@ -1,3 +1,15 @@
+type DeepPartial<T> = T extends object
+  ? {
+      [P in keyof T]?: DeepPartial<T[P]>;
+    }
+  : T;
+
+// declare enum ProjectType {
+//   FRONTEND = 'frontend',
+//   STORYBOOK = 'storybook',
+//   JEST = 'jest'
+// }
+
 declare module '*.scss' {
   interface IClassNames {
     [className: string]: string;
@@ -21,9 +33,4 @@ declare module '*.jpeg';
 
 declare const __IS_DEV__: boolean;
 declare const __API__: string;
-
-type DeepPartial<T> = T extends object
-  ? {
-      [P in keyof T]?: DeepPartial<T[P]>;
-    }
-  : T;
+declare const __PROJECT__: 'frontend' | 'storybook' | 'jest';

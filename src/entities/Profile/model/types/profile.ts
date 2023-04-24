@@ -27,6 +27,6 @@ export interface ProfileSchema {
   formData?: Profile;
   isLoading?: boolean;
   error?: string;
-  readonly?: boolean;
+  readOnly?: boolean;
   validateErrors?: ValidateProfileErrors[];
 }

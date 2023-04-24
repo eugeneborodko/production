@@ -15,6 +15,7 @@ export default (env: BuildEnv) => {
   const PORT = env.port || 3001;
   const isDev = mode === 'development';
   const apiUrl = env.apiUrl || 'http://localhost:8000';
+  const project = 'frontend';
 
   const config: webpack.Configuration = buildWebpackConfig({
     mode,
@@ -22,6 +23,7 @@ export default (env: BuildEnv) => {
     isDev,
     port: PORT,
     apiUrl,
+    project,
   });
 
   return config;
