@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 import { Sidebar } from './Sidebar';
 
 export default {
@@ -13,3 +14,18 @@ const Template: ComponentStory<typeof Sidebar> = (args) => (
 
 export const Primary = Template.bind({});
 Primary.args = {};
+Primary.decorators = [
+  StoreDecorator({
+    user: {
+      authData: {},
+    },
+  }),
+];
+
+export const NoAuth = Template.bind({});
+NoAuth.args = {};
+NoAuth.decorators = [
+  StoreDecorator({
+    user: {},
+  }),
+];
