@@ -1,21 +1,24 @@
-import { initAuthData } from 'entities/User';
+import { getUserMounted, setAuthData, setUserMounted } from 'entities/User';
 import { Suspense, useEffect } from 'react';
 import { LOCAL_STORAGE_USER_KEY } from 'shared/const/localstorage';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
+import { useSelector } from 'react-redux';
 import { AppRouter } from './providers/router';
 
 const App = () => {
   const dispatch = useAppDispatch();
+  const isMounted = useSelector(getUserMounted);
 
   useEffect(() => {
     const user = localStorage.getItem(LOCAL_STORAGE_USER_KEY);
 
     if (user) {
-      dispatch(initAuthData(JSON.parse(user)));
+      dispatch(setAuthData(JSON.parse(user)));
     }
+    dispatch(setUserMounted());
   }, [dispatch]);
 
   return (
@@ -24,7 +27,7 @@ const App = () => {
         <Navbar />
         <div className="content-page">
           <Sidebar />
-          <AppRouter />
+          {isMounted && <AppRouter />}
         </div>
       </Suspense>
     </div>

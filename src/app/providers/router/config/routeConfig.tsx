@@ -5,7 +5,7 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 import { RouteProps } from 'react-router-dom';
 import { AppRoutes, RoutePaths } from 'shared/config/routeConfig/routeConfig';
 
-type AppRoutesProps = RouteProps & { // extend RouteProps
+export type AppRoutesProps = RouteProps & { // extend RouteProps
   authOnly?: boolean;
 }
 

@@ -1,7 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { User, UserSchema } from '../types/user';
 
-const initialState: UserSchema = {};
+const initialState: UserSchema = {
+  isMounted: false,
+};
 
 export const userSlice = createSlice({
   name: 'user',
@@ -10,8 +12,8 @@ export const userSlice = createSlice({
     setAuthData: (state, action: PayloadAction<User>) => {
       state.authData = action.payload;
     },
-    initAuthData: (state, action: PayloadAction<User>) => {
-      state.authData = action.payload;
+    setUserMounted: (state) => {
+      state.isMounted = true;
     },
     logout: (state) => {
       state.authData = undefined;
@@ -19,5 +21,5 @@ export const userSlice = createSlice({
   },
 });
 
-export const { setAuthData, initAuthData, logout } = userSlice.actions;
+export const { setAuthData, logout, setUserMounted } = userSlice.actions;
 export const { reducer: userReducer } = userSlice;

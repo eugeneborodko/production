@@ -5,10 +5,10 @@ const MainPage = () => {
   const { t } = useTranslation('main');
 
   return (
-    <>
-      <BugButton />
+    <div>
       <div>{t('main page title')}</div>
-    </>
+      <BugButton />
+    </div>
   );
 };
 
