@@ -20,6 +20,7 @@ export const parameters = {
       default: true,
     },
     { name: 'dark', class: ['app', Theme.DARK], color: '#000000' },
+    { name: 'orange', class: ['app', Theme.ORANGE], color: '#000000' },
   ],
 };
 
