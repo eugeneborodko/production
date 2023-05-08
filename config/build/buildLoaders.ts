@@ -2,20 +2,12 @@ import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 import { buildScssLoader } from './loaders/buildScssLoader';
 import { buildSvgLoader } from './loaders/buildSvgLoader';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 
-export const buildLoaders = ({
-  isDev,
-}: BuildOptions): webpack.RuleSetRule[] => {
-  const babelLoader: webpack.RuleSetRule = {
-    test: /\.(js|jsx|ts|tsx)$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader',
-      options: {
-        presets: ['@babel/preset-env'],
-      },
-    },
-  };
+export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
+  const { isDev } = options;
+
+  const babelLoader = buildBabelLoader(options);
 
   const imgLoader: webpack.RuleSetRule = {
     test: /\.(png|jpg|jpeg|gif)$/i,
