@@ -7,8 +7,7 @@ interface [FTName]Props {
    className?: string;
 }
 
-export const [FTName]: FC<[FTName]Props> = (props) => {
-  const { className } = props;
+export const [FTName]: FC<[FTName]Props> = ( {className} ) => {
   const { t } = useTranslation();
 
   return (

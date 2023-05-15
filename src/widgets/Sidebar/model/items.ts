@@ -2,6 +2,7 @@ import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
 import SVGHome from 'shared/assets/icons/home.svg';
 import SVGAbout from 'shared/assets/icons/about.svg';
 import SVGProfile from 'shared/assets/icons/profile.svg';
+import SVGArticles from 'shared/assets/icons/articles.svg';
 
 export interface SidebarItemType {
   path: string;
@@ -25,6 +26,12 @@ export const SidebarItemsList: SidebarItemType[] = [
     path: RoutePaths.profile,
     Icon: SVGProfile,
     text: 'profile page',
+    authOnly: true,
+  },
+  {
+    path: RoutePaths.articles,
+    Icon: SVGArticles,
+    text: 'articles page',
     authOnly: true,
   },
 ];

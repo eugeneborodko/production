@@ -18,6 +18,7 @@ export const buildWebpackConfig = (
       assetModuleFilename: isDev ? undefined : 'images/[hash].[ext]',
       path: paths.build,
       clean: true,
+      publicPath: '/',
     },
     plugins: buildPlugins(options),
     module: {
