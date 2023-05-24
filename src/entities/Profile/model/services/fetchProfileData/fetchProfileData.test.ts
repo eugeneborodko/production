@@ -1,7 +1,6 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { mockProfileData } from 'shared/__mocks__/profileData';
 import { fetchProfileData } from './fetchProfileData';
-import { ValidateProfileErrors } from '../../types/profile';
 
 describe('fetchProfileData', () => {
   it('fetch profile data successful', async () => {
