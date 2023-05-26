@@ -10,13 +10,13 @@ import {
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
 import { useSelector } from 'react-redux';
 import {
-  getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from 'entities/Article/model/selectors/articleDetails';
 import { Typography } from 'shared/ui';
-import { PageLoader } from 'widgets/PageLoader';
-import cls from './ArticleDetails.module.scss';
+import { TextAlign } from 'shared/ui/Typography/Typography';
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import classes from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
   className?: string;
@@ -32,7 +32,6 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticleDetailsIsLoading);
   const error = useSelector(getArticleDetailsError);
-  const article = useSelector(getArticleDetailsData);
 
   useDynamicModuleLoader(initialReducers);
 
@@ -41,15 +40,23 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   }, [dispatch, id]);
 
   if (isLoading) {
-    return <span>Loading...</span>;
+    return (
+      <>
+        <Skeleton className={classes.avatar} width={200} height={200} borderRadius="50%" />
+        <Skeleton className={classes.title} width={300} height={32} />
+        <Skeleton className={classes.skeleton} width={600} height={24} />
+        <Skeleton className={classes.skeleton} width="100%" height={200} />
+        <Skeleton className={classes.skeleton} width="100%" height={200} />
+      </>
+    );
   }
 
   if (error) {
-    return <Typography title={error} />;
+    return <Typography title={error} align={TextAlign.CENTER} />;
   }
 
   return (
-    <div className={classNames(cls.articleDetails, {}, [className])}>
+    <div className={classNames(classes.articleDetails, {}, [className])}>
       ArticleDetails
     </div>
   );
