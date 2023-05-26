@@ -36,13 +36,20 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   useDynamicModuleLoader(initialReducers);
 
   useEffect(() => {
-    dispatch(fetchArticleById(id));
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchArticleById(id));
+    }
   }, [dispatch, id]);
 
   if (isLoading) {
     return (
       <>
-        <Skeleton className={classes.avatar} width={200} height={200} borderRadius="50%" />
+        <Skeleton
+          className={classes.avatar}
+          width={200}
+          height={200}
+          borderRadius="50%"
+        />
         <Skeleton className={classes.title} width={300} height={32} />
         <Skeleton className={classes.skeleton} width={600} height={24} />
         <Skeleton className={classes.skeleton} width="100%" height={200} />
