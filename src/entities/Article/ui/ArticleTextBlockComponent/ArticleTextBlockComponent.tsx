@@ -1,21 +1,29 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './ArticleTextBlockComponent.module.scss';
+import { Typography } from 'shared/ui';
+import classes from './ArticleTextBlockComponent.module.scss';
+import { ArticleTextBlock } from '../../../Article/model/types/article';
 
 interface ArticleTextBlockComponentProps {
   className?: string;
+  block: ArticleTextBlock;
 }
 
 export const ArticleTextBlockComponent = memo(
-  ({ className }: ArticleTextBlockComponentProps) => {
+  ({ className, block }: ArticleTextBlockComponentProps) => {
     const { t } = useTranslation();
 
     return (
       <div
-        className={classNames(cls.articleTextBlockComponent, {}, [className])}
+        className={classNames(classes.articleTextBlockComponent, {}, [className])}
       >
-        ArticleTextBlockComponent
+        {block.title && (
+          <Typography className={classes.title} title={block.title} />
+        )}
+        {block.paragraphs.map((paragraph) => (
+          <Typography className={classes.paragraph} text={paragraph} key={paragraph} />
+        ))}
       </div>
     );
   },

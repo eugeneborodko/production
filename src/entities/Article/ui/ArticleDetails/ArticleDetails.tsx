@@ -1,5 +1,4 @@
 import { memo, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
@@ -37,18 +36,35 @@ const initialReducers: ReducersList = {
 const renderBlock = (block: ArticleBlock) => {
   switch (block.type) {
   case ArticleBlocksTypes.CODE:
-    return <ArticleCodeBlockComponent />;
+    return (
+      <ArticleCodeBlockComponent
+        className={classes.block}
+        block={block}
+        key={block.id}
+      />
+    );
   case ArticleBlocksTypes.IMAGE:
-    return <ArticleImageBlockComponent />;
+    return (
+      <ArticleImageBlockComponent
+        className={classes.block}
+        block={block}
+        key={block.id}
+      />
+    );
   case ArticleBlocksTypes.TEXT:
-    return <ArticleTextBlockComponent />;
+    return (
+      <ArticleTextBlockComponent
+        className={classes.block}
+        block={block}
+        key={block.id}
+      />
+    );
   default:
     return null;
   }
 };
 
 export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
-  const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticleDetailsIsLoading);
   const error = useSelector(getArticleDetailsError);

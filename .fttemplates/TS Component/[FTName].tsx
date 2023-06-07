@@ -11,7 +11,7 @@ export const [FTName]: FC<[FTName]Props> = ( {className} ) => {
   const { t } = useTranslation();
 
   return (
-    <div className={classNames(cls.[FTName | camelcase], {}, [className])}>
+    <div className={classNames(classes.[FTName | camelcase], {}, [className])}>
 
     </div>
   );

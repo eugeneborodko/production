@@ -1,4 +1,4 @@
-enum ArticleTypes {
+export enum ArticleTypes {
   IT = 'IT',
   MEDICINE = 'MEDICINE',
   ECONOMICS = 'ECONOMICS'
@@ -15,19 +15,19 @@ interface ArticleBlocksBase {
   type: ArticleBlocksTypes;
 }
 
-interface ArticleTextBlock extends ArticleBlocksBase {
+export interface ArticleTextBlock extends ArticleBlocksBase {
   type: ArticleBlocksTypes.TEXT;
   title? : string;
   paragraphs: string[];
 }
 
-interface ArticleImageBlock extends ArticleBlocksBase {
+export interface ArticleImageBlock extends ArticleBlocksBase {
   type: ArticleBlocksTypes.IMAGE;
   title: string;
   src: string;
 }
 
-interface ArticleCodeBlock extends ArticleBlocksBase {
+export interface ArticleCodeBlock extends ArticleBlocksBase {
   type: ArticleBlocksTypes.CODE;
   code: string;
 }
