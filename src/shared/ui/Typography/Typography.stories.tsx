@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Typography, TypographyVariants } from './Typography';
+import { TextSize, Typography, TypographyVariants } from './Typography';
 
 export default {
   title: 'shared/Typography',
@@ -36,4 +36,18 @@ export const ErrorText = Template.bind({});
 ErrorText.args = {
   text: 'text',
   variant: TypographyVariants.ERROR,
+};
+
+export const SizeLarge = Template.bind({});
+SizeLarge.args = {
+  text: 'text',
+  variant: TypographyVariants.PRIMARY,
+  size: TextSize.LARGE,
+};
+
+export const SizeMedium = Template.bind({});
+SizeMedium.args = {
+  text: 'text',
+  variant: TypographyVariants.PRIMARY,
+  size: TextSize.MEDIUM,
 };

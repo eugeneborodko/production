@@ -4,7 +4,7 @@ enum ArticleTypes {
   ECONOMICS = 'ECONOMICS'
 }
 
-enum ArticleBlocksTypes {
+export enum ArticleBlocksTypes {
   TEXT = 'TEXT',
   IMAGE = 'IMAGE',
   CODE = 'CODE'
@@ -32,7 +32,7 @@ interface ArticleCodeBlock extends ArticleBlocksBase {
   code: string;
 }
 
-type ArticleBlock = ArticleTextBlock | ArticleImageBlock | ArticleCodeBlock
+export type ArticleBlock = ArticleTextBlock | ArticleImageBlock | ArticleCodeBlock
 
 export interface Article {
   id: string;
