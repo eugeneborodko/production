@@ -38,7 +38,6 @@ const renderBlock = (block: ArticleBlock) => {
   case ArticleBlocksTypes.CODE:
     return (
       <ArticleCodeBlockComponent
-        className={classes.block}
         block={block}
         key={block.id}
       />
