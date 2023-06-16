@@ -4,12 +4,6 @@ type DeepPartial<T> = T extends object
     }
   : T;
 
-// declare enum ProjectType {
-//   FRONTEND = 'frontend',
-//   STORYBOOK = 'storybook',
-//   JEST = 'jest'
-// }
-
 declare module '*.scss' {
   interface IClassNames {
     [className: string]: string;
