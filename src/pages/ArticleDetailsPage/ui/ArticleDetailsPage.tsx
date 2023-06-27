@@ -10,9 +10,15 @@ import {
   useDynamicModuleLoader,
 } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { useSelector } from 'react-redux';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import classes from './ArticleDetailsPage.module.scss';
-import { articleDetailsCommentsReducer, getArticleComments } from '../model/slices/articleDetailsCommentSlice';
+import {
+  articleDetailsCommentsReducer,
+  getArticleComments,
+} from '../model/slices/articleDetailsCommentSlice';
 import { getArticleCommentsLoading } from '../model/selectors/comments';
+import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -28,10 +34,15 @@ const initialReducers: ReducersList = {
 
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   const { t } = useTranslation('article-details');
+  const dispatch = useAppDispatch();
   const { id } = useParams<ArticleDetailsParams>();
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsLoading);
+
   useDynamicModuleLoader(initialReducers);
+  useInitialEffect(() => {
+    dispatch(fetchCommentsByArticleId(id));
+  });
 
   if (!id) {
     return <h2>{t('article not found')}</h2>;

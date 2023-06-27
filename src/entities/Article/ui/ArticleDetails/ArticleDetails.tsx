@@ -18,6 +18,7 @@ import { TextAlign, TextSize } from 'shared/ui/Typography/Typography';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import classes from './ArticleDetails.module.scss';
 import { ArticleBlock, ArticleBlocksTypes } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
@@ -70,12 +71,9 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   const article = useSelector(getArticleDetailsData);
 
   useDynamicModuleLoader(initialReducers);
-
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchArticleById(id));
-    }
-  }, [dispatch, id]);
+  useInitialEffect(() => {
+    dispatch(fetchArticleById(id));
+  });
 
   if (isLoading) {
     return (

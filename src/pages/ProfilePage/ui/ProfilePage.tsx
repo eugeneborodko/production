@@ -22,6 +22,7 @@ import { Countries } from 'entities/Country';
 import { Typography } from 'shared/ui';
 import { TypographyVariants } from 'shared/ui/Typography/Typography';
 import { useTranslation, TFunction } from 'react-i18next';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -103,11 +104,9 @@ const ProfilePage = () => {
     [dispatch],
   );
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
-    }
-  }, [dispatch]);
+  useInitialEffect(() => {
+    dispatch(fetchProfileData());
+  });
 
   return (
     <div>
