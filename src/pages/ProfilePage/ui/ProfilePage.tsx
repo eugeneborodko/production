@@ -10,7 +10,7 @@ import {
   updateProfile,
 } from 'entities/Profile';
 
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import {
@@ -23,7 +23,9 @@ import { Typography } from 'shared/ui';
 import { TypographyVariants } from 'shared/ui/Typography/Typography';
 import { useTranslation, TFunction } from 'react-i18next';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
+import { ArticleDetailsParams } from '../../ArticleDetailsPage/ui/ArticleDetailsPage';
 
 const reducers: ReducersList = {
   profile: profileReducer,
@@ -31,6 +33,7 @@ const reducers: ReducersList = {
 
 const ProfilePage = () => {
   const { t } = useTranslation('profile');
+  const { id } = useParams<ArticleDetailsParams>();
   const dispatch = useAppDispatch();
   useDynamicModuleLoader(reducers);
   const formData = useSelector(getProfileFormData);
@@ -105,7 +108,8 @@ const ProfilePage = () => {
   );
 
   useInitialEffect(() => {
-    dispatch(fetchProfileData());
+    if (!id) return;
+    dispatch(fetchProfileData(id));
   });
 
   return (

@@ -95,7 +95,7 @@ describe('profileSlice', () => {
     expect(
       profileReducer(
         state as ProfileSchema,
-        fetchProfileData.fulfilled(mockProfileData, ''),
+        fetchProfileData.fulfilled(mockProfileData, '', ''),
       ),
     ).toEqual({
       isLoading: false,
@@ -112,7 +112,7 @@ describe('profileSlice', () => {
     expect(
       profileReducer(
         state as ProfileSchema,
-        fetchProfileData.rejected(null, '', undefined, 'Error'),
+        fetchProfileData.rejected(null, '', '', 'Error'),
       ),
     ).toEqual({
       isLoading: false,

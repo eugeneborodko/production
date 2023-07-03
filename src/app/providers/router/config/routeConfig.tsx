@@ -22,7 +22,7 @@ export const routeConfig: AppRoutesProps[] = [
     element: <AboutPage />,
   },
   {
-    path: RoutePaths[AppRoutes.PROFILE],
+    path: `${RoutePaths[AppRoutes.PROFILE]}:id`,
     element: <ProfilePage />,
     authOnly: true,
   },

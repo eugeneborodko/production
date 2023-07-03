@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -100,6 +102,72 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "123",
+      "id": "iH1x49E"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "123",
+      "id": "dKNg6lf"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "test comment",
+      "id": "8-FAk9V"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "321",
+      "id": "ab2zyR6"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "555",
+      "id": "k8ua-fQ"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "456",
+      "id": "Fs_Zdz3"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "111",
+      "id": "yOmZu2s"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "777",
+      "id": "BtWdmcR"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "7788",
+      "id": "Z-7hQ9w"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "hello world",
+      "id": "jidGj7K"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "qwerty",
+      "id": "n27eOcV"
     }
   ],
   "users": [
@@ -115,17 +183,31 @@
       "username": "user",
       "password": "123",
       "role": "USER",
-      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9r3ogaSmpwNYSaEKRifVaHjwmYsKSW7fC6Q&usqp=CAU"
+      "avatar": "https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg"
     }
   ],
-  "profile": {
-    "firstName": "ALEX",
-    "lastName": "THUNDER",
-    "age": 22,
-    "currency": "USD",
-    "country": "USA",
-    "city": "Minsk",
-    "username": "username132",
-    "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9r3ogaSmpwNYSaEKRifVaHjwmYsKSW7fC6Q&usqp=CAU"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "firstName": "ALEX",
+      "lastName": "THUNDER",
+      "age": 22,
+      "currency": "USD",
+      "country": "USA",
+      "city": "Minsk",
+      "username": "username132",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9r3ogaSmpwNYSaEKRifVaHjwmYsKSW7fC6Q&usqp=CAU"
+    },
+    {
+      "id": "2",
+      "firstName": "John",
+      "lastName": "Snow",
+      "age": 34,
+      "currency": "EUR",
+      "country": "Belarus",
+      "city": "Minsk",
+      "username": "usernameJohnSnow",
+      "avatar": "https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg"
+    }
+  ]
 }

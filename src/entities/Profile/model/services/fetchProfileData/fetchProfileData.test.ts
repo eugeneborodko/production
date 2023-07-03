@@ -10,7 +10,7 @@ describe('fetchProfileData', () => {
         data: mockProfileData,
       }),
     );
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk('1');
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
     expect(thunk.api.get).toHaveBeenCalled();
@@ -25,7 +25,7 @@ describe('fetchProfileData', () => {
         status: 403,
       }),
     );
-    const result = await thunk.callThunk();
+    const result = await thunk.callThunk('1');
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
     expect(thunk.api.get).toHaveBeenCalled();
