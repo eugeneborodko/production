@@ -8,3 +8,4 @@ export { Typography } from './Typography/Typography';
 export { Avatar } from './Avatar/Avatar';
 export { Select } from './Select/Select';
 export { Code } from './Code/Code';
+export { Card } from './Card/Card';

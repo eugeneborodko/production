@@ -1,13 +1,15 @@
+import { User } from '../../../User/index';
+
 export enum ArticleTypes {
   IT = 'IT',
   MEDICINE = 'MEDICINE',
-  ECONOMICS = 'ECONOMICS'
+  ECONOMICS = 'ECONOMICS',
 }
 
 export enum ArticleBlocksTypes {
   TEXT = 'TEXT',
   IMAGE = 'IMAGE',
-  CODE = 'CODE'
+  CODE = 'CODE',
 }
 
 interface ArticleBlocksBase {
@@ -17,7 +19,7 @@ interface ArticleBlocksBase {
 
 export interface ArticleTextBlock extends ArticleBlocksBase {
   type: ArticleBlocksTypes.TEXT;
-  title? : string;
+  title?: string;
   paragraphs: string[];
 }
 
@@ -32,7 +34,10 @@ export interface ArticleCodeBlock extends ArticleBlocksBase {
   code: string;
 }
 
-export type ArticleBlock = ArticleTextBlock | ArticleImageBlock | ArticleCodeBlock
+export type ArticleBlock =
+  | ArticleTextBlock
+  | ArticleImageBlock
+  | ArticleCodeBlock;
 
 export interface Article {
   id: string;
@@ -41,12 +46,15 @@ export interface Article {
   img: string;
   views: number;
   createdAt: string;
+  user: User;
   type: ArticleTypes[];
   blocks: ArticleBlock[];
 }
 
 export interface ArticleSchema {
-  data?: Article[],
+  data?: Article[];
   error?: string;
   isLoading: boolean;
 }
+
+export type ArticleView = 'grid' | 'tile';

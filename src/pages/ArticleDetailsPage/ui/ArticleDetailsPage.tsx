@@ -2,8 +2,8 @@ import { ArticleDetails } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
-import { Typography } from 'shared/ui';
+import { useNavigate, useParams } from 'react-router-dom';
+import { Button, Typography } from 'shared/ui';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
   ReducersList,
@@ -13,6 +13,8 @@ import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
+import { ButtonVariants } from 'shared/ui/Button/Button';
+import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
 import classes from './ArticleDetailsPage.module.scss';
 import {
   articleDetailsCommentsReducer,
@@ -37,6 +39,7 @@ const initialReducers: ReducersList = {
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   const { t } = useTranslation('article-details');
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const { id } = useParams<ArticleDetailsParams>();
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsLoading);
@@ -45,6 +48,10 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
   });
+
+  const onBackToList = useCallback(() => {
+    navigate(RoutePaths.articles);
+  }, [navigate]);
 
   const onSendComment = useCallback(
     (text: string) => {
@@ -59,6 +66,9 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
 
   return (
     <div className={classNames(classes.articleDetailsPage, {}, [className])}>
+      <Button variant={ButtonVariants.OUTLINED} onClick={onBackToList}>
+        {t('back')}
+      </Button>
       <ArticleDetails id={id} />
       <Typography className={classes.commentTitle} title={t('comments')} />
 
