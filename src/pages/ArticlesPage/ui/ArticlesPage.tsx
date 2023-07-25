@@ -1,5 +1,7 @@
 import { ArticleList, ArticleView } from 'entities/Article';
-import { FC, memo, useCallback } from 'react';
+import {
+  FC, memo, useCallback, useEffect,
+} from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
@@ -11,6 +13,8 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { SwitchArticlesView } from 'features/SwitchArticlesView';
 import { LOCAL_STORAGE_ARTICLES_VIEW } from 'shared/const/localstorage';
 import {
+  getArticlesLimit,
+  getArticlesPage,
   getArticlesPageError,
   getArticlesPageIsLoading,
   getArticlesPageView,
@@ -19,6 +23,7 @@ import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArti
 import {
   articlesPageReducer,
   getArticles,
+  setLimit,
   setPageView,
 } from '../model/slices/articlesPageSlice';
 import classes from './ArticlesPage.module.scss';
@@ -38,17 +43,24 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   const isLoading = useSelector(getArticlesPageIsLoading);
   const error = useSelector(getArticlesPageError);
   const view = useSelector(getArticlesPageView);
+  const page = useSelector(getArticlesPage);
+  const limit = useSelector(getArticlesLimit);
+  console.log('LIMIT: ', limit);
 
   useDynamicModuleLoader(reducers);
 
   useInitialEffect(() => {
-    dispatch(fetchArticlesList());
-    dispatch(
-      setPageView(
-        localStorage.getItem(LOCAL_STORAGE_ARTICLES_VIEW) as ArticleView,
-      ),
-    );
+    const storedView = localStorage.getItem(
+      LOCAL_STORAGE_ARTICLES_VIEW,
+    ) as ArticleView;
+
+    dispatch(setPageView(storedView));
+    dispatch(setLimit(storedView === 'tile' ? 9 : 4));
   });
+
+  useEffect(() => {
+    dispatch(fetchArticlesList({ page, limit }));
+  }, [page, limit, dispatch]);
 
   const onChangeView = useCallback(
     (view: ArticleView) => {
