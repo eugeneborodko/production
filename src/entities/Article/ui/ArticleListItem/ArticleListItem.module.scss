@@ -1,4 +1,4 @@
-.tile {
+.grid {
   margin-bottom: 20px;
 
   .views {
@@ -39,7 +39,7 @@
   }
 }
 
-.grid {
+.tile {
   width: 230px;
   transition: 0.2s transform;
   cursor: pointer;

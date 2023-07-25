@@ -26,7 +26,7 @@ interface ArticleListItemProps {
 export const ArticleListItem: FC<ArticleListItemProps> = ({
   className,
   article,
-  view = 'grid',
+  view = 'tile',
 }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -47,7 +47,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
     </>
   );
 
-  if (view === 'tile') {
+  if (view === 'grid') {
     const textBlock = article.blocks.find(
       (block) => block.type === ArticleBlocksTypes.TEXT,
     ) as ArticleTextBlock;

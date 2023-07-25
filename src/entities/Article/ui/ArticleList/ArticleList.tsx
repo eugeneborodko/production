@@ -1,10 +1,9 @@
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import classes from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../../Article/model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+import classes from './ArticleList.module.scss';
 
 interface ArticleListProps {
   className?: string;
@@ -17,11 +16,9 @@ export const ArticleList: FC<ArticleListProps> = ({
   className,
   articles,
   isLoading,
-  view = 'grid',
+  view = 'tile',
 }) => {
-  const { t } = useTranslation();
-
-  const getSkeletonsView = (view: ArticleView) => new Array(view === 'grid' ? 9 : 3)
+  const getSkeletonsView = (view: ArticleView) => new Array(view === 'tile' ? 9 : 3)
     .fill(0)
     .map((_, index) => <ArticleListItemSkeleton key={index} view={view} />);
 

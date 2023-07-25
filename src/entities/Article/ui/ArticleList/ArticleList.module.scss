@@ -1,10 +1,10 @@
-.tile {
+.grid {
   .card {
     margin-bottom: 10px;
   }
 }
 
-.grid {
+.tile {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;

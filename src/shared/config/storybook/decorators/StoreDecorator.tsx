@@ -15,6 +15,7 @@ const defaultAsyncReducers: ReducersList = {
   articleDetailsComments: articleDetailsCommentsReducer,
 };
 
+// eslint-disable-next-line max-len
 export const StoreDecorator = (state: DeepPartial<StateSchema>, asyncReducers?: ReducersList) => (StoryComponent: Story) => (
   <StoreProvider
     initialState={state}

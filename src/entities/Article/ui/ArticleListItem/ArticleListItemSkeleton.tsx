@@ -12,9 +12,9 @@ interface ArticleListItemSkeletonProps {
 
 export const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = ({
   className,
-  view = 'grid',
+  view = 'tile',
 }) => {
-  if (view === 'tile') {
+  if (view === 'grid') {
     return (
       <div
         className={classNames(classes.articleListItem, {}, [
