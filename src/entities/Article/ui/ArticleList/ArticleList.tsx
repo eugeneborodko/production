@@ -26,19 +26,6 @@ export const ArticleList: FC<ArticleListProps> = ({
     <ArticleListItem article={article} view={view} key={article.id} />
   );
 
-  if (isLoading) {
-    return (
-      <div
-        className={classNames(classes.articleList, {}, [
-          className,
-          classes[view],
-        ])}
-      >
-        {getSkeletonsView(view)}
-      </div>
-    );
-  }
-
   return (
     <div
       className={classNames(classes.articleList, {}, [
@@ -47,6 +34,7 @@ export const ArticleList: FC<ArticleListProps> = ({
       ])}
     >
       {articles.length > 0 ? articles.map(renderArticle) : null}
+      {isLoading && getSkeletonsView(view)}
     </div>
   );
 };

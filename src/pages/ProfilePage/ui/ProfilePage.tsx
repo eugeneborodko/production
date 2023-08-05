@@ -19,7 +19,7 @@ import {
 } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { Currencies } from 'entities/Currency';
 import { Countries } from 'entities/Country';
-import { Typography } from 'shared/ui';
+import { Page, Typography } from 'shared/ui';
 import { TypographyVariants } from 'shared/ui/Typography/Typography';
 import { useTranslation, TFunction } from 'react-i18next';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
@@ -113,7 +113,7 @@ const ProfilePage = () => {
   });
 
   return (
-    <div>
+    <Page>
       <ProfilePageHeader />
       {validateErrors?.length
         && validateErrors.map((error) => (
@@ -136,7 +136,7 @@ const ProfilePage = () => {
         onChangeCurrency={onChangeCurrency}
         onChangeCountry={onChangeCountry}
       />
-    </div>
+    </Page>
   );
 };
 

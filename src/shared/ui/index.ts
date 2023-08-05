@@ -9,3 +9,4 @@ export { Avatar } from './Avatar/Avatar';
 export { Select } from './Select/Select';
 export { Code } from './Code/Code';
 export { Card } from './Card/Card';
+export { Page } from './Page/Page';

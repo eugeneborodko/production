@@ -3,7 +3,7 @@ import { CommentList } from 'entities/Comment';
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Button, Typography } from 'shared/ui';
+import { Button, Page, Typography } from 'shared/ui';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
   ReducersList,
@@ -65,7 +65,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   }
 
   return (
-    <div className={classNames(classes.articleDetailsPage, {}, [className])}>
+    <Page className={classNames(classes.articleDetailsPage, {}, [className])}>
       <Button variant={ButtonVariants.OUTLINED} onClick={onBackToList}>
         {t('back')}
       </Button>
@@ -74,7 +74,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
 
       <AddCommentForm onSendComment={onSendComment} />
       <CommentList isLoading={commentsIsLoading} comments={comments} />
-    </div>
+    </Page>
   );
 };
 

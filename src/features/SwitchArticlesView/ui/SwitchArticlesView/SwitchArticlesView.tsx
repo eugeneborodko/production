@@ -43,7 +43,11 @@ export const SwitchArticlesView: FC<SwitchArticlesViewProps> = ({
   return (
     <div className={classNames(classes.switchArticlesView, {}, [className])}>
       {viewTypes.map((viewType) => (
-        <Button variant={ButtonVariants.ICON} onClick={onClick(viewType.view)}>
+        <Button
+          variant={ButtonVariants.ICON}
+          onClick={onClick(viewType.view)}
+          key={viewType.view}
+        >
           <viewType.Icon
             className={classNames(classes.icon, {
               [classes.selected]: view === viewType.view,
