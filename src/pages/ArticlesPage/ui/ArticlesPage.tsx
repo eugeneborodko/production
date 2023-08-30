@@ -1,10 +1,7 @@
 import { ArticleList, ArticleView } from 'entities/Article';
 import { SwitchArticlesView } from 'features/SwitchArticlesView';
-import {
-  FC, memo, useCallback, useState,
-} from 'react';
+import { FC, memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { LOCAL_STORAGE_ARTICLES_VIEW } from 'shared/const/localstorage';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import {
@@ -14,16 +11,14 @@ import {
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Page } from 'shared/ui';
 import {
-  getArticlesLimit,
   getArticlesPageIsLoading,
   getArticlesPageView,
 } from '../model/selectors/articlesPageSelectors';
-import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
 import {
   articlesPageReducer,
   getArticles,
-  setLimit,
   setPageView,
 } from '../model/slices/articlesPageSlice';
 
@@ -38,25 +33,14 @@ const reducers: ReducersList = {
 const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   const dispatch = useAppDispatch();
 
-  const [isLimitInitialized, setIsLimitInitialized] = useState<boolean>(false);
-
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesPageIsLoading);
   const view = useSelector(getArticlesPageView);
-  const limit = useSelector(getArticlesLimit);
 
-  useDynamicModuleLoader(reducers);
+  useDynamicModuleLoader(reducers, false);
 
   useInitialEffect(() => {
-    const storedView = (localStorage.getItem(LOCAL_STORAGE_ARTICLES_VIEW) as ArticleView)
-      || 'tile';
-
-    dispatch(setPageView(storedView));
-    dispatch(setLimit(storedView === 'tile' ? 8 : 4));
-    setIsLimitInitialized(true);
-    if (isLimitInitialized) {
-      dispatch(fetchArticlesList({ page: 1, limit }));
-    }
+    dispatch(initArticlesPage());
   });
 
   const onLoadMoreArticles = useCallback(() => {
