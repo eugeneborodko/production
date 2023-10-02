@@ -19,7 +19,8 @@ import {
 } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { Currencies } from 'entities/Currency';
 import { Countries } from 'entities/Country';
-import { Page, Typography } from 'shared/ui';
+import { Typography } from 'shared/ui';
+import { Page } from 'widgets/Page';
 import { TypographyVariants } from 'shared/ui/Typography/Typography';
 import { useTranslation, TFunction } from 'react-i18next';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
