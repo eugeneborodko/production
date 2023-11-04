@@ -10,17 +10,20 @@ import {
 } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Page } from 'widgets/Page';
+import { ArticleFilters, articleSortReducer, getArticlesView } from 'features/ArticleSort';
 import {
   getArticlesPageIsLoading,
-  getArticlesPageView,
+  // getArticlesPageView,
 } from '../model/selectors/articlesPageSelectors';
+
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
 import {
   articlesPageReducer,
   getArticles,
-  setPageView,
+  // setPageView,
 } from '../model/slices/articlesPageSlice';
+import classes from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
   className?: string;
@@ -28,6 +31,7 @@ interface ArticlesPageProps {
 
 const reducers: ReducersList = {
   articlesPage: articlesPageReducer,
+  articleSort: articleSortReducer,
 };
 
 const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
@@ -35,7 +39,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
 
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesPageIsLoading);
-  const view = useSelector(getArticlesPageView);
+  const view = useSelector(getArticlesView);
 
   useDynamicModuleLoader(reducers, false);
 
@@ -47,12 +51,12 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
     dispatch(fetchNextArticlesPage());
   }, [dispatch]);
 
-  const onChangeView = useCallback(
-    (view: ArticleView) => {
-      dispatch(setPageView(view));
-    },
-    [dispatch],
-  );
+  // const onChangeView = useCallback(
+  //   (view: ArticleView) => {
+  //     dispatch(setPageView(view));
+  //   },
+  //   [dispatch],
+  // );
 
   // TODO
   // if (error) {}
@@ -62,8 +66,14 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
       onScrollEnd={onLoadMoreArticles}
       className={classNames('', {}, [className])}
     >
-      <SwitchArticlesView view={view} onViewClick={onChangeView} />
-      <ArticleList view={view} isLoading={isLoading} articles={articles} />
+      <ArticleFilters />
+      {/* <SwitchArticlesView view={view} onViewClick={onChangeView} /> */}
+      <ArticleList
+        className={classes.list}
+        view={view}
+        isLoading={isLoading}
+        articles={articles}
+      />
     </Page>
   );
 };

@@ -32,7 +32,9 @@ export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
     callback: onScrollEnd,
   });
 
+  // TODO: fix saving scroll position for article/id
   useInitialEffect(() => {
+    // think about using useLayoutEffect instead and create a copy of useInitialEffect with useLayoutEffect - 58 11:40 comment
     wrapperRef.current.scrollTop = scrollPosition;
   });
 
@@ -52,7 +54,9 @@ export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
       onScroll={onPageScroll}
     >
       {children}
-      <div ref={triggerRef} />
+      {onScrollEnd ? (
+        <div className={classes.trigger} ref={triggerRef} />
+      ) : null}
     </section>
   );
 });

@@ -23,15 +23,15 @@ const articlesPageSlice = createSlice({
     error: undefined,
     ids: [],
     entities: {},
-    view: 'tile',
+    // view: 'tile',
     page: 1,
     hasMore: true,
     inited: false,
   }),
   reducers: {
-    setPageView: (state, action: PayloadAction<ArticleView>) => {
-      state.view = action.payload;
-    },
+    // setPageView: (state, action: PayloadAction<ArticleView>) => {
+    //   state.view = action.payload;
+    // },
     setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload;
     },
@@ -63,7 +63,5 @@ const articlesPageSlice = createSlice({
   },
 });
 
-export const {
-  setPageView, setPage, setLimit, setInited,
-} = articlesPageSlice.actions;
+export const { setPage, setLimit, setInited } = articlesPageSlice.actions;
 export const { reducer: articlesPageReducer } = articlesPageSlice;

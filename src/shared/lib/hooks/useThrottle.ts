@@ -1,22 +1,32 @@
-import { useCallback, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
-export const useThrottle = (
-  callback: (...args: any[]) => void,
+export function useThrottle<T>(
+  callback: (...args: T[]) => void,
   delay: number,
-) => {
+) {
   const throttleRef = useRef(false); // decides if callback can be called
+  const timeoutRef = useRef<any>(null);
 
-  return useCallback(
-    (...args: any[]) => {
+  const throttledCallback = useCallback(
+    (...args: T[]) => {
       if (!throttleRef.current) {
         callback(...args);
         throttleRef.current = true;
 
-        setTimeout(() => {
+        timeoutRef.current = setTimeout(() => {
           throttleRef.current = false;
         }, delay);
       }
     },
     [callback, delay],
   );
-};
+
+  useEffect(
+    () => () => {
+      clearTimeout(timeoutRef.current);
+    },
+    [],
+  );
+
+  return throttledCallback;
+}

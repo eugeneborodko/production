@@ -3,6 +3,7 @@ import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { articleDetailsReducer } from 'entities/Article';
 import { profileReducer } from 'entities/Profile';
 import { addCommentFormReducer } from 'features/AddCommentForm/model/slice/addCommentFormSlice';
+import { articleSortReducer } from 'features/ArticleSort/model/slice/articleSortSlice';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slices/articleDetailsCommentSlice';
 import { ReducersList } from 'shared/lib/hooks/useDynamicModuleLoader';
@@ -13,6 +14,7 @@ const defaultAsyncReducers: ReducersList = {
   articleDetails: articleDetailsReducer,
   addCommentForm: addCommentFormReducer,
   articleDetailsComments: articleDetailsCommentsReducer,
+  articleSort: articleSortReducer,
 };
 
 // eslint-disable-next-line max-len

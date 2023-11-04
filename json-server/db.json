@@ -87,8 +87,8 @@
       "title": "Python news",
       "subtitle": "Что нового в Python за 2022 год?",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/935px-Python-logo-notext.svg.png",
-      "views": 10,
-      "createdAt": "27.02.2022",
+      "views": 101,
+      "createdAt": "28.02.2012",
       "userId": "1",
       "type": ["IT"],
       "blocks": [
@@ -224,11 +224,11 @@
     },
     {
       "id": "4",
-      "title": "Javascript news",
-      "subtitle": "Что нового в JS за 2022 год?",
+      "title": "Awesome Javascript news new",
+      "subtitle": "А что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 10220,
+      "createdAt": "26.12.2023",
       "userId": "1",
       "type": ["IT"],
       "blocks": [
@@ -364,11 +364,11 @@
     },
     {
       "id": "6",
-      "title": "Java news",
-      "subtitle": "Что нового в Java за 2022 год?",
+      "title": "Old Java news",
+      "subtitle": "Узнаем что нового в Java за 2019 год",
       "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuGfHiiJz4UnlLlOYp1YZ7CVWkK3YqS_C38g&usqp=CAU",
-      "views": 102,
-      "createdAt": "28.02.2022",
+      "views": 2,
+      "createdAt": "20.05.2019",
       "userId": "1",
       "type": ["IT"],
       "blocks": [
@@ -434,11 +434,11 @@
     },
     {
       "id": "7",
-      "title": "Javascript news",
-      "subtitle": "Что нового в JS за 2022 год?",
+      "title": "One more Javascript news",
+      "subtitle": "А что же у нас нового в JS за 2024 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
-      "createdAt": "26.02.2022",
+      "createdAt": "07.11.2023",
       "userId": "1",
       "type": ["IT"],
       "blocks": [

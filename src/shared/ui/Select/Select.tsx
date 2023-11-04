@@ -38,7 +38,7 @@ export const Select = memo(
     };
 
     return (
-      <>
+      <div className={classes.selectWrapper}>
         {label && (
           <span className={classNames(classes.label, modes, [])}>{label}</span>
         )}
@@ -50,7 +50,7 @@ export const Select = memo(
         >
           {optionsList}
         </select>
-      </>
+      </div>
     );
   },
 );

@@ -12,6 +12,12 @@ export enum ArticleBlocksTypes {
   CODE = 'CODE',
 }
 
+export enum ArticleSortField {
+  VIEWS = 'views',
+  TITLE = 'title',
+  CREATED_AT = 'createdAt'
+}
+
 interface ArticleBlocksBase {
   id: string;
   type: ArticleBlocksTypes;
