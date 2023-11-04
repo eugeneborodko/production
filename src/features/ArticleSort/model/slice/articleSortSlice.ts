@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { ArticleSortField, ArticleView } from 'entities/Article/index';
+import { ArticleSortField } from 'entities/Article/index';
 import { SortOrder } from 'shared/types/sort';
 import { ArticleSortSchema } from '../types/articleSortSchema';
 
@@ -7,7 +7,6 @@ const initialState: ArticleSortSchema = {
   order: 'desc',
   sort: ArticleSortField.CREATED_AT,
   search: '',
-  view: 'tile',
 };
 
 const articleSortSlice = createSlice({
@@ -23,13 +22,8 @@ const articleSortSlice = createSlice({
     setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload;
     },
-    setView: (state, action: PayloadAction<ArticleView>) => {
-      state.view = action.payload;
-    },
   },
 });
 
-export const {
-  setOrder, setSort, setSearch, setView,
-} = articleSortSlice.actions;
+export const { setOrder, setSort, setSearch } = articleSortSlice.actions;
 export const { reducer: articleSortReducer } = articleSortSlice;

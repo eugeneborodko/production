@@ -13,6 +13,7 @@ import { UserSchema } from 'entities/User';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { ArticleSortSchema } from 'features/ArticleSort';
 import { LoginSchema } from 'features/AuthByUsername';
+import { ArticlesViewSchema } from 'features/SwitchArticlesView';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ScrollPositionSchema } from 'widgets/Page';
@@ -29,6 +30,7 @@ export interface StateSchema {
   addCommentForm?: AddCommentFormSchema;
   articlesPage?: ArticlesPageSchema;
   articleSort?: ArticleSortSchema;
+  articlesView?: ArticlesViewSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

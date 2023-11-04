@@ -1,4 +1,3 @@
-export { ArticleFilters } from './ui/ArticleFilters/ArticleFilters';
+export { ArticleSort } from './ui/ArticleSort/ArticleSort';
 export { ArticleSortSchema } from './model/types/articleSortSchema';
-export { articleSortReducer, setView } from './model/slice/articleSortSlice';
-export { getArticlesView } from './model/selectors/articleSortSelectors';
+export { articleSortReducer } from './model/slice/articleSortSlice';
