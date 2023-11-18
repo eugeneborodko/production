@@ -1,4 +1,4 @@
-import { ArticleList, ArticleView } from 'entities/Article';
+import { ArticleList, ArticleSortField, ArticleView } from 'entities/Article';
 import {
   SwitchArticlesView,
   getArticlesView,
@@ -15,9 +15,19 @@ import {
 } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { Page } from 'widgets/Page';
-import { ArticleSort, articleSortReducer } from 'features/ArticleSort';
+import {
+  ArticleSort,
+  articleSortReducer,
+  getArticlesOrder,
+  getArticlesSort,
+} from 'features/ArticleSort';
 import { Card, Input } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
+import {
+  setOrder,
+  setSort,
+} from 'features/ArticleSort/model/slice/articleSortSlice';
+import { SortOrder } from 'shared/types/sort';
 import { getArticlesPageIsLoading } from '../model/selectors/articlesPageSelectors';
 
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
@@ -45,6 +55,8 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesPageIsLoading);
   const view = useSelector(getArticlesView);
+  const sort = useSelector(getArticlesSort);
+  const order = useSelector(getArticlesOrder);
 
   useDynamicModuleLoader(reducers, false);
 
@@ -63,6 +75,20 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
     [dispatch],
   );
 
+  const onChangeSort = useCallback(
+    (newSort: ArticleSortField) => {
+      dispatch(setSort(newSort));
+    },
+    [dispatch],
+  );
+
+  const onChangeOrder = useCallback(
+    (newOrder: SortOrder) => {
+      dispatch(setOrder(newOrder));
+    },
+    [dispatch],
+  );
+
   // TODO
   // if (error) {}
 
@@ -72,7 +98,12 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
       className={classNames('', {}, [className])}
     >
       <div className={classes.filters}>
-        <ArticleSort />
+        <ArticleSort
+          onChangeSort={onChangeSort}
+          onChangeOrder={onChangeOrder}
+          sort={sort}
+          order={order}
+        />
         <SwitchArticlesView view={view} onViewClick={onChangeView} />
       </div>
       <Card className={classes.search}>

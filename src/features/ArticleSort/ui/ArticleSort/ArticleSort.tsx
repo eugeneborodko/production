@@ -4,19 +4,27 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Select } from 'shared/ui';
 import { ArticleSortField } from 'entities/Article';
 import { SelectOptions } from 'shared/ui/Select/Select';
+import { SortOrder } from 'shared/types/sort';
+import classes from './ArticleSort.module.scss';
 
 interface ArticleSortProps {
   className?: string;
-  // sort: ArticleSortField
-  // order: SortOrder;
-  // onChangeSort: (newSort: ArticleSortField) => void;
-  // onChangeOrder: (newOrder: SortOrder) => void;
+  sort: ArticleSortField;
+  order: SortOrder;
+  onChangeSort: (newSort: ArticleSortField) => void;
+  onChangeOrder: (newOrder: SortOrder) => void;
 }
 
-export const ArticleSort: FC<ArticleSortProps> = ({ className }) => {
+export const ArticleSort: FC<ArticleSortProps> = ({
+  className,
+  sort,
+  order,
+  onChangeSort,
+  onChangeOrder,
+}) => {
   const { t } = useTranslation('articles');
 
-  const orderOptions = useMemo<SelectOptions[]>(
+  const orderOptions = useMemo<SelectOptions<SortOrder>[]>(
     () => [
       {
         value: 'asc',
@@ -30,7 +38,7 @@ export const ArticleSort: FC<ArticleSortProps> = ({ className }) => {
     [t],
   );
 
-  const sortOptions = useMemo<SelectOptions[]>(
+  const sortOptions = useMemo<SelectOptions<ArticleSortField>[]>(
     () => [
       {
         value: ArticleSortField.CREATED_AT,
@@ -54,8 +62,19 @@ export const ArticleSort: FC<ArticleSortProps> = ({ className }) => {
       role="search"
     >
       <form>
-        <Select label={t('sort by')} options={orderOptions} />
-        <Select label={t('by')} options={sortOptions} />
+        <Select<ArticleSortField>
+          className={classes.sortBy}
+          label={t('sort by')}
+          options={sortOptions}
+          value={sort}
+          onChange={onChangeSort}
+        />
+        <Select<SortOrder>
+          label={t('by')}
+          options={orderOptions}
+          value={order}
+          onChange={onChangeOrder}
+        />
       </form>
     </div>
   );
