@@ -19,7 +19,7 @@ const articleSortSlice = createSlice({
     setSort: (state, action: PayloadAction<ArticleSortField>) => {
       state.sort = action.payload;
     },
-    setSearch: (state, action: PayloadAction<string>) => {
+    setSearch: (state, action: PayloadAction<string>) => { // TODO: might worth to move into a separate search component
       state.search = action.payload;
     },
   },

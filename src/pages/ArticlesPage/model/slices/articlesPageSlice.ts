@@ -4,7 +4,7 @@ import {
   createSlice,
 } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { Article, ArticleView } from 'entities/Article/model/types/article';
+import { Article } from 'entities/Article/model/types/article';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 
@@ -23,15 +23,11 @@ const articlesPageSlice = createSlice({
     error: undefined,
     ids: [],
     entities: {},
-    // view: 'tile',
     page: 1,
     hasMore: true,
     inited: false,
   }),
   reducers: {
-    // setPageView: (state, action: PayloadAction<ArticleView>) => {
-    //   state.view = action.payload;
-    // },
     setPage: (state, action: PayloadAction<number>) => {
       state.page = action.payload;
     },
@@ -44,18 +40,23 @@ const articlesPageSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchArticlesList.pending, (state) => {
+      .addCase(fetchArticlesList.pending, (state, action) => {
         state.error = undefined;
         state.isLoading = true;
+
+        if (action.meta.arg.replace) {
+          articlesAdapter.removeAll(state);
+        }
       })
-      .addCase(
-        fetchArticlesList.fulfilled,
-        (state, action: PayloadAction<Article[]>) => {
-          state.isLoading = false;
-          state.hasMore = action.payload.length > 0;
+      .addCase(fetchArticlesList.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.hasMore = action.payload.length > 0;
+        if (action.meta.arg.replace) {
+          articlesAdapter.setAll(state, action.payload);
+        } else {
           articlesAdapter.addMany(state, action.payload);
-        },
-      )
+        }
+      })
       .addCase(fetchArticlesList.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;

@@ -5,6 +5,7 @@ import { LOCAL_STORAGE_ARTICLES_VIEW } from 'shared/const/localstorage';
 import { setArticlesView } from 'features/SwitchArticlesView';
 import { getArticlesPageInited } from '../../selectors/articlesPageSelectors';
 import { setInited, setLimit } from '../../slices/articlesPageSlice';
+import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 
 export const initArticlesPage = createAsyncThunk<
   void,
@@ -20,10 +21,6 @@ export const initArticlesPage = createAsyncThunk<
     dispatch(setArticlesView(storedView));
     dispatch(setLimit(storedView === 'tile' ? 8 : 4));
     dispatch(setInited());
-    // setIsLimitInitialized(true);
-
-    // if (isLimitInitialized) {
-    //   dispatch(fetchArticlesList({ page: 1, limit }));
-    // }
+    dispatch(fetchArticlesList({}));
   }
 });

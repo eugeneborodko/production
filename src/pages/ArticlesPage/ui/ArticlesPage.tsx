@@ -19,12 +19,14 @@ import {
   ArticleSort,
   articleSortReducer,
   getArticlesOrder,
+  getArticlesSearch,
   getArticlesSort,
 } from 'features/ArticleSort';
 import { Card, Input } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
 import {
   setOrder,
+  setSearch,
   setSort,
 } from 'features/ArticleSort/model/slice/articleSortSlice';
 import { SortOrder } from 'shared/types/sort';
@@ -35,8 +37,10 @@ import { initArticlesPage } from '../model/services/initArticlesPage/initArticle
 import {
   articlesPageReducer,
   getArticles,
+  setPage,
 } from '../model/slices/articlesPageSlice';
 import classes from './ArticlesPage.module.scss';
+import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
 
 interface ArticlesPageProps {
   className?: string;
@@ -57,6 +61,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   const view = useSelector(getArticlesView);
   const sort = useSelector(getArticlesSort);
   const order = useSelector(getArticlesOrder);
+  const search = useSelector(getArticlesSearch);
 
   useDynamicModuleLoader(reducers, false);
 
@@ -78,6 +83,8 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   const onChangeSort = useCallback(
     (newSort: ArticleSortField) => {
       dispatch(setSort(newSort));
+      dispatch(setPage(1));
+      dispatch(fetchArticlesList({ replace: true }));
     },
     [dispatch],
   );
@@ -85,6 +92,17 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   const onChangeOrder = useCallback(
     (newOrder: SortOrder) => {
       dispatch(setOrder(newOrder));
+      dispatch(setPage(1));
+      dispatch(fetchArticlesList({ replace: true }));
+    },
+    [dispatch],
+  );
+
+  const onChangeSearch = useCallback(
+    (newSearch: string) => {
+      dispatch(setSearch(newSearch));
+      dispatch(setPage(1));
+      dispatch(fetchArticlesList({ replace: true }));
     },
     [dispatch],
   );
@@ -107,7 +125,11 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
         <SwitchArticlesView view={view} onViewClick={onChangeView} />
       </div>
       <Card className={classes.search}>
-        <Input placeholder={t('search')} />
+        <Input
+          placeholder={t('search')}
+          onChange={onChangeSearch}
+          value={search}
+        />
       </Card>
       <ArticleList
         className={classes.list}
