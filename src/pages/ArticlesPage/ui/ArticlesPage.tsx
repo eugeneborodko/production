@@ -30,6 +30,8 @@ import {
   setSort,
 } from 'features/ArticleSort/model/slice/articleSortSlice';
 import { SortOrder } from 'shared/types/sort';
+import { useDebounce } from 'shared/lib/hooks/useDebounce';
+import { useSearchParams } from 'react-router-dom';
 import { getArticlesPageIsLoading } from '../model/selectors/articlesPageSelectors';
 
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
@@ -55,6 +57,7 @@ const reducers: ReducersList = {
 const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   const { t } = useTranslation('articles');
   const dispatch = useAppDispatch();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesPageIsLoading);
@@ -63,10 +66,15 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
   const order = useSelector(getArticlesOrder);
   const search = useSelector(getArticlesSearch);
 
+  const fetchFiltersData = useCallback(() => {
+    dispatch(fetchArticlesList({ replace: true, setSearchParams }));
+  }, [dispatch, setSearchParams]);
+
   useDynamicModuleLoader(reducers, false);
+  const debouncedFetchFiltersData = useDebounce(fetchFiltersData, 500);
 
   useInitialEffect(() => {
-    dispatch(initArticlesPage());
+    dispatch(initArticlesPage(searchParams));
   });
 
   const onLoadMoreArticles = useCallback(() => {
@@ -84,27 +92,27 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
     (newSort: ArticleSortField) => {
       dispatch(setSort(newSort));
       dispatch(setPage(1));
-      dispatch(fetchArticlesList({ replace: true }));
+      debouncedFetchFiltersData();
     },
-    [dispatch],
+    [debouncedFetchFiltersData, dispatch],
   );
 
   const onChangeOrder = useCallback(
     (newOrder: SortOrder) => {
       dispatch(setOrder(newOrder));
       dispatch(setPage(1));
-      dispatch(fetchArticlesList({ replace: true }));
+      debouncedFetchFiltersData();
     },
-    [dispatch],
+    [debouncedFetchFiltersData, dispatch],
   );
 
   const onChangeSearch = useCallback(
     (newSearch: string) => {
       dispatch(setSearch(newSearch));
       dispatch(setPage(1));
-      dispatch(fetchArticlesList({ replace: true }));
+      debouncedFetchFiltersData();
     },
-    [dispatch],
+    [debouncedFetchFiltersData, dispatch],
   );
 
   // TODO

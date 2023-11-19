@@ -6,6 +6,7 @@ import {
   getArticlesSearch,
   getArticlesSort,
 } from 'features/ArticleSort';
+import { URLSearchParamsInit } from 'react-router-dom';
 import {
   getArticlesLimit,
   getArticlesPage,
@@ -13,6 +14,7 @@ import {
 
 interface FetchArticlesListProps {
   replace?: boolean;
+  setSearchParams?: (searchParams: URLSearchParamsInit) => void;
 }
 
 export const fetchArticlesList = createAsyncThunk<
@@ -21,7 +23,7 @@ export const fetchArticlesList = createAsyncThunk<
   ThunkConfig<string>
 >(
   'articlesPage/fetchArticlesList',
-  async (_, { rejectWithValue, extra, getState }) => {
+  async ({ setSearchParams }, { rejectWithValue, extra, getState }) => {
     const order = getArticlesOrder(getState());
     const sort = getArticlesSort(getState());
     const search = getArticlesSearch(getState());
@@ -29,6 +31,8 @@ export const fetchArticlesList = createAsyncThunk<
     const limit = getArticlesLimit(getState());
 
     try {
+      setSearchParams?.({ sort, order, search });
+
       const response = await extra.api.get<Article[]>('/articles', {
         params: {
           _expand: 'user',
