@@ -1,5 +1,4 @@
 {
-  "articles page": "Articles page",
   "read more": "Read more",
   "sort by": "sort by",
   "search": "search",
@@ -8,5 +7,10 @@
   "created at": "created at",
   "sort title": "title",
   "views": "views",
-  "by": "by"
+  "by": "by",
+  "all": "all",
+  "economics": "economics",
+  "IT": "IT",
+  "medicine": "medicine",
+  "no articles": "no articles found"
 }

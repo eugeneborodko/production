@@ -1,6 +1,7 @@
 import { User } from '../../../User/index';
 
 export enum ArticleTypes {
+  ALL = 'ALL',
   IT = 'IT',
   MEDICINE = 'MEDICINE',
   ECONOMICS = 'ECONOMICS',

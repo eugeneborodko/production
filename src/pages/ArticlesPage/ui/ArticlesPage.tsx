@@ -28,10 +28,13 @@ import {
   setOrder,
   setSearch,
   setSort,
+  setType,
 } from 'features/ArticleSort/model/slice/articleSortSlice';
 import { SortOrder } from 'shared/types/sort';
 import { useDebounce } from 'shared/lib/hooks/useDebounce';
 import { useSearchParams } from 'react-router-dom';
+import { SwitchArticlesType } from 'features/SwitchArticlesType';
+import { ArticleTypes } from 'entities/Article/model/types/article';
 import { getArticlesPageIsLoading } from '../model/selectors/articlesPageSelectors';
 
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
@@ -115,6 +118,16 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
     [debouncedFetchFiltersData, dispatch],
   );
 
+  const onChangeType = useCallback(
+    (newType: ArticleTypes) => () => {
+      dispatch(setType(newType));
+      dispatch(setPage(1));
+      debouncedFetchFiltersData();
+    },
+
+    [debouncedFetchFiltersData, dispatch],
+  );
+
   // TODO
   // if (error) {}
 
@@ -139,6 +152,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
           value={search}
         />
       </Card>
+      <SwitchArticlesType onChangeType={onChangeType} />
       <ArticleList
         className={classes.list}
         view={view}
