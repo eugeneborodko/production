@@ -1,12 +1,11 @@
-import { FC, useCallback } from 'react';
+import { FC, HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
-  Avatar, Button, Card, Typography,
+  AppLink, Avatar, Button, Card, Typography,
 } from 'shared/ui';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import { ButtonVariants } from 'shared/ui/Button/Button';
-import { useNavigate } from 'react-router-dom';
 import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
 import {
   Article,
@@ -21,20 +20,16 @@ interface ArticleListItemProps {
   className?: string;
   article: Article;
   view?: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem: FC<ArticleListItemProps> = ({
   className,
   article,
   view = 'tile',
+  target = '_self',
 }) => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
-
-  // TODO: replace navigate with <AppLink />
-  const onOpenArticleDetails = useCallback(() => {
-    navigate(RoutePaths.article_details + article.id);
-  }, [article.id, navigate]);
 
   const types = (
     <Typography className={classes.types} text={article.type.join(', ')} />
@@ -89,12 +84,15 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
             />
           )}
           <footer className={classes.footer}>
-            <Button
-              variant={ButtonVariants.OUTLINED}
-              onClick={onOpenArticleDetails}
+            <AppLink
+              to={RoutePaths.article_details + article.id}
+              target={target}
             >
-              {t('read more')}
-            </Button>
+              <Button variant={ButtonVariants.OUTLINED}>
+                {t('read more')}
+              </Button>
+            </AppLink>
+
             {views}
           </footer>
         </Card>
@@ -103,13 +101,15 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
   }
 
   return (
-    <div
+    <AppLink
       className={classNames(classes.articleListItem, {}, [
         className,
         classes[view],
       ])}
+      to={RoutePaths.article_details + article.id}
+      target={target}
     >
-      <Card className={classes.card} onClick={onOpenArticleDetails}>
+      <Card className={classes.card}>
         <div className={classes.imageWrapper}>
           <img
             className={classes.image}
@@ -126,6 +126,6 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
         </div>
         <Typography className={classes.title} text={article.title} />
       </Card>
-    </div>
+    </AppLink>
   );
 };

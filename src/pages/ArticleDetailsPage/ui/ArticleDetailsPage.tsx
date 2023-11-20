@@ -85,6 +85,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
         className={classes.recommendations}
         articles={recommendations}
         isLoading={recommendationsIsLoading}
+        target="_blank"
       />
       <Typography className={classes.commentTitle} title={t('comments')} />
       <AddCommentForm onSendComment={onSendComment} />

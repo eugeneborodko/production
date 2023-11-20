@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, HTMLAttributeAnchorTarget } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Typography } from 'shared/ui';
@@ -12,6 +12,7 @@ interface ArticleListProps {
   articles: Article[];
   isLoading?: boolean;
   view?: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleList: FC<ArticleListProps> = ({
@@ -19,6 +20,7 @@ export const ArticleList: FC<ArticleListProps> = ({
   articles,
   isLoading,
   view = 'tile',
+  target = '_self',
 }) => {
   const { t } = useTranslation('articles');
   const getSkeletonsView = (view: ArticleView) => new Array(view === 'tile' ? 9 : 3)
@@ -26,7 +28,7 @@ export const ArticleList: FC<ArticleListProps> = ({
     .map((_, index) => <ArticleListItemSkeleton key={index} view={view} />);
 
   const renderArticle = (article: Article) => (
-    <ArticleListItem article={article} view={view} key={article.id} />
+    <ArticleListItem article={article} view={view} key={article.id} target={target} />
   );
 
   if (!isLoading && !articles.length) {
