@@ -1,7 +1,8 @@
 {
   "article details": "Статья",
-  "article-details.article not found": "Статься не найдена",
+  "article not found": "Статься не найдена",
   "comments": "Комментарии",
   "no comments": "Комментарии отсутствуют",
-  "article-details.back": "Назад"
+  "back": "Назад",
+  "we recommend": "Так же рекоммендуем"
 }
