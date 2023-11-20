@@ -7,9 +7,19 @@
   background: var(--inverted-bg-color);
 }
 
+.appName {
+  margin-left: 20px;
+  color: var(--inverted-primary-color);
+}
+
 .links {
   margin-left: auto;
   display: flex;
-  gap: 15px;
+  align-items: center;
+  gap: 15px 30px;
   color: var(--inverted-primary-color);
+}
+
+.link {
+  color: currentcolor;
 }

@@ -1,9 +1,13 @@
-import { ArticleDetails, ArticleList } from 'entities/Article';
+import {
+  ArticleDetails,
+  ArticleList,
+  getArticleDetailsData,
+} from 'entities/Article';
 import { CommentList } from 'entities/Comment';
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate, useParams } from 'react-router-dom';
-import { Button, Typography } from 'shared/ui';
+import { useParams } from 'react-router-dom';
+import { Typography } from 'shared/ui';
 import { Page } from 'widgets/Page';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
@@ -14,17 +18,17 @@ import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
-import { ButtonVariants } from 'shared/ui/Button/Button';
-import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
+import { getUserAuthData } from 'entities/User';
+import { getArticleComments } from '../../model/slices/articleDetailsCommentSlice';
+import { getArticleCommentsLoading } from '../../model/selectors/comments';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle';
+import { getArticleRecommendations } from '../../model/slices/articleDetailsRecommendationsSlice';
+import { getArticleRecommendationsLoading } from '../../model/selectors/recommendations';
+import { fetchArticlesRecommendations } from '../../model/services/fetchArticlesRecommendations';
+import { articleDetailsPageReducer } from '../../model/slices';
 import classes from './ArticleDetailsPage.module.scss';
-import { getArticleComments } from '../model/slices/articleDetailsCommentSlice';
-import { getArticleCommentsLoading } from '../model/selectors/comments';
-import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
-import { addCommentForArticle } from '../model/services/addCommentForArticle';
-import { getArticleRecommendations } from '../model/slices/articleDetailsRecommendationsSlice';
-import { getArticleRecommendationsLoading } from '../model/selectors/recommendations';
-import { fetchArticlesRecommendations } from '../model/services/fetchArticlesRecommendations';
-import { articleDetailsPageReducer } from '../model/slices';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -41,7 +45,6 @@ const initialReducers: ReducersList = {
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   const { t } = useTranslation('article-details');
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
   const { id } = useParams<ArticleDetailsParams>();
   const comments = useSelector(getArticleComments.selectAll);
   const recommendations = useSelector(getArticleRecommendations.selectAll);
@@ -49,16 +52,14 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   const recommendationsIsLoading = useSelector(
     getArticleRecommendationsLoading,
   );
+  const userData = useSelector(getUserAuthData);
+  const article = useSelector(getArticleDetailsData);
 
   useDynamicModuleLoader(initialReducers);
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
     dispatch(fetchArticlesRecommendations());
   });
-
-  const onBackToList = useCallback(() => {
-    navigate(RoutePaths.articles);
-  }, [navigate]);
 
   const onSendComment = useCallback(
     (text: string) => {
@@ -73,9 +74,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
 
   return (
     <Page className={classNames(classes.articleDetailsPage, {}, [className])}>
-      <Button variant={ButtonVariants.OUTLINED} onClick={onBackToList}>
-        {t('back')}
-      </Button>
+      <ArticleDetailsPageHeader />
       <ArticleDetails id={id} />
       <Typography
         className={classes.recommendationsTitle}

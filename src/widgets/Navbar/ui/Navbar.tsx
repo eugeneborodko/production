@@ -8,8 +8,9 @@ import { useSelector } from 'react-redux';
 import { LOCAL_STORAGE_USER_KEY } from 'shared/const/localstorage';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Button } from 'shared/ui';
+import { AppLink, Button, Typography } from 'shared/ui';
 import { ButtonVariants } from 'shared/ui/Button/Button';
+import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
 import classes from './Navbar.module.scss';
 
 interface NavBarProps {
@@ -41,17 +42,21 @@ export const Navbar = memo(({ className }: NavBarProps) => {
 
   return (
     <nav className={classNames(classes.navbar, {}, [className])}>
+      <Typography className={classes.appName} title="My app" />
       {authData ? (
-        <Button
-          className={classes.links}
-          variant={ButtonVariants.OUTLINED_INVERTED}
-          onClick={onLogout}
-        >
-          {t('Log out')}
-        </Button>
+        <div className={classes.links}>
+          <AppLink className={classes.link} to={RoutePaths.article_create}>
+            <Button variant={ButtonVariants.OUTLINED_INVERTED}>
+              {' '}
+              {t('create article')}
+            </Button>
+          </AppLink>
+          <Button variant={ButtonVariants.OUTLINED_INVERTED} onClick={onLogout}>
+            {t('Log out')}
+          </Button>
+        </div>
       ) : (
         <Button
-          className={classes.links}
           variant={ButtonVariants.OUTLINED_INVERTED}
           onClick={onModalOpen}
         >

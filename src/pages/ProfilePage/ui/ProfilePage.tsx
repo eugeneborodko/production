@@ -26,7 +26,7 @@ import { useTranslation, TFunction } from 'react-i18next';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
-import { ArticleDetailsParams } from '../../ArticleDetailsPage/ui/ArticleDetailsPage';
+import { ArticleDetailsParams } from '../../ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailsPage';
 
 const reducers: ReducersList = {
   profile: profileReducer,

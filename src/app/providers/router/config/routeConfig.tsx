@@ -5,7 +5,8 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 import { RouteProps } from 'react-router-dom';
 import { AppRoutes, RoutePaths } from 'shared/config/routeConfig/routeConfig';
 import ArticlesPage from 'pages/ArticlesPage/ui/ArticlesPage';
-import ArticleDetailsPage from 'pages/ArticleDetailsPage/ui/ArticleDetailsPage';
+import ArticleDetailsPage from 'pages/ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailsPage';
+import { ArticleEditPage } from 'pages/ArticleEditPage';
 
 export type AppRoutesProps = RouteProps & {
   // extend RouteProps
@@ -34,6 +35,16 @@ export const routeConfig: AppRoutesProps[] = [
   {
     path: `${RoutePaths[AppRoutes.ARTICLE_DETAILS]}:id`,
     element: <ArticleDetailsPage />,
+    authOnly: true,
+  },
+  {
+    path: `${RoutePaths[AppRoutes.ARTICLE_EDIT]}`,
+    element: <ArticleEditPage />,
+    authOnly: true,
+  },
+  {
+    path: `${RoutePaths[AppRoutes.ARTICLE_CREATE]}`,
+    element: <ArticleEditPage />,
     authOnly: true,
   },
   {
