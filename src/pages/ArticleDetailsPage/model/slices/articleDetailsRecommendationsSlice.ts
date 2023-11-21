@@ -1,8 +1,8 @@
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Article } from 'entities/Article';
-import { ArticleDetailsRecommendationsSchema } from '../types/articleDetailsRecommendationsSchema';
 import { fetchArticlesRecommendations } from '../services/fetchArticlesRecommendations';
+import { ArticleDetailsPageSchema } from '../types';
 
 const recommendationsAdapter = createEntityAdapter<Article>({
   selectId: (article) => article.id,
@@ -15,15 +15,14 @@ export const getArticleRecommendations = recommendationsAdapter.getSelectors<Sta
 
 const articleDetailsRecommendationsSlice = createSlice({
   name: 'articleDetailsRecommendationsSlice',
-  initialState:
-    recommendationsAdapter.getInitialState<ArticleDetailsRecommendationsSchema>(
-      {
-        isLoading: false,
-        error: undefined,
-        ids: [],
-        entities: {},
-      },
-    ),
+  initialState: recommendationsAdapter.getInitialState<
+    ArticleDetailsPageSchema['recommendations']
+  >({
+    isLoading: false,
+    error: undefined,
+    ids: [],
+    entities: {},
+  }),
   reducers: {},
   extraReducers: (builder) => {
     builder

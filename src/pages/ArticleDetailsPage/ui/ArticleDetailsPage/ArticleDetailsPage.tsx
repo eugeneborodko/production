@@ -19,7 +19,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { getUserAuthData } from 'entities/User';
-import { getArticleComments } from '../../model/slices/articleDetailsCommentSlice';
+import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import { getArticleCommentsLoading } from '../../model/selectors/comments';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle';
