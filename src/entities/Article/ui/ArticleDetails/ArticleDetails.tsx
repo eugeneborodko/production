@@ -1,24 +1,24 @@
-import { memo, useEffect } from 'react';
+import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
 import {
   ReducersList,
   useDynamicModuleLoader,
 } from 'shared/lib/hooks/useDynamicModuleLoader';
-import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
 import { useSelector } from 'react-redux';
-import {
-  getArticleDetailsData,
-  getArticleDetailsError,
-  getArticleDetailsIsLoading,
-} from 'entities/Article/model/selectors/articleDetails';
 import { Avatar, Typography } from 'shared/ui';
 import { TextAlign, TextSize } from 'shared/ui/Typography/Typography';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import {
+  getArticleDetailsData,
+  getArticleDetailsError,
+  getArticleDetailsIsLoading,
+} from '../../../Article/model/selectors/articleDetails';
+import { articleDetailsReducer } from '../../../Article/model/slice/articleDetailsSlice';
+import { fetchArticleById } from '../../../Article/model/services/fetchArticleById/fetchArticleById';
 import classes from './ArticleDetails.module.scss';
 import { ArticleBlock, ArticleBlocksTypes } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
@@ -37,12 +37,7 @@ const initialReducers: ReducersList = {
 const renderBlock = (block: ArticleBlock) => {
   switch (block.type) {
   case ArticleBlocksTypes.CODE:
-    return (
-      <ArticleCodeBlockComponent
-        block={block}
-        key={block.id}
-      />
-    );
+    return <ArticleCodeBlockComponent block={block} key={block.id} />;
   case ArticleBlocksTypes.IMAGE:
     return (
       <ArticleImageBlockComponent

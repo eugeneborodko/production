@@ -1,8 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import {
-  ArticleBlocksTypes,
-  ArticleTypes,
-} from 'entities/Article/model/types/article';
+import { ArticleBlocksTypes, ArticleTypes } from '../../model/types/article';
 import { ArticleList } from './ArticleList';
 
 export default {
@@ -27,7 +24,8 @@ Tile.args = {
       user: {
         id: '1',
         username: 'admin',
-        avatar: 'https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg',
+        avatar:
+          'https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg',
       },
       type: ['IT', 'Politics', 'adfdsaflkdsjf123', '213432'] as ArticleTypes[],
       blocks: [
@@ -109,7 +107,8 @@ Grid.args = {
       user: {
         id: '1',
         username: 'admin',
-        avatar: 'https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg',
+        avatar:
+          'https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg',
       },
       type: ['IT', 'Politics', 'adfdsaflkdsjf123', '213432'] as ArticleTypes[],
       blocks: [

@@ -4,11 +4,11 @@ import {
   Avatar, Input, Loader, Typography,
 } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
-import { Profile, getProfileReadOnly } from 'entities/Profile';
 import { TypographyVariants } from 'shared/ui/Typography/Typography';
 import { useSelector } from 'react-redux';
 import { Currencies, CurrencySelect } from 'entities/Currency';
 import { Countries, CountrySelect } from 'entities/Country';
+import { Profile, getProfileReadOnly } from '../../../Profile';
 import classes from './ProfileCard.module.scss';
 
 interface ProfileCardProps {

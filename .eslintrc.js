@@ -13,7 +13,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
+  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'yauheni-baradzko-path-checker'],
   rules: {
     'linebreak-style': 0,
     'react/jsx-indent': [2, 2],
@@ -47,6 +47,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'error',
     'no-param-reassign': 'off',
     'react/no-array-index-key': 'off',
+    'yauheni-baradzko-path-checker/path-checker': 'error',
   },
   globals: {
     __IS_DEV__: true,
