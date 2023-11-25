@@ -11,9 +11,8 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Button, Typography } from 'shared/ui';
+import { Button, HStack, Typography } from 'shared/ui';
 import { ButtonVariants } from 'shared/ui/Button/Button';
-import classes from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
   className?: string;
@@ -42,39 +41,33 @@ export const ProfilePageHeader = memo(
     }, [dispatch]);
 
     return (
-      <div className={classes.profilePageHeader}>
+      <HStack justify="between">
         <Typography title={t('profile')} />
         {canEdit && (
           <div>
             {readOnly ? (
-              <Button
-                className={classes.editButton}
-                variant={ButtonVariants.OUTLINED}
-                onClick={onEdit}
-              >
+              <Button variant={ButtonVariants.OUTLINED} onClick={onEdit}>
                 {t('edit profile')}
               </Button>
             ) : (
-              <div>
+              <HStack gap="16">
                 <Button
-                  className={classes.saveButton}
                   variant={ButtonVariants.OUTLINED_GREEN}
                   onClick={onSave}
                 >
                   {t('save')}
                 </Button>
                 <Button
-                  className={classes.cancelButton}
                   variant={ButtonVariants.OUTLINED_RED}
                   onClick={onCancel}
                 >
                   {t('cancel')}
                 </Button>
-              </div>
+              </HStack>
             )}
           </div>
         )}
-      </div>
+      </HStack>
     );
   },
 );

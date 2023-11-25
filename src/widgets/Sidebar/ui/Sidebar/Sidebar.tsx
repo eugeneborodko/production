@@ -4,6 +4,7 @@ import { memo, useCallback, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonSizes, ButtonVariants } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
+import { VStack } from 'shared/ui';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import classes from './Sidebar.module.scss';
@@ -29,11 +30,11 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
       )}
       data-testid="sidebar"
     >
-      <div className={classes.links}>
+      <VStack className={classes.links} gap="8">
         {sidebarItemsList.map((item) => (
           <SidebarItem item={item} isCollapsed={isCollapsed} key={item.path} />
         ))}
-      </div>
+      </VStack>
       <Button
         className={classes.toggleButton}
         data-testid="sidebar-toggle-button"

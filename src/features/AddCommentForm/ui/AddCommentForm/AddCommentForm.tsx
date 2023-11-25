@@ -1,7 +1,7 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, Input } from 'shared/ui';
+import { Button, HStack, Input } from 'shared/ui';
 import {
   ReducersList,
   useDynamicModuleLoader,
@@ -17,7 +17,6 @@ import {
   addCommentFormReducer,
   setCommentsFormText,
 } from '../../model/slice/addCommentFormSlice';
-import classes from './AddCommentForm.module.scss';
 
 export interface AddCommentFormProps {
   className?: string;
@@ -54,15 +53,15 @@ const AddCommentForm: FC<AddCommentFormProps> = ({
   }, [onCommentTextChange, onSendComment, text]);
 
   return (
-    <div className={classNames(classes.addCommentForm, {}, [className])}>
+    <HStack gap="32">
       <Input
-        className={classes.input}
         placeholder={t('enter your comment')}
         value={text}
         onChange={onCommentTextChange}
+        fullWidth
       />
       <Button onClick={onSendHandler}>{t('send')}</Button>
-    </div>
+    </HStack>
   );
 };
 

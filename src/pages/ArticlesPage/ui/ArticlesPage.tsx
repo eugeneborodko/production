@@ -22,7 +22,9 @@ import {
   getArticlesSearch,
   getArticlesSort,
 } from 'features/ArticleSort';
-import { Card, Input } from 'shared/ui';
+import {
+  Card, HStack, Input, VStack,
+} from 'shared/ui';
 import { useTranslation } from 'react-i18next';
 import {
   setOrder,
@@ -136,29 +138,34 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
       onScrollEnd={onLoadMoreArticles}
       className={classNames('', {}, [className])}
     >
-      <div className={classes.filters}>
-        <ArticleSort
-          onChangeSort={onChangeSort}
-          onChangeOrder={onChangeOrder}
-          sort={sort}
-          order={order}
+      <VStack gap="16">
+        <VStack gap="16">
+          <HStack justify="between">
+            <ArticleSort
+              onChangeSort={onChangeSort}
+              onChangeOrder={onChangeOrder}
+              sort={sort}
+              order={order}
+            />
+            <SwitchArticlesView view={view} onViewClick={onChangeView} />
+          </HStack>
+          <Card fullWidth>
+            <Input
+              placeholder={t('search')}
+              onChange={onChangeSearch}
+              value={search}
+              fullWidth
+            />
+          </Card>
+          <SwitchArticlesType onChangeType={onChangeType} />
+        </VStack>
+        <ArticleList
+          className={classes.list}
+          view={view}
+          isLoading={isLoading}
+          articles={articles}
         />
-        <SwitchArticlesView view={view} onViewClick={onChangeView} />
-      </div>
-      <Card className={classes.search}>
-        <Input
-          placeholder={t('search')}
-          onChange={onChangeSearch}
-          value={search}
-        />
-      </Card>
-      <SwitchArticlesType onChangeType={onChangeType} />
-      <ArticleList
-        className={classes.list}
-        view={view}
-        isLoading={isLoading}
-        articles={articles}
-      />
+      </VStack>
     </Page>
   );
 };

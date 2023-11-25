@@ -19,7 +19,7 @@ import {
 } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { Currencies } from 'entities/Currency';
 import { Countries } from 'entities/Country';
-import { Typography } from 'shared/ui';
+import { Typography, VStack } from 'shared/ui';
 import { Page } from 'widgets/Page';
 import { TypographyVariants } from 'shared/ui/Typography/Typography';
 import { useTranslation, TFunction } from 'react-i18next';
@@ -115,28 +115,30 @@ const ProfilePage = () => {
 
   return (
     <Page>
-      <ProfilePageHeader />
-      {validateErrors?.length
-        && validateErrors.map((error) => (
-          <Typography
-            variant={TypographyVariants.ERROR}
-            text={validationErrorTranslates[error]}
-            key={error}
-          />
-        ))}
-      <ProfileCard
-        data={formData}
-        isLoading={isLoading}
-        error={error}
-        onChangeFirstName={onChangeFirstName}
-        onChangeLastName={onChangeLastName}
-        onChangeAge={onChangeAge}
-        onChangeCity={onChangeCity}
-        onChangeUsername={onChangeUsername}
-        onChangeAvatar={onChangeAvatar}
-        onChangeCurrency={onChangeCurrency}
-        onChangeCountry={onChangeCountry}
-      />
+      <VStack gap="16">
+        <ProfilePageHeader />
+        {validateErrors?.length
+          && validateErrors.map((error) => (
+            <Typography
+              variant={TypographyVariants.ERROR}
+              text={validationErrorTranslates[error]}
+              key={error}
+            />
+          ))}
+        <ProfileCard
+          data={formData}
+          isLoading={isLoading}
+          error={error}
+          onChangeFirstName={onChangeFirstName}
+          onChangeLastName={onChangeLastName}
+          onChangeAge={onChangeAge}
+          onChangeCity={onChangeCity}
+          onChangeUsername={onChangeUsername}
+          onChangeAvatar={onChangeAvatar}
+          onChangeCurrency={onChangeCurrency}
+          onChangeCountry={onChangeCountry}
+        />
+      </VStack>
     </Page>
   );
 };

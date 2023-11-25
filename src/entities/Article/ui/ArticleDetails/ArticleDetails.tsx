@@ -6,7 +6,9 @@ import {
   useDynamicModuleLoader,
 } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { useSelector } from 'react-redux';
-import { Avatar, Typography } from 'shared/ui';
+import {
+  Avatar, HStack, Typography, VStack,
+} from 'shared/ui';
 import { TextAlign, TextSize } from 'shared/ui/Typography/Typography';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import EyeIcon from 'shared/assets/icons/eye.svg';
@@ -72,7 +74,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
 
   if (isLoading) {
     return (
-      <>
+      <VStack align="center" gap="16">
         <Skeleton
           className={classes.avatar}
           width={200}
@@ -83,7 +85,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
         <Skeleton className={classes.skeleton} width={600} height={24} />
         <Skeleton className={classes.skeleton} width="100%" height={200} />
         <Skeleton className={classes.skeleton} width="100%" height={200} />
-      </>
+      </VStack>
     );
   }
 
@@ -92,25 +94,25 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   }
 
   return (
-    <div className={classNames(classes.articleDetails, {}, [className])}>
-      <div className={classes.avatarWrapper}>
+    <VStack gap="16" className={classNames(classes.articleDetails, {}, [className])}>
+      <HStack justify="center">
         <Avatar className={classes.avatar} src={article?.img} size={200} />
-      </div>
+      </HStack>
       <Typography
         className={classes.title}
         title={article?.title}
         text={article?.subtitle}
         size={TextSize.LARGE}
       />
-      <div className={classes.articleInfo}>
+      <HStack gap="8">
         <EyeIcon className={classes.icon} />
         <Typography text={String(article?.views)} />
-      </div>
-      <div className={classes.articleInfo}>
+      </HStack>
+      <HStack gap="8">
         <CalendarIcon className={classes.icon} />
         <Typography className={classes.title} date={article?.createdAt} />
-      </div>
+      </HStack>
       {article?.blocks.map(renderBlock)}
-    </div>
+    </VStack>
   );
 });

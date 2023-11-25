@@ -1771,6 +1771,12 @@
       "userId": "1",
       "text": "first comment",
       "id": "JjYZXoy"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "second comment",
+      "id": "2ZocvtU"
     }
   ],
   "users": [

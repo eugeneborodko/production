@@ -1,13 +1,9 @@
-import {
-  ArticleDetails,
-  ArticleList,
-  getArticleDetailsData,
-} from 'entities/Article';
+import { ArticleDetails, ArticleList } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { Typography } from 'shared/ui';
+import { Typography, VStack } from 'shared/ui';
 import { Page } from 'widgets/Page';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
@@ -18,7 +14,6 @@ import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
-import { getUserAuthData } from 'entities/User';
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import { getArticleCommentsLoading } from '../../model/selectors/comments';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
@@ -52,8 +47,6 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   const recommendationsIsLoading = useSelector(
     getArticleRecommendationsLoading,
   );
-  const userData = useSelector(getUserAuthData);
-  const article = useSelector(getArticleDetailsData);
 
   useDynamicModuleLoader(initialReducers);
   useInitialEffect(() => {
@@ -87,8 +80,10 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
         target="_blank"
       />
       <Typography className={classes.commentTitle} title={t('comments')} />
-      <AddCommentForm onSendComment={onSendComment} />
-      <CommentList isLoading={commentsIsLoading} comments={comments} />
+      <VStack gap="16">
+        <AddCommentForm onSendComment={onSendComment} />
+        <CommentList isLoading={commentsIsLoading} comments={comments} />
+      </VStack>
     </Page>
   );
 };

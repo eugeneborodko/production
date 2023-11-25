@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { Modes, classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, Avatar, Typography } from 'shared/ui';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
@@ -10,13 +10,25 @@ interface CommentCardProps {
   className?: string;
   comment?: Comment;
   isLoading?: boolean;
+  fullWidth?: boolean;
 }
 
 export const CommentCard = memo(
-  ({ className, comment, isLoading }: CommentCardProps) => {
+  ({
+    className, comment, isLoading, fullWidth,
+  }: CommentCardProps) => {
+    const modes: Modes = {
+      [classes.fullWidth]: fullWidth,
+    };
+
     if (isLoading) {
       return (
-        <div className={classNames(classes.commentCard, {}, [className, classes.loading])}>
+        <div
+          className={classNames(classes.commentCard, modes, [
+            className,
+            classes.loading,
+          ])}
+        >
           <div className={classes.header}>
             <Skeleton width={30} height={30} borderRadius="50%" />
             <Skeleton className={classes.username} width={150} height={20} />
@@ -31,8 +43,11 @@ export const CommentCard = memo(
     }
 
     return (
-      <div className={classNames(classes.commentCard, {}, [className])}>
-        <AppLink className={classes.header} to={`${RoutePaths.profile}${comment.user.id}`}>
+      <div className={classNames(classes.commentCard, modes, [className])}>
+        <AppLink
+          className={classes.header}
+          to={`${RoutePaths.profile}${comment.user.id}`}
+        >
           {comment.user.avatar && (
             <Avatar size={30} src={comment.user.avatar} />
           )}

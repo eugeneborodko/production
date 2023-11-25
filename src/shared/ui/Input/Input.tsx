@@ -7,6 +7,7 @@ import {
 } from 'react';
 import { classNames, Modes } from 'shared/lib/classNames/classNames';
 import classes from './Input.module.scss';
+import { HStack } from '../Stack';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'>;
 
@@ -19,6 +20,7 @@ interface InputProps extends HTMLInputProps {
   value?: string;
   readOnly?: boolean;
   autoFocus?: boolean;
+  fullWidth?: boolean;
 }
 
 export const Input = memo(
@@ -31,6 +33,7 @@ export const Input = memo(
     value = '',
     readOnly,
     autoFocus,
+    fullWidth,
     ...props
   }: InputProps) => {
     const ref = useRef<HTMLInputElement>(null);
@@ -45,10 +48,13 @@ export const Input = memo(
       }
     }, [autoFocus]);
 
-    const modes: Modes = { [classes.readOnly]: readOnly };
+    const modes: Modes = {
+      [classes.readOnly]: readOnly,
+      [classes.fullWidth]: fullWidth,
+    };
 
     return (
-      <div className={classNames(classes.inputWrapper, {}, [className])}>
+      <HStack>
         {label && (
           <label className={classes.label} htmlFor={id}>
             {label}
@@ -56,11 +62,7 @@ export const Input = memo(
         )}
         <input
           {...props}
-          className={classNames(
-            classes.input,
-            modes,
-            [className],
-          )}
+          className={classNames(classes.input, modes, [className])}
           ref={ref}
           type={type}
           id={id}
@@ -68,7 +70,7 @@ export const Input = memo(
           value={value}
           readOnly={readOnly}
         />
-      </div>
+      </HStack>
     );
   },
 );

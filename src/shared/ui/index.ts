@@ -10,3 +10,4 @@ export { Select } from './Select/Select';
 export { Code } from './Code/Code';
 export { Card } from './Card/Card';
 export { Tabs } from './Tabs/Tabs';
+export { HStack, VStack } from './Stack';

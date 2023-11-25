@@ -1,48 +1,41 @@
 import { FC } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Typography } from 'shared/ui';
+import { Typography, VStack } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
 import { CommentCard } from '../CommentCard/CommentCard';
 import { Comment } from '../../index';
-import classes from './CommentList.module.scss';
 
 interface CommentListProps {
-  className?: string;
   comments?: Comment[];
   isLoading?: boolean;
 }
 
-export const CommentList: FC<CommentListProps> = ({
-  className,
-  comments,
-  isLoading,
-}) => {
+export const CommentList: FC<CommentListProps> = ({ comments, isLoading }) => {
   const { t } = useTranslation();
 
   if (isLoading) {
     return (
-      <div className={classNames(classes.commentList, {}, [className])}>
-        <CommentCard isLoading />
-        <CommentCard isLoading />
-        <CommentCard isLoading />
-      </div>
+      <VStack gap="4">
+        <CommentCard isLoading fullWidth />
+        <CommentCard isLoading fullWidth />
+        <CommentCard isLoading fullWidth />
+      </VStack>
     );
   }
 
   return (
-    <div className={classNames(classes.commentList, {}, [className])}>
+    <VStack gap="8">
       {comments?.length ? (
         comments.map((comment) => (
           <CommentCard
-            className={classes.comment}
             comment={comment}
             isLoading={isLoading}
             key={comment.id}
+            fullWidth
           />
         ))
       ) : (
         <Typography text={t('no comments')} />
       )}
-    </div>
+    </VStack>
   );
 };

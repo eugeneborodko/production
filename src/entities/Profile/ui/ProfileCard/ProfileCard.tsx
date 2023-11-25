@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Modes, classNames } from 'shared/lib/classNames/classNames';
 import {
-  Avatar, Input, Loader, Typography,
+  Avatar, HStack, Input, Loader, Typography, VStack,
 } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
 import { TypographyVariants } from 'shared/ui/Typography/Typography';
@@ -49,7 +49,11 @@ export const ProfileCard: FC<ProfileCardProps> = ({
   };
 
   return (
-    <div className={classNames(classes.profileCard, modes, [className])}>
+    <VStack
+      className={classNames(classes.profileCard, modes, [className])}
+      align="center"
+      gap="16"
+    >
       {isLoading && <Loader />}
       {error && (
         <Typography
@@ -59,56 +63,58 @@ export const ProfileCard: FC<ProfileCardProps> = ({
         />
       )}
       {!isLoading && !error && (
-        <div className={classes.profileData}>
+        <>
           {data?.avatar && (
-            <div className={classes.avatarWrapper}>
+            <HStack justify="center">
               <Avatar src={data.avatar} alt={data?.username} />
-            </div>
+            </HStack>
           )}
-          <Input
-            className={classes.input}
-            value={data?.firstName}
-            placeholder={t('Your first name')}
-            onChange={onChangeFirstName}
-            readOnly={readOnly}
-          />
-          <Input
-            className={classes.input}
-            value={data?.lastName}
-            placeholder={t('Your last name')}
-            onChange={onChangeLastName}
-            readOnly={readOnly}
-          />
-          <Input
-            className={classes.input}
-            type="number"
-            value={String(data?.age)}
-            placeholder={t('Your age')}
-            onChange={onChangeAge}
-            readOnly={readOnly}
-          />
-          <Input
-            className={classes.input}
-            value={data?.city}
-            placeholder={t('Your city')}
-            onChange={onChangeCity}
-            readOnly={readOnly}
-          />
-          <Input
-            className={classes.input}
-            value={data?.username}
-            placeholder={t('Your username')}
-            onChange={onChangeUsername}
-            readOnly={readOnly}
-          />
-          <Input
-            className={classes.input}
-            value={data?.avatar}
-            placeholder={t('Your avatar')}
-            onChange={onChangeAvatar}
-            readOnly={readOnly}
-          />
-          <div className={classes.selectWrapper}>
+          <VStack gap="16">
+            <Input
+              value={data?.firstName}
+              placeholder={t('Your first name')}
+              onChange={onChangeFirstName}
+              readOnly={readOnly}
+              fullWidth
+            />
+            <Input
+              value={data?.lastName}
+              placeholder={t('Your last name')}
+              onChange={onChangeLastName}
+              readOnly={readOnly}
+              fullWidth
+            />
+            <Input
+              type="number"
+              value={String(data?.age)}
+              placeholder={t('Your age')}
+              onChange={onChangeAge}
+              readOnly={readOnly}
+              fullWidth
+            />
+            <Input
+              value={data?.city}
+              placeholder={t('Your city')}
+              onChange={onChangeCity}
+              readOnly={readOnly}
+              fullWidth
+            />
+            <Input
+              value={data?.username}
+              placeholder={t('Your username')}
+              onChange={onChangeUsername}
+              readOnly={readOnly}
+              fullWidth
+            />
+            <Input
+              value={data?.avatar}
+              placeholder={t('Your avatar')}
+              onChange={onChangeAvatar}
+              readOnly={readOnly}
+              fullWidth
+            />
+          </VStack>
+          <HStack justify="between">
             <CurrencySelect
               value={data?.currency}
               onChange={onChangeCurrency}
@@ -119,9 +125,9 @@ export const ProfileCard: FC<ProfileCardProps> = ({
               onChange={onChangeCountry}
               readOnly={readOnly}
             />
-          </div>
-        </div>
+          </HStack>
+        </>
       )}
-    </div>
+    </VStack>
   );
 };
