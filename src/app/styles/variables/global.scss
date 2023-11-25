@@ -1,14 +1,23 @@
+/* stylelint-disable scss/operator-no-newline-after */
+/* stylelint-disable declaration-colon-newline-after */
 :root {
   --font-family-main: consolas, "Times New Roman", serif;
+  --font-size-small: 8px;
+  --font-line-small: 16px;
+  --font-small: var(--font-size-small) / var(--font-line-small)
+    var(--font-family-main);
   --font-size-medium: 16px;
   --font-line-medium: 24px;
-  --font-medium: var(--font-size-medium) / var(--font-line-medium) var(--font-family-main);
+  --font-medium: var(--font-size-medium) / var(--font-line-medium)
+    var(--font-family-main);
   --font-size-large: 24px;
   --font-line-large: 32px;
-  --font-large: var(--font-size-large) / var(--font-line-large) var(--font-family-main);
+  --font-large: var(--font-size-large) / var(--font-line-large)
+    var(--font-family-main);
   --font-size-extra-large: 32px;
   --font-line-extra-large: 40px;
-  --font-extra-large: var(--font-size-extra-large) / var(--font-line-extra-large) var(--font-family-main);
+  --font-extra-large: var(--font-size-extra-large) /
+    var(--font-line-extra-large) var(--font-family-main);
 
   // sizes
   --navbar-height: 50px;

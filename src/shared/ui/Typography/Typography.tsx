@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { TFunction } from 'react-i18next';
-import classes from './Typography.module.scss';
 import { getDate } from '../../lib/helpers/getDate';
+import classes from './Typography.module.scss';
 
 export enum TypographyVariants {
   PRIMARY = 'primary',
@@ -16,9 +16,13 @@ export enum TextAlign {
 }
 
 export enum TextSize {
+  SMALL = 'sizeSmall',
   MEDIUM = 'sizeMedium',
   LARGE = 'sizeLarge',
 }
+
+type HeadingLevel = 'h1' | 'h2' | 'h3';
+type TextTag = 'p' | 'q'; // TODO: add semantic tags
 
 interface TypographyProps {
   className?: string;
@@ -26,8 +30,10 @@ interface TypographyProps {
   text?: string | TFunction;
   variant?: TypographyVariants;
   align?: TextAlign;
-  size?: TextSize,
+  size?: TextSize;
   date?: string;
+  TitleTag?: HeadingLevel;
+  TextTag?: TextTag;
 }
 
 export const Typography = memo(
@@ -39,6 +45,8 @@ export const Typography = memo(
     align = TextAlign.LEFT,
     size = TextSize.MEDIUM,
     date,
+    TitleTag = 'h2',
+    TextTag = 'p',
   }: TypographyProps) => (
     <div
       className={classNames(classes.typography, {}, [
@@ -49,9 +57,11 @@ export const Typography = memo(
       ])}
     >
       {title && (
-        <p className={classNames(classes.title, {}, [className])}>{title}</p>
+        <TitleTag className={classNames(classes.title, {}, [className])}>
+          {title}
+        </TitleTag>
       )}
-      {text && <p className={classes.text}>{text}</p>}
+      {text && <TextTag className={classes.text}>{text}</TextTag>}
       {date && (
         <time className={classes.text} dateTime={getDate(date)}>
           {date}

@@ -40,6 +40,7 @@ ErrorText.args = {
 
 export const SizeLarge = Template.bind({});
 SizeLarge.args = {
+  title: 'Title',
   text: 'text',
   variant: TypographyVariants.PRIMARY,
   size: TextSize.LARGE,
@@ -47,6 +48,7 @@ SizeLarge.args = {
 
 export const SizeMedium = Template.bind({});
 SizeMedium.args = {
+  title: 'Title',
   text: 'text',
   variant: TypographyVariants.PRIMARY,
   size: TextSize.MEDIUM,

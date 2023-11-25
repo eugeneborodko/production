@@ -28,6 +28,16 @@
   text-align: center;
 }
 
+.sizeSmall {
+  .title {
+    font-size: var(--font-size-medium);
+  }
+
+  .text {
+    font-size: var(--font-size-small);
+  }
+}
+
 .sizeMedium {
   .title {
     font-size: var(--font-size-large);
