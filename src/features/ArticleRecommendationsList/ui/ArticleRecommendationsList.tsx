@@ -6,14 +6,24 @@ import { ArticleList } from 'entities/Article';
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import classes from './ArticleRecommendationsList.module.scss';
-import { getArticleRecommendations } from '../model/slice/articleRecommendationsList';
+import {
+  ReducersList,
+  useDynamicModuleLoader,
+} from 'shared/lib/hooks/useDynamicModuleLoader';
+import {
+  articleRecommendationsReducer,
+  getArticleRecommendations,
+} from '../model/slice/articleRecommendationsList';
 import { getArticleRecommendationsLoading } from '../model/selectors/getArticleRecommendationsList/getArticleRecommendationsList';
 import { fetchArticlesRecommendations } from '../model/services/fetchArticleRecommendationsList/fetchArticleRecommendationsList';
 
 export interface ArticleRecommendationsListProps {
   className?: string;
 }
+
+const reducers: ReducersList = {
+  articleRecommendations: articleRecommendationsReducer,
+};
 
 export const ArticleRecommendationsList: FC<ArticleRecommendationsListProps> = ({ className }) => {
   const { t } = useTranslation();
@@ -24,22 +34,16 @@ export const ArticleRecommendationsList: FC<ArticleRecommendationsListProps> = (
     getArticleRecommendationsLoading,
   );
 
+  useDynamicModuleLoader(reducers, false);
+
   useInitialEffect(() => {
     dispatch(fetchArticlesRecommendations());
   });
 
   return (
-    <div
-      className={classNames(classes.articleRecommendationsList, {}, [
-        className,
-      ])}
-    >
-      <Typography
-        className={classes.recommendationsTitle}
-        title={t('we recommend')}
-      />
+    <div className={classNames('', {}, [className])}>
+      <Typography title={t('we recommend')} />
       <ArticleList
-        className={classes.recommendations}
         articles={recommendations}
         isLoading={recommendationsIsLoading}
         target="_blank"
