@@ -10,7 +10,7 @@ export const addCommentForArticle = createAsyncThunk<
   string,
   ThunkConfig<string>
 >(
-  'articleDetails/addCommentForArticle',
+  'addCommentForm/addCommentForArticle',
   async (text, {
     rejectWithValue, extra, getState, dispatch,
   }) => {

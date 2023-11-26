@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 import AddCommentForm from './AddCommentForm';
 
@@ -13,8 +12,6 @@ const Template: ComponentStory<typeof AddCommentForm> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {
-  onSendComment: action('onSendComment'),
-};
+Primary.args = {};
 
 Primary.decorators = [StoreDecorator({})];

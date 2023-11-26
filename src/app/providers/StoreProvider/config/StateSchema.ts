@@ -11,11 +11,12 @@ import { ArticleDetailsSchema } from 'entities/Article';
 import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
+import { ArticleRecommendationsSchema } from 'features/ArticleRecommendationsList';
 import { ArticleSortSchema } from 'features/ArticleSort';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ArticlesViewSchema } from 'features/SwitchArticlesView';
-import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { ArticleDetailsCommentsSchema } from 'widgets/ArticleDetailsComments';
 import { ScrollPositionSchema } from 'widgets/Page';
 
 export interface StateSchema {
@@ -26,7 +27,8 @@ export interface StateSchema {
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
-  articleDetailsPage?: ArticleDetailsPageSchema;
+  articleRecommendations?: ArticleRecommendationsSchema;
+  articleDetailsComments?: ArticleDetailsCommentsSchema;
   addCommentForm?: AddCommentFormSchema;
   articlesPage?: ArticlesPageSchema;
   articleSort?: ArticleSortSchema;

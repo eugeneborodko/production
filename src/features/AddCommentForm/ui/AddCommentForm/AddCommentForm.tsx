@@ -1,6 +1,5 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, HStack, Input } from 'shared/ui';
 import {
   ReducersList,
@@ -8,6 +7,7 @@ import {
 } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import {
   getAddCommentFormError,
   getAddCommentFormIsLoading,
@@ -17,26 +17,22 @@ import {
   addCommentFormReducer,
   setCommentsFormText,
 } from '../../model/slice/addCommentFormSlice';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
 
 export interface AddCommentFormProps {
-  className?: string;
-  onSendComment: (text: string) => void;
+  id: string;
 }
 
 const reducers: ReducersList = {
   addCommentForm: addCommentFormReducer,
 };
 
-const AddCommentForm: FC<AddCommentFormProps> = ({
-  className,
-  onSendComment,
-}) => {
+const AddCommentForm: FC<AddCommentFormProps> = ({ id }) => {
   const { t } = useTranslation('comments');
   const dispatch = useAppDispatch();
 
   const text = useSelector(getAddCommentFormText);
-  const error = useSelector(getAddCommentFormError);
-  const isLoading = useSelector(getAddCommentFormIsLoading);
 
   useDynamicModuleLoader(reducers);
 
@@ -48,9 +44,13 @@ const AddCommentForm: FC<AddCommentFormProps> = ({
   );
 
   const onSendHandler = useCallback(() => {
-    onSendComment(text || '');
+    dispatch(addCommentForArticle(text || ''));
     onCommentTextChange('');
-  }, [onCommentTextChange, onSendComment, text]);
+  }, [dispatch, onCommentTextChange, text]);
+
+  useInitialEffect(() => {
+    dispatch(fetchCommentsByArticleId(id));
+  });
 
   return (
     <HStack gap="32">

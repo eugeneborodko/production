@@ -7,7 +7,7 @@ import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
 import { Button } from 'shared/ui';
 import { ButtonVariants } from 'shared/ui/Button/Button';
 import { getArticleDetailsData } from 'entities/Article';
-import { getCanEditArticle } from '../../model/selectors/article';
+import { getCanEditArticle } from 'widgets/ArticleDetailsComments';
 import classes from './ArticleDetailsPageHeader.module.scss';
 
 interface ArticleDetailsPageHeaderProps {
@@ -46,7 +46,6 @@ export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = ({
           {t('edit')}
         </Button>
       )}
-
     </div>
   );
 };
