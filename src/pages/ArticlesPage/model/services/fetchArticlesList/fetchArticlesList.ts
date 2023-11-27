@@ -1,13 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Article, ArticleTypes } from 'entities/Article/model/types/article';
-import {
-  getArticlesOrder,
-  getArticlesSearch,
-  getArticlesSort,
-  getArticlesType,
-} from 'features/ArticleSort';
+import { getArticlesOrder, getArticlesSort } from 'features/ArticleSort';
 import { URLSearchParamsInit } from 'react-router-dom';
+import { getArticlesType } from 'features/SwitchArticlesType';
+import { getArticlesSearch } from 'features/ArticlesSearch';
 import {
   getArticlesLimit,
   getArticlesPage,
@@ -34,7 +31,10 @@ export const fetchArticlesList = createAsyncThunk<
 
     try {
       setSearchParams?.({
-        sort, order, search, type,
+        sort,
+        order,
+        search,
+        type,
       });
 
       const response = await extra.api.get<Article[]>('/articles', {

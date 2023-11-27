@@ -113,6 +113,9 @@ const ProfilePage = () => {
     dispatch(fetchProfileData(id));
   });
 
+  // TODO: add EditableProfileCard feature instead of ProfileCard entity
+  // TODO: move ProfilePageHeader into EditableProfileCardHeader
+
   return (
     <Page>
       <VStack gap="16">

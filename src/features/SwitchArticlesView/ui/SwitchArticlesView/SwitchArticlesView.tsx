@@ -1,17 +1,19 @@
-import { FC } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import TileIcon from 'shared/assets/icons/tile.svg';
-import GridIcon from 'shared/assets/icons/grid.svg';
 import { ArticleView } from 'entities/Article';
+import { FC, useCallback } from 'react';
+import { useSelector } from 'react-redux';
+import GridIcon from 'shared/assets/icons/grid.svg';
+import TileIcon from 'shared/assets/icons/tile.svg';
+import { LOCAL_STORAGE_ARTICLES_VIEW } from 'shared/const/localstorage';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Button } from 'shared/ui';
 import { ButtonVariants } from 'shared/ui/Button/Button';
-import { LOCAL_STORAGE_ARTICLES_VIEW } from 'shared/const/localstorage';
+import { getArticlesView } from '../../model/selectors/switchArticlesViewSelectors';
+import { setArticlesView } from '../../model/slice/switchArticlesViewSlice';
 import classes from './SwitchArticlesView.module.scss';
 
 interface SwitchArticlesViewProps {
   className?: string;
-  onViewClick?: (view: ArticleView) => void;
-  view: ArticleView;
 }
 
 type viewTypesParams = {
@@ -32,11 +34,18 @@ const viewTypes = [
 
 export const SwitchArticlesView: FC<SwitchArticlesViewProps> = ({
   className,
-  onViewClick,
-  view,
 }) => {
+  const dispatch = useAppDispatch();
+  const view = useSelector(getArticlesView);
+  const onChangeView = useCallback(
+    (view: ArticleView) => {
+      dispatch(setArticlesView(view));
+    },
+    [dispatch],
+  );
+
   const onClick = (view: ArticleView) => () => {
-    onViewClick?.(view);
+    onChangeView(view);
     localStorage.setItem(LOCAL_STORAGE_ARTICLES_VIEW, view);
   };
 

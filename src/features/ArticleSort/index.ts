@@ -4,6 +4,4 @@ export { articleSortReducer } from './model/slice/articleSortSlice';
 export {
   getArticlesSort,
   getArticlesOrder,
-  getArticlesSearch,
-  getArticlesType,
 } from './model/selectors/articleSortSelectors';

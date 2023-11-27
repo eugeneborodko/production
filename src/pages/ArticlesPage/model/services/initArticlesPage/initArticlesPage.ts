@@ -5,10 +5,10 @@ import { LOCAL_STORAGE_ARTICLES_VIEW } from 'shared/const/localstorage';
 import { setArticlesView } from 'features/SwitchArticlesView';
 import {
   setOrder,
-  setSearch,
   setSort,
 } from 'features/ArticleSort/model/slice/articleSortSlice';
 import { SortOrder } from 'shared/types/sort';
+import { setSearch } from 'features/ArticlesSearch';
 import { getArticlesPageInited } from '../../selectors/articlesPageSelectors';
 import { setInited, setLimit } from '../../slices/articlesPageSlice';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';

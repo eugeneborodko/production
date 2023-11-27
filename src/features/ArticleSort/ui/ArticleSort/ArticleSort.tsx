@@ -1,28 +1,33 @@
-import { FC, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Select } from 'shared/ui';
 import { ArticleSortField } from 'entities/Article';
-import { SelectOptions } from 'shared/ui/Select/Select';
+import { setPage } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
+import { FC, useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { SortOrder } from 'shared/types/sort';
+import { Select } from 'shared/ui';
+import { SelectOptions } from 'shared/ui/Select/Select';
+import {
+  getArticlesOrder,
+  getArticlesSort,
+} from '../../model/selectors/articleSortSelectors';
+import { setOrder, setSort } from '../../model/slice/articleSortSlice';
 import classes from './ArticleSort.module.scss';
 
 interface ArticleSortProps {
   className?: string;
-  sort: ArticleSortField;
-  order: SortOrder;
-  onChangeSort: (newSort: ArticleSortField) => void;
-  onChangeOrder: (newOrder: SortOrder) => void;
+  fetchFiltersData: (...args: any[]) => void;
 }
 
 export const ArticleSort: FC<ArticleSortProps> = ({
   className,
-  sort,
-  order,
-  onChangeSort,
-  onChangeOrder,
+  fetchFiltersData,
 }) => {
+  const dispatch = useAppDispatch();
   const { t } = useTranslation('articles');
+  const sort = useSelector(getArticlesSort);
+  const order = useSelector(getArticlesOrder);
 
   const orderOptions = useMemo<SelectOptions<SortOrder>[]>(
     () => [
@@ -54,6 +59,24 @@ export const ArticleSort: FC<ArticleSortProps> = ({
       },
     ],
     [t],
+  );
+
+  const onChangeSort = useCallback(
+    (newSort: ArticleSortField) => {
+      dispatch(setSort(newSort));
+      dispatch(setPage(1)); // To review. Should not import from pages to features
+      fetchFiltersData();
+    },
+    [dispatch, fetchFiltersData],
+  );
+
+  const onChangeOrder = useCallback(
+    (newOrder: SortOrder) => {
+      dispatch(setOrder(newOrder));
+      dispatch(setPage(1));
+      fetchFiltersData();
+    },
+    [dispatch, fetchFiltersData],
   );
 
   return (

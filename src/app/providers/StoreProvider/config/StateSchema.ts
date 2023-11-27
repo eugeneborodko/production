@@ -13,7 +13,9 @@ import { UserSchema } from 'entities/User';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { ArticleRecommendationsSchema } from 'features/ArticleRecommendationsList';
 import { ArticleSortSchema } from 'features/ArticleSort';
+import { ArticlesSearchSchema } from 'features/ArticlesSearch';
 import { LoginSchema } from 'features/AuthByUsername';
+import { SwitchArticlesTypeSchema } from 'features/SwitchArticlesType';
 import { ArticlesViewSchema } from 'features/SwitchArticlesView';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ArticleDetailsCommentsSchema } from 'widgets/ArticleDetailsComments';
@@ -29,6 +31,8 @@ export interface StateSchema {
   articleDetails?: ArticleDetailsSchema;
   articleRecommendations?: ArticleRecommendationsSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
+  articlesSearch?: ArticlesSearchSchema;
+  switchArticlesType?: SwitchArticlesTypeSchema;
   addCommentForm?: AddCommentFormSchema;
   articlesPage?: ArticlesPageSchema;
   articleSort?: ArticleSortSchema;
