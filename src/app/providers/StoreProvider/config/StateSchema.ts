@@ -8,13 +8,13 @@ import {
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
-import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { ArticleRecommendationsSchema } from 'features/ArticleRecommendationsList';
 import { ArticleSortSchema } from 'features/ArticleSort';
 import { ArticlesSearchSchema } from 'features/ArticlesSearch';
 import { LoginSchema } from 'features/AuthByUsername';
+import { ProfileSchema } from 'features/EditableProfileCard';
 import { SwitchArticlesTypeSchema } from 'features/SwitchArticlesType';
 import { ArticlesViewSchema } from 'features/SwitchArticlesView';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';

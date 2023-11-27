@@ -1,6 +1,6 @@
 import { mockProfileData } from 'shared/__mocks__/profileData';
 import { validateProfileData } from './validateProfileData';
-import { ValidateProfileErrors } from '../../types/profile';
+import { ValidateProfileErrors } from '../../types/editableProfileCard';
 
 describe('validateProfileData', () => {
   it('correct data', () => {
@@ -28,12 +28,18 @@ describe('validateProfileData', () => {
   });
 
   it('incorrect country', () => {
-    const result = validateProfileData({ ...mockProfileData, country: undefined });
+    const result = validateProfileData({
+      ...mockProfileData,
+      country: undefined,
+    });
     expect(result).toEqual([ValidateProfileErrors.INCORRECT_COUNTRY]);
   });
 
   it('incorrect currency', () => {
-    const result = validateProfileData({ ...mockProfileData, currency: undefined });
+    const result = validateProfileData({
+      ...mockProfileData,
+      currency: undefined,
+    });
     expect(result).toEqual([ValidateProfileErrors.INCORRECT_CURRENCY]);
   });
 

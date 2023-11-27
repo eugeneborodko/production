@@ -1,7 +1,7 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { mockProfileData } from 'shared/__mocks__/profileData';
 import { updateProfileData } from './updateProfileData';
-import { ValidateProfileErrors } from '../../types/profile';
+import { ValidateProfileErrors } from '../../types/editableProfileCard';
 
 describe('updateProfileData', () => {
   it('update profile data successful', async () => {

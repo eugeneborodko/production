@@ -5,10 +5,9 @@ import {
 } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
 import { TypographyVariants } from 'shared/ui/Typography/Typography';
-import { useSelector } from 'react-redux';
 import { Currencies, CurrencySelect } from 'entities/Currency';
 import { Countries, CountrySelect } from 'entities/Country';
-import { Profile, getProfileReadOnly } from '../../../Profile';
+import { Profile } from '../../../Profile';
 import classes from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -16,6 +15,7 @@ interface ProfileCardProps {
   data?: Profile | undefined;
   isLoading?: boolean;
   error?: string;
+  readOnly?: boolean;
   onChangeFirstName?: (value?: string) => void;
   onChangeLastName?: (value?: string) => void;
   onChangeAge?: (value?: string) => void;
@@ -31,6 +31,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
   data,
   isLoading,
   error,
+  readOnly,
   onChangeFirstName,
   onChangeLastName,
   onChangeAge,
@@ -41,8 +42,6 @@ export const ProfileCard: FC<ProfileCardProps> = ({
   onChangeCountry,
 }) => {
   const { t } = useTranslation('profile');
-
-  const readOnly = useSelector(getProfileReadOnly);
 
   const modes: Modes = {
     [classes.editing]: !readOnly,

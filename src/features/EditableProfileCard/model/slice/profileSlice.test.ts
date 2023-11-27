@@ -1,5 +1,4 @@
 import { mockProfileData } from 'shared/__mocks__/profileData';
-import { ProfileSchema, ValidateProfileErrors } from '../types/profile';
 import {
   cancelEdit,
   profileReducer,
@@ -9,6 +8,10 @@ import {
 } from './profileSlice';
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
+import {
+  ProfileSchema,
+  ValidateProfileErrors,
+} from '../types/editableProfileCard';
 
 describe('profileSlice', () => {
   it('setReadOnly', () => {
