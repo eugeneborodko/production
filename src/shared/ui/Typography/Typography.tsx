@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { HTMLProps, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { TFunction } from 'react-i18next';
 import { getDate } from '../../lib/helpers/getDate';
@@ -34,8 +34,8 @@ interface TypographyProps {
   date?: string;
   TitleTag?: HeadingLevel;
   TextTag?: TextTag;
+  'data-testid'?: string;
 }
-
 export const Typography = memo(
   ({
     className,
@@ -47,6 +47,7 @@ export const Typography = memo(
     date,
     TitleTag = 'h2',
     TextTag = 'p',
+    'data-testid': dataTestId = '',
   }: TypographyProps) => (
     <div
       className={classNames(classes.typography, {}, [
@@ -57,11 +58,23 @@ export const Typography = memo(
       ])}
     >
       {title && (
-        <TitleTag className={classNames(classes.title, {}, [className])}>
+        <TitleTag
+          className={classNames(classes.title, {}, [className])}
+          // @ts-ignore
+          data-testid={`${dataTestId}.Title`}
+        >
           {title}
         </TitleTag>
       )}
-      {text && <TextTag className={classes.text}>{text}</TextTag>}
+      {text && (
+        <TextTag
+          className={classes.text}
+          // @ts-ignore
+          data-testid={`${dataTestId}.Text`}
+        >
+          {text}
+        </TextTag>
+      )}
       {date && (
         <time className={classes.text} dateTime={getDate(date)}>
           {date}

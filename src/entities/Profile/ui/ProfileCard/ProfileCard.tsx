@@ -75,6 +75,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
               onChange={onChangeFirstName}
               readOnly={readOnly}
               fullWidth
+              data-testid="ProfileCard.FirstName"
             />
             <Input
               value={data?.lastName}
@@ -82,6 +83,7 @@ export const ProfileCard: FC<ProfileCardProps> = ({
               onChange={onChangeLastName}
               readOnly={readOnly}
               fullWidth
+              data-testid="ProfileCard.LastName"
             />
             <Input
               type="number"

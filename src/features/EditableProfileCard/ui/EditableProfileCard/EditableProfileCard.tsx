@@ -121,6 +121,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ id }) => {
             variant={TypographyVariants.ERROR}
             text={validationErrorTranslates[error]}
             key={error}
+            data-testid="EditableProfileCard.Error"
           />
         ))}
       <ProfileCard
