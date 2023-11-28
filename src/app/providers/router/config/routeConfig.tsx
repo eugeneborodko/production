@@ -7,10 +7,14 @@ import { AppRoutes, RoutePaths } from 'shared/config/routeConfig/routeConfig';
 import ArticlesPage from 'pages/ArticlesPage/ui/ArticlesPage';
 import ArticleDetailsPage from 'pages/ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailsPage';
 import { ArticleEditPage } from 'pages/ArticleEditPage';
+import { AdminPanelPage } from 'pages/AdminPanelPage';
+import { UserRoles } from 'entities/User/model/types/user';
+import { ForbiddenPage } from 'pages/ForbiddenPage';
 
 export type AppRoutesProps = RouteProps & {
   // extend RouteProps
   authOnly?: boolean;
+  roles?: UserRoles[];
 };
 
 export const routeConfig: AppRoutesProps[] = [
@@ -46,6 +50,16 @@ export const routeConfig: AppRoutesProps[] = [
     path: `${RoutePaths[AppRoutes.ARTICLE_CREATE]}`,
     element: <ArticleEditPage />,
     authOnly: true,
+  },
+  {
+    path: `${RoutePaths[AppRoutes.ADMIN_PANEL]}`,
+    element: <AdminPanelPage />,
+    authOnly: true,
+    roles: ['admin', 'manager'],
+  },
+  {
+    path: `${RoutePaths[AppRoutes.FORBIDDEN]}`,
+    element: <ForbiddenPage />,
   },
   {
     path: RoutePaths[AppRoutes.NOT_FOUND],

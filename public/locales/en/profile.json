@@ -17,5 +17,6 @@
   "no data": "No data. Please fill in the files",
   "server error": "Server error",
   "incorrect age": "Incorrect age",
-  "article does not exist": "Article does not exist"
+  "article does not exist": "Article does not exist",
+  "about.admin panel": "Admin panel"
 }
