@@ -2,7 +2,7 @@ import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { articleDetailsReducer } from 'entities/Article';
 import { addCommentFormReducer } from 'features/AddCommentForm/model/slice/addCommentFormSlice';
-import { articleRecommendationsReducer } from 'features/ArticleRecommendationsList';
+// import { articleRecommendationsReducer } from 'features/ArticleRecommendationsList';
 import { articleSortReducer } from 'features/ArticleSort/model/slice/articleSortSlice';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { profileReducer } from 'features/EditableProfileCard';
@@ -16,7 +16,7 @@ const defaultAsyncReducers: ReducersList = {
   articleDetails: articleDetailsReducer,
   addCommentForm: addCommentFormReducer,
   articleDetailsComments: articleDetailsCommentsReducer,
-  articleRecommendations: articleRecommendationsReducer,
+  // articleRecommendations: articleRecommendationsReducer,
   articleSort: articleSortReducer,
   articlesView: switchArticlesViewReducer,
 };
