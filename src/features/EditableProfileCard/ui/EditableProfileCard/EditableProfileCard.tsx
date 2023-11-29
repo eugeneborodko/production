@@ -1,7 +1,7 @@
 import { Countries } from 'entities/Country';
 import { Currencies } from 'entities/Currency';
 import { FC, useCallback } from 'react';
-import { TFunction, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import {
   ReducersList,
@@ -41,7 +41,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ id }) => {
 
   useDynamicModuleLoader(reducers);
 
-  const validationErrorTranslates: Record<ValidateProfileErrors, TFunction> = {
+  const validationErrorTranslates: Record<ValidateProfileErrors, string> = {
     [ValidateProfileErrors.INCORRECT_USER_DATA]: t('incorrect user data'),
     [ValidateProfileErrors.INCORRECT_CITY]: t('incorrect city'),
     [ValidateProfileErrors.INCORRECT_COUNTRY]: t('incorrect country'),

@@ -1,6 +1,5 @@
-import { HTMLProps, memo } from 'react';
+import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { TFunction } from 'react-i18next';
 import { getDate } from '../../lib/helpers/getDate';
 import classes from './Typography.module.scss';
 
@@ -27,7 +26,7 @@ type TextTag = 'p' | 'q'; // TODO: add semantic tags
 interface TypographyProps {
   className?: string;
   title?: string;
-  text?: string | TFunction;
+  text?: string;
   variant?: TypographyVariants;
   align?: TextAlign;
   size?: TextSize;
