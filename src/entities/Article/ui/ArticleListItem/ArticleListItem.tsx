@@ -7,12 +7,12 @@ import {
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import { ButtonVariants } from 'shared/ui/Button/Button';
 import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
-import {
+import type {
   Article,
-  ArticleBlocksTypes,
   ArticleTextBlock,
   ArticleView,
 } from '../../../Article/model/types/article';
+import { ArticleBlocksTypes } from '../../../Article/model/consts/consts';
 import classes from './ArticleListItem.module.scss';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 

@@ -4,7 +4,7 @@ import { ArticleDetails } from './ArticleDetails';
 import {
   ArticleBlocksTypes,
   ArticleTypes,
-} from '../../../Article/model/types/article';
+} from '../../../Article/model/consts/consts';
 
 export default {
   title: 'entities/ArticleDetails',

@@ -1,5 +1,5 @@
 export { SwitchArticlesView } from './ui/SwitchArticlesView/SwitchArticlesView';
-export { ArticlesViewSchema } from './model/types/articlesViewSchema';
+export type { ArticlesViewSchema } from './model/types/articlesViewSchema';
 export {
   switchArticlesViewReducer,
   setArticlesView,

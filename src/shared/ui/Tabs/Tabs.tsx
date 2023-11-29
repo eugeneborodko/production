@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleTypes } from 'entities/Article/model/types/article';
+import { ArticleTypes } from 'entities/Article/model/consts/consts';
 import { useSelector } from 'react-redux';
 import { getArticlesType } from 'features/SwitchArticlesType';
 import classes from './Tabs.module.scss';

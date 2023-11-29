@@ -1,4 +1,4 @@
-import { ArticleTypes } from 'entities/Article/model/types/article';
+import { ArticleTypes } from 'entities/Article/model/consts/consts';
 import { setPage } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
 import { FC, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';

@@ -22,7 +22,8 @@ import {
 import { articleDetailsReducer } from '../../../Article/model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../../Article/model/services/fetchArticleById/fetchArticleById';
 import classes from './ArticleDetails.module.scss';
-import { ArticleBlock, ArticleBlocksTypes } from '../../model/types/article';
+import type { ArticleBlock } from '../../model/types/article';
+import { ArticleBlocksTypes } from '../../model/consts/consts';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
@@ -94,7 +95,10 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   }
 
   return (
-    <VStack gap="16" className={classNames(classes.articleDetails, {}, [className])}>
+    <VStack
+      gap="16"
+      className={classNames(classes.articleDetails, {}, [className])}
+    >
       <HStack justify="center">
         <Avatar className={classes.avatar} src={article?.img} size={200} />
       </HStack>

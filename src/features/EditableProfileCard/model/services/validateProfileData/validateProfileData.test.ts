@@ -1,6 +1,6 @@
 import { mockProfileData } from 'shared/__mocks__/profileData';
 import { validateProfileData } from './validateProfileData';
-import { ValidateProfileErrors } from '../../types/editableProfileCard';
+import { ValidateProfileErrors } from '../../consts/consts';
 
 describe('validateProfileData', () => {
   it('correct data', () => {

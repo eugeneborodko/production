@@ -8,10 +8,8 @@ import {
 } from './profileSlice';
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
-import {
-  ProfileSchema,
-  ValidateProfileErrors,
-} from '../types/editableProfileCard';
+import { ProfileSchema } from '../types/editableProfileCard';
+import { ValidateProfileErrors } from '../consts/consts';
 
 describe('profileSlice', () => {
   it('setReadOnly', () => {

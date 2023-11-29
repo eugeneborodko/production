@@ -17,10 +17,10 @@ import { getProfileFormData } from '../../model/selectors/getProfileFormData/get
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
-import { ValidateProfileErrors } from '../../model/types/editableProfileCard';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly';
+import { ValidateProfileErrors } from '../../model/consts/consts';
 
 export interface EditableProfileCardProps {
   id: string;
