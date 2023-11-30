@@ -7,21 +7,16 @@ import { buildBabelLoader } from './loaders/buildBabelLoader';
 export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
   const { isDev } = options;
 
-  const babelLoader = buildBabelLoader(options);
+  const tsBabelLoader = buildBabelLoader({ ...options, isTsx: false });
+  const tsxBabelLoader = buildBabelLoader({ ...options, isTsx: true });
 
   const imgLoader: webpack.RuleSetRule = {
     test: /\.(png|jpg|jpeg|gif)$/i,
     type: 'asset/resource',
   };
 
-  const typescriptLoader: webpack.RuleSetRule = {
-    test: /\.tsx?$/,
-    use: 'ts-loader',
-    exclude: /node_modules/,
-  };
-
   const scssLoader = buildScssLoader(isDev);
   const svgLoader = buildSvgLoader();
 
-  return [babelLoader, typescriptLoader, scssLoader, svgLoader, imgLoader];
+  return [tsBabelLoader, tsxBabelLoader, scssLoader, svgLoader, imgLoader];
 };
