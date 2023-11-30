@@ -1,5 +1,4 @@
 import { ArticleTypes } from 'entities/Article/model/consts/consts';
-import { setPage } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
 import { FC, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -9,15 +8,19 @@ import {
   useDynamicModuleLoader,
 } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { Tabs } from 'shared/ui';
-import { ArticlesTabs } from 'shared/ui/Tabs/Tabs';
+import { useSelector } from 'react-redux';
+import { Tab } from 'shared/ui/Tabs/Tabs';
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import {
   setType,
   switchArticlesTypeReducer,
 } from '../../model/slice/switchArticlesTypeSlice';
+import { getArticlesType } from '../../model/selectors/switchArticlesTypeSelectors';
 
 interface SwitchArticlesTypeProps {
   className?: string;
   fetchFiltersData: (...args: any[]) => void;
+  setPage: ActionCreatorWithPayload<number, 'articlesPageSlice/setPage'>;
 }
 
 const reducers: ReducersList = {
@@ -27,12 +30,14 @@ const reducers: ReducersList = {
 export const SwitchArticlesType: FC<SwitchArticlesTypeProps> = ({
   className,
   fetchFiltersData,
+  setPage,
 }) => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation('articles');
+  const type = useSelector(getArticlesType);
   useDynamicModuleLoader(reducers);
 
-  const tabs = useMemo<ArticlesTabs[]>(
+  const tabs = useMemo<Tab<ArticleTypes>[]>(
     () => [
       {
         value: ArticleTypes.ALL,
@@ -61,12 +66,12 @@ export const SwitchArticlesType: FC<SwitchArticlesTypeProps> = ({
       fetchFiltersData();
     },
 
-    [dispatch, fetchFiltersData],
+    [dispatch, fetchFiltersData, setPage],
   );
 
   return (
     <div className={classNames('', {}, [className])}>
-      <Tabs tabs={tabs} onTabClick={onChangeType} />
+      <Tabs tabs={tabs} onTabClick={onChangeType} value={type} />
     </div>
   );
 };

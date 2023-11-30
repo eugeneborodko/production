@@ -1,5 +1,5 @@
 import { ArticleSortField } from 'entities/Article';
-import { setPage } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
+// import { setPage } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
 import { FC, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -8,6 +8,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { SortOrder } from 'shared/types/sort';
 import { Select } from 'shared/ui';
 import { SelectOptions } from 'shared/ui/Select/Select';
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import {
   getArticlesOrder,
   getArticlesSort,
@@ -18,11 +19,13 @@ import classes from './ArticleSort.module.scss';
 interface ArticleSortProps {
   className?: string;
   fetchFiltersData: (...args: any[]) => void;
+  setPage: ActionCreatorWithPayload<number, 'articlesPageSlice/setPage'>;
 }
 
 export const ArticleSort: FC<ArticleSortProps> = ({
   className,
   fetchFiltersData,
+  setPage,
 }) => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation('articles');
@@ -67,7 +70,7 @@ export const ArticleSort: FC<ArticleSortProps> = ({
       dispatch(setPage(1)); // To review. Should not import from pages to features
       fetchFiltersData();
     },
-    [dispatch, fetchFiltersData],
+    [dispatch, fetchFiltersData, setPage],
   );
 
   const onChangeOrder = useCallback(
@@ -76,7 +79,7 @@ export const ArticleSort: FC<ArticleSortProps> = ({
       dispatch(setPage(1));
       fetchFiltersData();
     },
-    [dispatch, fetchFiltersData],
+    [dispatch, fetchFiltersData, setPage],
   );
 
   return (

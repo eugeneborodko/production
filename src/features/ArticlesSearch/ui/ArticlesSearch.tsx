@@ -1,4 +1,4 @@
-import { setPage } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
+// import { setPage } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -8,6 +8,7 @@ import {
   useDynamicModuleLoader,
 } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { Card, Input } from 'shared/ui';
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import { getArticlesSearch } from '../model/selectors/articlesSearchSelectors';
 import {
   articlesSearchReducer,
@@ -16,6 +17,7 @@ import {
 
 export interface ArticlesSearchProps {
   fetchFiltersData: (...args: any[]) => void;
+  setPage: ActionCreatorWithPayload<number, 'articlesPageSlice/setPage'>;
 }
 
 const reducers: ReducersList = {
@@ -24,6 +26,7 @@ const reducers: ReducersList = {
 
 export const ArticlesSearch: FC<ArticlesSearchProps> = ({
   fetchFiltersData,
+  setPage,
 }) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
@@ -37,7 +40,7 @@ export const ArticlesSearch: FC<ArticlesSearchProps> = ({
       dispatch(setPage(1)); // TODO: review
       fetchFiltersData();
     },
-    [dispatch, fetchFiltersData],
+    [dispatch, fetchFiltersData, setPage],
   );
 
   return (

@@ -5,7 +5,6 @@ import {
   switchArticlesViewReducer,
 } from 'features/SwitchArticlesView';
 import { FC, memo, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -19,15 +18,17 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { VStack } from 'shared/ui';
 import { ArticleDetailsFilters } from 'widgets/ArticleDetailsFilters';
 import { Page } from 'widgets/Page';
-import { getArticlesPageIsLoading } from '../model/selectors/articlesPageSelectors';
+import { getArticlesPageIsLoading } from '../../model/selectors/articlesPageSelectors';
 
-import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
-import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
-import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import {
   articlesPageReducer,
   getArticles,
-} from '../model/slices/articlesPageSlice';
+  setPage,
+} from '../../model/slices/articlesPageSlice';
+
 import classes from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
@@ -41,7 +42,6 @@ const reducers: ReducersList = {
 };
 
 const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
-  const { t } = useTranslation('articles');
   const dispatch = useAppDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -75,7 +75,10 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
       className={classNames('', {}, [className])}
     >
       <VStack gap="16">
-        <ArticleDetailsFilters fetchFiltersData={debouncedFetchFiltersData} />
+        <ArticleDetailsFilters
+          fetchFiltersData={debouncedFetchFiltersData}
+          setPage={setPage} // TODO: refactor
+        />
         <ArticleList
           className={classes.list}
           view={view}

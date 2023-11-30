@@ -1,29 +1,30 @@
-import { FC } from 'react';
+/* eslint-disable react/jsx-indent */
+import { ReactNode } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleTypes } from 'entities/Article/model/consts/consts';
-import { useSelector } from 'react-redux';
-import { getArticlesType } from 'features/SwitchArticlesType';
-import classes from './Tabs.module.scss';
 import { Button, ButtonVariants } from '../Button/Button';
+import classes from './Tabs.module.scss';
 
-export interface ArticlesTabs {
-  value: ArticleTypes;
-  content: string;
+export interface Tab<T extends string> {
+  value: T;
+  content: ReactNode;
 }
 
-interface TabsProps {
+interface TabsProps<T extends string> {
   className?: string;
-  tabs: ArticlesTabs[];
-  onTabClick: (type: ArticleTypes) => void;
+  tabs: Tab<T>[];
+  onTabClick: (tab: T) => void;
+  value: string;
 }
 
-export const Tabs: FC<TabsProps> = ({ className, tabs, onTabClick }) => {
-  const type = useSelector(getArticlesType);
-
-  return (
+export const Tabs = <T extends string>({
+  className,
+  tabs,
+  onTabClick,
+  value,
+}: TabsProps<T>) => (
     <div className={classNames(classes.tabs, {}, [className])}>
       {tabs.map((tab) => {
-        const tabVariant = tab.value === type
+        const tabVariant = tab.value === value
           ? ButtonVariants.CONTAINED
           : ButtonVariants.OUTLINED;
 
@@ -31,7 +32,7 @@ export const Tabs: FC<TabsProps> = ({ className, tabs, onTabClick }) => {
           <Button
             variant={tabVariant}
             key={tab.value}
-            // @ts-ignore - use Generics (Select)
+            // @ts-ignore
             onClick={onTabClick(tab.value)}
           >
             {tab.content}
@@ -40,4 +41,3 @@ export const Tabs: FC<TabsProps> = ({ className, tabs, onTabClick }) => {
       })}
     </div>
   );
-};
