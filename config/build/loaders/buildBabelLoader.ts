@@ -1,4 +1,5 @@
 import { BuildOptions } from '../types/config';
+import babelRemovePropsPlugin from '../../babel/babelRemovePropsPlugin';
 
 interface BuildBabelLoaderProps extends BuildOptions {
   isTsx?: boolean;
@@ -19,6 +20,9 @@ export const buildBabelLoader = ({ isDev, isTsx }: BuildBabelLoaderProps) => ({
             isTSX: isTsx,
           },
         ],
+        isTsx && !isDev && [babelRemovePropsPlugin(), {
+          props: ['data-testid'],
+        }],
         '@babel/plugin-transform-runtime',
       ].filter(Boolean),
     },
