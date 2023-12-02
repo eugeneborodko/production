@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --env port=3001",
+    "start:vite": "vite",
     "start:dev": "concurrently \"npm start\" \"npm run start:dev:server\"",
+    "start:dev:vite": "concurrently \"npm run start:vite\" \"npm run start:dev:server\"",
     "start:dev:server": "node ./json-server/index.js",
     "build:prod": "webpack --env mode=production apiUrl=https://production-server-alw5l0n3i-eugeneborodko.vercel.app/",
     "build:dev": "webpack --env mode=development",
@@ -59,6 +61,7 @@
     "@types/webpack-bundle-analyzer": "^4.4.1",
     "@types/webpack-dev-server": "^4.7.2",
     "@typescript-eslint/eslint-plugin": "^5.51.0",
+    "@vitejs/plugin-react": "^4.2.0",
     "babel-loader": "^8.2.3",
     "circular-dependency-plugin": "^5.2.2",
     "concurrently": "^8.0.1",
@@ -90,6 +93,8 @@
     "ts-morph": "^20.0.0",
     "ts-node": "^10.6.0",
     "typescript": "^4.6.4",
+    "vite": "^5.0.4",
+    "vite-plugin-svgr": "^2.2.1",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.7.4"
   },
