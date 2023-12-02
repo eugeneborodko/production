@@ -10,7 +10,9 @@ interface NotificationListProps {
 }
 
 const NotificationList: FC<NotificationListProps> = ({ className }) => {
-  const { data: notifications, isLoading } = useGetNotificationsQuery();
+  const { data: notifications, isLoading } = useGetNotificationsQuery(null, {
+    pollingInterval: 5000,
+  });
 
   if (isLoading) {
     return (
