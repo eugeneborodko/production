@@ -1,15 +1,15 @@
-import { AboutPage } from 'pages/AboutPage';
-import { MainPage } from 'pages/MainPage';
-import { ProfilePage } from 'pages/ProfilePage';
-import { NotFoundPage } from 'pages/NotFoundPage';
 import { RouteProps } from 'react-router-dom';
-import { AppRoutes, RoutePaths } from 'shared/config/routeConfig/routeConfig';
-import ArticlesPage from 'pages/ArticlesPage/ui/ArticlesPage/ArticlesPage';
-import ArticleDetailsPage from 'pages/ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailsPage';
-import { ArticleEditPage } from 'pages/ArticleEditPage';
-import { AdminPanelPage } from 'pages/AdminPanelPage';
-import { UserRoles } from 'entities/User/model/types/user';
-import { ForbiddenPage } from 'pages/ForbiddenPage';
+import { AboutPage } from '@/pages/AboutPage';
+import { MainPage } from '@/pages/MainPage';
+import { ProfilePage } from '@/pages/ProfilePage';
+import { NotFoundPage } from '@/pages/NotFoundPage';
+import { AppRoutes, RoutePaths } from '@/shared/config/routeConfig/routeConfig';
+import ArticlesPage from '@/pages/ArticlesPage/ui/ArticlesPage/ArticlesPage';
+import ArticleDetailsPage from '@/pages/ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailsPage';
+import { ArticleEditPage } from '@/pages/ArticleEditPage';
+import { AdminPanelPage } from '@/pages/AdminPanelPage';
+import { UserRoles } from '@/entities/User/model/types/user';
+import { ForbiddenPage } from '@/pages/ForbiddenPage';
 
 export type AppRoutesProps = RouteProps & {
   // extend RouteProps

@@ -1,13 +1,13 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button, HStack, Input } from 'shared/ui';
+import { useSelector } from 'react-redux';
+import { Button, HStack, Input } from '@/shared/ui';
 import {
   ReducersList,
   useDynamicModuleLoader,
-} from 'shared/lib/hooks/useDynamicModuleLoader';
-import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+} from '@/shared/lib/hooks/useDynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import {
   getAddCommentFormError,
   getAddCommentFormIsLoading,

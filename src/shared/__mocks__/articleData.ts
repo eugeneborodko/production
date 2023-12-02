@@ -2,8 +2,8 @@
 import {
   ArticleBlocksTypes,
   ArticleTypes,
-} from 'entities/Article/model/consts/consts'; // TODO: move __mocks__ into different folders
-import { Article } from 'entities/Article';
+} from '@/entities/Article/model/consts/consts'; // TODO: move __mocks__ into different folders
+import { Article } from '@/entities/Article';
 
 export const mockArticle: Article = {
   id: '1',

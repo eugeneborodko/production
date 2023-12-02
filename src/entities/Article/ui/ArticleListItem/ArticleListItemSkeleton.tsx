@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Card } from 'shared/ui';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Card } from '@/shared/ui';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { ArticleView } from '../../../Article/model/types/article';
 import classes from './ArticleListItem.module.scss';
 

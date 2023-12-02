@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import { Modes, classNames } from 'shared/lib/classNames/classNames';
+import { Modes, classNames } from '@/shared/lib/classNames/classNames';
 import classes from './Flex.module.scss';
 
 export type FlexJustify = 'start' | 'end' | 'center' | 'between';

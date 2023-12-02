@@ -1,5 +1,5 @@
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { mockArticle } from 'shared/__mocks__/articleData';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { mockArticle } from '@/shared/__mocks__/articleData';
 import { fetchArticleById } from './fetchArticleById';
 
 describe('fetchArticleById', () => {

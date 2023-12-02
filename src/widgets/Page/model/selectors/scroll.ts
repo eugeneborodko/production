@@ -1,5 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 export const getPageScrollPosition = (state: StateSchema) => state.scroll.scrollPosition;
 export const getPageScrollPositionByPath = createSelector(

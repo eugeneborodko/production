@@ -2,13 +2,13 @@
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import {
   ReducersList,
   useDynamicModuleLoader,
-} from 'shared/lib/hooks/useDynamicModuleLoader';
-import { Card, Input } from 'shared/ui';
-import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
+} from '@/shared/lib/hooks/useDynamicModuleLoader';
+import { Card, Input } from '@/shared/ui';
 import { getArticlesSearch } from '../model/selectors/articlesSearchSelectors';
 import {
   articlesSearchReducer,

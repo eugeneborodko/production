@@ -1,7 +1,7 @@
 import { memo } from 'react';
-import { useTheme, Theme, ThemeIconColors } from 'app/providers/ThemeProvider';
-import { Button, ButtonVariants } from 'shared/ui/Button/Button';
-import Svg from 'shared/assets/icons/theme.svg';
+import { useTheme, Theme, ThemeIconColors } from '@/app/providers/ThemeProvider';
+import { Button, ButtonVariants } from '@/shared/ui/Button/Button';
+import Svg from '@/shared/assets/icons/theme.svg';
 
 interface ThemeSwitcherProps {
   themeColor?: string;

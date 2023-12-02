@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import { Modes, classNames } from 'shared/lib/classNames/classNames';
+import { useTranslation } from 'react-i18next';
+import { Modes, classNames } from '@/shared/lib/classNames/classNames';
 import {
   Avatar, HStack, Input, Loader, Typography, VStack,
-} from 'shared/ui';
-import { useTranslation } from 'react-i18next';
-import { TypographyVariants } from 'shared/ui/Typography/Typography';
-import { Currencies, CurrencySelect } from 'entities/Currency';
-import { Countries, CountrySelect } from 'entities/Country';
+} from '@/shared/ui';
+import { TypographyVariants } from '@/shared/ui/Typography/Typography';
+import { Currencies, CurrencySelect } from '@/entities/Currency';
+import { Countries, CountrySelect } from '@/entities/Country';
 import { Profile } from '../../../Profile';
 import classes from './ProfileCard.module.scss';
 

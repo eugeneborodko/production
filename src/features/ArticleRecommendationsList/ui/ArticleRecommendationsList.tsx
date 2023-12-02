@@ -1,15 +1,15 @@
-import { ArticleList } from 'entities/Article';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import { ArticleList } from '@/entities/Article';
 // import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import {
   ReducersList,
   useDynamicModuleLoader,
-} from 'shared/lib/hooks/useDynamicModuleLoader';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { Typography } from 'shared/ui';
+} from '@/shared/lib/hooks/useDynamicModuleLoader';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { Typography } from '@/shared/ui';
 import { useGetArticleRecommendationsQuery } from '../api/articleRecommendationsListApi';
 // import { getArticleRecommendationsLoading } from '../model/selectors/getArticleRecommendationsList/getArticleRecommendationsList';
 // import { fetchArticlesRecommendations } from '../model/services/fetchArticleRecommendationsList/fetchArticleRecommendationsList';

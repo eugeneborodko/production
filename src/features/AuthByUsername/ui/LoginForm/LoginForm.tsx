@@ -1,14 +1,14 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { Button, Input, Typography } from 'shared/ui';
-import { TypographyVariants } from 'shared/ui/Typography/Typography';
+import { useNavigate } from 'react-router-dom';
+import { Button, Input, Typography } from '@/shared/ui';
+import { TypographyVariants } from '@/shared/ui/Typography/Typography';
 import {
   useDynamicModuleLoader,
   ReducersList,
-} from 'shared/lib/hooks/useDynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useNavigate } from 'react-router-dom';
+} from '@/shared/lib/hooks/useDynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';

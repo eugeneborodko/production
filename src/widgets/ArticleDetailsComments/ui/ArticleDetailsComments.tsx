@@ -1,13 +1,13 @@
-import { CommentList } from 'entities/Comment';
-import { AddCommentForm } from 'features/AddCommentForm';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { Typography, VStack } from 'shared/ui';
+import { AddCommentForm } from '@/features/AddCommentForm';
+import { CommentList } from '@/entities/Comment';
+import { Typography, VStack } from '@/shared/ui';
 import {
   ReducersList,
   useDynamicModuleLoader,
-} from 'shared/lib/hooks/useDynamicModuleLoader';
+} from '@/shared/lib/hooks/useDynamicModuleLoader';
 import { getArticleCommentsLoading } from '../model/selectors/articleDetailsCommentSelectors';
 import {
   articleDetailsCommentsReducer,

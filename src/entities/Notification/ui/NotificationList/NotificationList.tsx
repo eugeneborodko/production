@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { VStack } from 'shared/ui';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { VStack } from '@/shared/ui';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { useGetNotificationsQuery } from '../../api/notificationApi';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 import classes from './NotificationList.module.scss';

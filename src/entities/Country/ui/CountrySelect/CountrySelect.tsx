@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
-import { Select } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
+import { Select } from '@/shared/ui';
 import { Countries } from '../../model/types/country';
 
 const countries = [

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { getDate } from '../../lib/helpers/getDate';
 import classes from './Typography.module.scss';
 

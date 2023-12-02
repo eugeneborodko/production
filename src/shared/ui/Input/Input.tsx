@@ -5,7 +5,7 @@ import {
   useEffect,
   useRef,
 } from 'react';
-import { classNames, Modes } from 'shared/lib/classNames/classNames';
+import { classNames, Modes } from '@/shared/lib/classNames/classNames';
 import classes from './Input.module.scss';
 import { HStack } from '../Stack';
 

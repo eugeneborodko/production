@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ArticleTypes } from 'entities/Article/model/consts/consts';
 import { action } from '@storybook/addon-actions';
+import { ArticleTypes } from '@/entities/Article/model/consts/consts';
 import { Tabs } from './Tabs';
 
 export default {

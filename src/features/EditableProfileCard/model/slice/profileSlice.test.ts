@@ -1,4 +1,4 @@
-import { mockProfileData } from 'shared/__mocks__/profileData';
+import { mockProfileData } from '@/shared/__mocks__/profileData';
 import {
   cancelEdit,
   profileReducer,

@@ -1,23 +1,23 @@
-import { ArticleList } from 'entities/Article';
-import { articleSortReducer } from 'features/ArticleSort';
-import {
-  getArticlesView,
-  switchArticlesViewReducer,
-} from 'features/SwitchArticlesView';
 import { FC, memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useDebounce } from 'shared/lib/hooks/useDebounce';
+import { ArticleList } from '@/entities/Article';
+import { articleSortReducer } from '@/features/ArticleSort';
+import {
+  getArticlesView,
+  switchArticlesViewReducer,
+} from '@/features/SwitchArticlesView';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce';
 import {
   ReducersList,
   useDynamicModuleLoader,
-} from 'shared/lib/hooks/useDynamicModuleLoader';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { VStack } from 'shared/ui';
-import { ArticleDetailsFilters } from 'widgets/ArticleDetailsFilters';
-import { Page } from 'widgets/Page';
+} from '@/shared/lib/hooks/useDynamicModuleLoader';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { VStack } from '@/shared/ui';
+import { ArticleDetailsFilters } from '@/widgets/ArticleDetailsFilters';
+import { Page } from '@/widgets/Page';
 import { getArticlesPageIsLoading } from '../../model/selectors/articlesPageSelectors';
 
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';

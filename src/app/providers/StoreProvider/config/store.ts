@@ -4,10 +4,10 @@ import {
   Reducer,
   ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { userReducer } from 'entities/User';
-import { $api } from 'shared/api/api';
-import { pageReducer } from 'widgets/Page/model/slices/pageSlice';
-import { rtkApi } from 'shared/api/rtkApi';
+import { userReducer } from '@/entities/User';
+import { $api } from '@/shared/api/api';
+import { pageReducer } from '@/widgets/Page/model/slices/pageSlice';
+import { rtkApi } from '@/shared/api/rtkApi';
 import { createReducerManager } from './reducerManager';
 import { StateSchema, ThunkExtraArgs } from './StateSchema';
 

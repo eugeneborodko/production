@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-indent */
 import { ReactNode } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonVariants } from '../Button/Button';
 import classes from './Tabs.module.scss';
 

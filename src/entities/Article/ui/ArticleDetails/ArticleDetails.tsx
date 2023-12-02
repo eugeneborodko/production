@@ -1,19 +1,19 @@
 import { memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useSelector } from 'react-redux';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import {
   ReducersList,
   useDynamicModuleLoader,
-} from 'shared/lib/hooks/useDynamicModuleLoader';
-import { useSelector } from 'react-redux';
+} from '@/shared/lib/hooks/useDynamicModuleLoader';
 import {
   Avatar, HStack, Typography, VStack,
-} from 'shared/ui';
-import { TextAlign, TextSize } from 'shared/ui/Typography/Typography';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import EyeIcon from 'shared/assets/icons/eye.svg';
-import CalendarIcon from 'shared/assets/icons/calendar.svg';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+} from '@/shared/ui';
+import { TextAlign, TextSize } from '@/shared/ui/Typography/Typography';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
+import CalendarIcon from '@/shared/assets/icons/calendar.svg';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import {
   getArticleDetailsData,
   getArticleDetailsError,

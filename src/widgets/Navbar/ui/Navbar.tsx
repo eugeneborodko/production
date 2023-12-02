@@ -1,17 +1,17 @@
-import { getUserAuthData, logout } from 'entities/User';
-import { LoginModal } from 'features/AuthByUsername';
-import { getLoginError } from 'features/AuthByUsername/model/selectors/getLoginError/getLoginError';
-import { resetLoginError } from 'features/AuthByUsername/model/slice/loginSlice';
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { LOCAL_STORAGE_USER_KEY } from 'shared/const/localstorage';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { AppLink, Button, Typography } from 'shared/ui';
-import { ButtonVariants } from 'shared/ui/Button/Button';
-import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
-import { ShowNotifications } from 'features/ShowNotifications';
+import { getUserAuthData, logout } from '@/entities/User';
+import { LoginModal } from '@/features/AuthByUsername';
+import { getLoginError } from '@/features/AuthByUsername/model/selectors/getLoginError/getLoginError';
+import { resetLoginError } from '@/features/AuthByUsername/model/slice/loginSlice';
+import { LOCAL_STORAGE_USER_KEY } from '@/shared/const/localstorage';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { AppLink, Button, Typography } from '@/shared/ui';
+import { ButtonVariants } from '@/shared/ui/Button/Button';
+import { RoutePaths } from '@/shared/config/routeConfig/routeConfig';
+import { ShowNotifications } from '@/features/ShowNotifications';
 import classes from './Navbar.module.scss';
 
 interface NavBarProps {

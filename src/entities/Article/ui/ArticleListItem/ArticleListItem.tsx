@@ -1,12 +1,12 @@
 import { FC, HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import {
   AppLink, Avatar, Button, Card, Typography,
-} from 'shared/ui';
-import EyeIcon from 'shared/assets/icons/eye.svg';
-import { ButtonVariants } from 'shared/ui/Button/Button';
-import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
+} from '@/shared/ui';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
+import { ButtonVariants } from '@/shared/ui/Button/Button';
+import { RoutePaths } from '@/shared/config/routeConfig/routeConfig';
 import type {
   Article,
   ArticleTextBlock,

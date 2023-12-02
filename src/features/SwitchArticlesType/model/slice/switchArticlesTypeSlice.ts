@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ArticleTypes } from 'entities/Article/model/consts/consts';
+import { ArticleTypes } from '@/entities/Article/model/consts/consts';
 import { SwitchArticlesTypeSchema } from '../types/switchArticlesType';
 
 const initialState: SwitchArticlesTypeSchema = {

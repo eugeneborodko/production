@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Typography } from 'shared/ui';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Typography } from '@/shared/ui';
 import { Notification } from '../../model/types/notification';
 import classes from './NotificationItem.module.scss';
 

@@ -1,14 +1,14 @@
-import { ArticleSortField } from 'entities/Article';
-// import { setPage } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
 import { FC, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { SortOrder } from 'shared/types/sort';
-import { Select } from 'shared/ui';
-import { SelectOptions } from 'shared/ui/Select/Select';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
+import { ArticleSortField } from '@/entities/Article';
+// import { setPage } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { SortOrder } from '@/shared/types/sort';
+import { Select } from '@/shared/ui';
+import { SelectOptions } from '@/shared/ui/Select/Select';
 import {
   getArticlesOrder,
   getArticlesSort,

@@ -1,16 +1,16 @@
-import { ArticleTypes } from 'entities/Article/model/consts/consts';
 import { FC, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useSelector } from 'react-redux';
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
+import { ArticleTypes } from '@/entities/Article/model/consts/consts';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import {
   ReducersList,
   useDynamicModuleLoader,
-} from 'shared/lib/hooks/useDynamicModuleLoader';
-import { Tabs } from 'shared/ui';
-import { useSelector } from 'react-redux';
-import { Tab } from 'shared/ui/Tabs/Tabs';
-import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
+} from '@/shared/lib/hooks/useDynamicModuleLoader';
+import { Tabs } from '@/shared/ui';
+import { Tab } from '@/shared/ui/Tabs/Tabs';
 import {
   setType,
   switchArticlesTypeReducer,

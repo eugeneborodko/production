@@ -1,10 +1,10 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { getUserAuthData, isUserAdmin, isUserManager } from 'entities/User';
-import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
-import SVGHome from 'shared/assets/icons/home.svg';
-import SVGAbout from 'shared/assets/icons/about.svg';
-import SVGProfile from 'shared/assets/icons/profile.svg';
-import SVGArticles from 'shared/assets/icons/articles.svg';
+import { getUserAuthData, isUserAdmin, isUserManager } from '@/entities/User';
+import { RoutePaths } from '@/shared/config/routeConfig/routeConfig';
+import SVGHome from '@/shared/assets/icons/home.svg';
+import SVGAbout from '@/shared/assets/icons/about.svg';
+import SVGProfile from '@/shared/assets/icons/profile.svg';
+import SVGArticles from '@/shared/assets/icons/articles.svg';
 import { SidebarItemType } from '../types/sidebar';
 
 export const getSidebarItems = createSelector(

@@ -1,7 +1,7 @@
 import { FC, HTMLAttributeAnchorTarget } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Typography } from 'shared/ui';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Typography } from '@/shared/ui';
 import { Article, ArticleView } from '../../../Article/model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';

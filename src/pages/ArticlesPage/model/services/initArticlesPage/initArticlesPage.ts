@@ -1,14 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
-import { ArticleSortField, ArticleView } from 'entities/Article';
-import { LOCAL_STORAGE_ARTICLES_VIEW } from 'shared/const/localstorage';
-import { setArticlesView } from 'features/SwitchArticlesView';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { ArticleSortField, ArticleView } from '@/entities/Article';
+import { LOCAL_STORAGE_ARTICLES_VIEW } from '@/shared/const/localstorage';
+import { setArticlesView } from '@/features/SwitchArticlesView';
 import {
   setOrder,
   setSort,
-} from 'features/ArticleSort/model/slice/articleSortSlice';
-import { SortOrder } from 'shared/types/sort';
-import { setSearch } from 'features/ArticlesSearch';
+} from '@/features/ArticleSort/model/slice/articleSortSlice';
+import { SortOrder } from '@/shared/types/sort';
+import { setSearch } from '@/features/ArticlesSearch';
 import { getArticlesPageInited } from '../../selectors/articlesPageSelectors';
 import { setInited, setLimit } from '../../slices/articlesPageSlice';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';

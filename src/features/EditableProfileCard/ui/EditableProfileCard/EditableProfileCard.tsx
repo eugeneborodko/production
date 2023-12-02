@@ -1,17 +1,17 @@
-import { Countries } from 'entities/Country';
-import { Currencies } from 'entities/Currency';
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useSelector } from 'react-redux';
+import { Countries } from '@/entities/Country';
+import { Currencies } from '@/entities/Currency';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import {
   ReducersList,
   useDynamicModuleLoader,
-} from 'shared/lib/hooks/useDynamicModuleLoader';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { Typography, VStack } from 'shared/ui';
-import { TypographyVariants } from 'shared/ui/Typography/Typography';
-import { ProfileCard } from 'entities/Profile';
-import { useSelector } from 'react-redux';
+} from '@/shared/lib/hooks/useDynamicModuleLoader';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { Typography, VStack } from '@/shared/ui';
+import { TypographyVariants } from '@/shared/ui/Typography/Typography';
+import { ProfileCard } from '@/entities/Profile';
 import { profileReducer, updateProfile } from '../../model/slice/profileSlice';
 import { getProfileFormData } from '../../model/selectors/getProfileFormData/getProfileFormData';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';

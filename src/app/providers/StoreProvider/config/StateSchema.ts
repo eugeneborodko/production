@@ -7,20 +7,20 @@ import {
   ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { ArticleDetailsSchema } from 'entities/Article';
-import { UserSchema } from 'entities/User';
-import { AddCommentFormSchema } from 'features/AddCommentForm';
+import { ArticleDetailsSchema } from '@/entities/Article';
+import { UserSchema } from '@/entities/User';
+import { AddCommentFormSchema } from '@/features/AddCommentForm';
 // import { ArticleRecommendationsSchema } from 'features/ArticleRecommendationsList';
-import { ArticleSortSchema } from 'features/ArticleSort';
-import { ArticlesSearchSchema } from 'features/ArticlesSearch';
-import { LoginSchema } from 'features/AuthByUsername';
-import { ProfileSchema } from 'features/EditableProfileCard';
-import { SwitchArticlesTypeSchema } from 'features/SwitchArticlesType';
-import { ArticlesViewSchema } from 'features/SwitchArticlesView';
-import { ArticlesPageSchema } from 'pages/ArticlesPage';
-import { rtkApi } from 'shared/api/rtkApi';
-import { ArticleDetailsCommentsSchema } from 'widgets/ArticleDetailsComments';
-import { ScrollPositionSchema } from 'widgets/Page';
+import { ArticleSortSchema } from '@/features/ArticleSort';
+import { ArticlesSearchSchema } from '@/features/ArticlesSearch';
+import { LoginSchema } from '@/features/AuthByUsername';
+import { ProfileSchema } from '@/features/EditableProfileCard';
+import { SwitchArticlesTypeSchema } from '@/features/SwitchArticlesType';
+import { ArticlesViewSchema } from '@/features/SwitchArticlesView';
+import { ArticlesPageSchema } from '@/pages/ArticlesPage';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { ArticleDetailsCommentsSchema } from '@/widgets/ArticleDetailsComments';
+import { ScrollPositionSchema } from '@/widgets/Page';
 
 export interface StateSchema {
   user: UserSchema;
