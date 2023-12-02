@@ -11,6 +11,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { AppLink, Button, Typography } from 'shared/ui';
 import { ButtonVariants } from 'shared/ui/Button/Button';
 import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
+import { ShowNotifications } from 'features/ShowNotifications';
 import classes from './Navbar.module.scss';
 
 interface NavBarProps {
@@ -45,6 +46,7 @@ export const Navbar = memo(({ className }: NavBarProps) => {
       <Typography className={classes.appName} title="My app" />
       {authData ? (
         <div className={classes.links}>
+          <ShowNotifications />
           <AppLink className={classes.link} to={RoutePaths.article_create}>
             <Button variant={ButtonVariants.OUTLINED_INVERTED}>
               {' '}
