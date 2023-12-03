@@ -1,0 +1,11 @@
+.starIcon {
+  fill: none;
+  stroke: currentcolor;
+  cursor: pointer;
+
+  &.active,
+  &:hover,
+  &:has(~ :hover) {
+    fill: var(--primary-color);
+  }
+}

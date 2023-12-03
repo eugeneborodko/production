@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import {
@@ -27,6 +28,7 @@ import { ArticleBlocksTypes } from '../../model/consts/consts';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { RatingCard } from '@/entities/Rating';
 
 interface ArticleDetailsProps {
   className?: string;
@@ -63,6 +65,7 @@ const renderBlock = (block: ArticleBlock) => {
 };
 
 export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
+  const { t } = useTranslation('article-details');
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticleDetailsIsLoading);
   const error = useSelector(getArticleDetailsError);
@@ -117,6 +120,11 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
         <Typography className={classes.title} date={article?.createdAt} />
       </HStack>
       {article?.blocks.map(renderBlock)}
+      <RatingCard
+        title={t('Rate this article')}
+        modalTitle={t('Write a review')}
+        modalInputLabel={t('Your review')}
+      />
     </VStack>
   );
 });
