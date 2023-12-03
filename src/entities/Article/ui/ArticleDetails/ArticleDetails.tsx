@@ -1,34 +1,32 @@
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next';
+import CalendarIcon from '@/shared/assets/icons/calendar.svg';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import {
   ReducersList,
   useDynamicModuleLoader,
 } from '@/shared/lib/hooks/useDynamicModuleLoader';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import {
   Avatar, HStack, Typography, VStack,
 } from '@/shared/ui';
-import { TextAlign, TextSize } from '@/shared/ui/Typography/Typography';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import EyeIcon from '@/shared/assets/icons/eye.svg';
-import CalendarIcon from '@/shared/assets/icons/calendar.svg';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { TextAlign, TextSize } from '@/shared/ui/Typography/Typography';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from '../../../Article/model/selectors/articleDetails';
-import { articleDetailsReducer } from '../../../Article/model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../../Article/model/services/fetchArticleById/fetchArticleById';
-import classes from './ArticleDetails.module.scss';
-import type { ArticleBlock } from '../../model/types/article';
+import { articleDetailsReducer } from '../../../Article/model/slice/articleDetailsSlice';
 import { ArticleBlocksTypes } from '../../model/consts/consts';
+import type { ArticleBlock } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { RatingCard } from '@/entities/Rating';
+import classes from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
   className?: string;
@@ -65,7 +63,6 @@ const renderBlock = (block: ArticleBlock) => {
 };
 
 export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
-  const { t } = useTranslation('article-details');
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getArticleDetailsIsLoading);
   const error = useSelector(getArticleDetailsError);
@@ -120,11 +117,6 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
         <Typography className={classes.title} date={article?.createdAt} />
       </HStack>
       {article?.blocks.map(renderBlock)}
-      <RatingCard
-        title={t('Rate this article')}
-        modalTitle={t('Write a review')}
-        modalInputLabel={t('Your review')}
-      />
     </VStack>
   );
 });

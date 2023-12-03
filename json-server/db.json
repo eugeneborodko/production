@@ -1,4 +1,62 @@
 {
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "review": "Good article",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 5,
+      "review": "Excellent article",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "rate": 5,
+      "review": "awesome",
+      "id": "Kxo4iTS"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "rate": 5,
+      "review": "",
+      "id": "ADUnc0t"
+    },
+    {
+      "articleId": "4",
+      "userId": "1",
+      "rate": 5,
+      "review": "good one",
+      "id": "F3xh9st"
+    },
+    {
+      "articleId": "20",
+      "userId": "1",
+      "rate": 2,
+      "review": "",
+      "id": "eLOyIYM"
+    },
+    {
+      "articleId": "23",
+      "userId": "1",
+      "rate": 1,
+      "review": "",
+      "id": "vj8WHtC"
+    },
+    {
+      "articleId": "15",
+      "userId": "1",
+      "rate": 3,
+      "review": "three",
+      "id": "knPeAmI"
+    }
+  ],
   "notifications": [
     {
       "id": "1",
@@ -48,13 +106,15 @@
   "articles": [
     {
       "id": "1",
-      "title": "Javascript news",
+      "title": "Javascript news first",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -124,7 +184,9 @@
       "views": 101,
       "createdAt": "28.02.2012",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -194,7 +256,9 @@
       "views": 102,
       "createdAt": "28.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -264,7 +328,9 @@
       "views": 10220,
       "createdAt": "26.12.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -334,7 +400,9 @@
       "views": 10,
       "createdAt": "27.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -404,7 +472,9 @@
       "views": 2,
       "createdAt": "20.05.2019",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -474,7 +544,9 @@
       "views": 1022,
       "createdAt": "07.11.2023",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -544,7 +616,9 @@
       "views": 10,
       "createdAt": "27.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -614,7 +688,9 @@
       "views": 102,
       "createdAt": "28.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -684,7 +760,9 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -754,7 +832,9 @@
       "views": 10,
       "createdAt": "27.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -824,7 +904,9 @@
       "views": 102,
       "createdAt": "28.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -894,7 +976,9 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -964,7 +1048,9 @@
       "views": 10,
       "createdAt": "27.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1034,7 +1120,9 @@
       "views": 102,
       "createdAt": "28.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1104,7 +1192,9 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1174,7 +1264,9 @@
       "views": 10,
       "createdAt": "27.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1244,7 +1336,9 @@
       "views": 102,
       "createdAt": "28.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1314,7 +1408,9 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1384,7 +1480,9 @@
       "views": 10,
       "createdAt": "27.02.2022",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1454,7 +1552,9 @@
       "views": 102,
       "createdAt": "28.02.2022",
       "userId": "1",
-      "type": ["ECONOMICS"],
+      "type": [
+        "ECONOMICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1524,7 +1624,9 @@
       "views": 102,
       "createdAt": "28.02.2022",
       "userId": "1",
-      "type": ["MEDICINE"],
+      "type": [
+        "MEDICINE"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1594,7 +1696,9 @@
       "views": 10200,
       "createdAt": "08.09.2021",
       "userId": "1",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -1778,21 +1882,27 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": ["admin"],
+      "roles": [
+        "admin"
+      ],
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9r3ogaSmpwNYSaEKRifVaHjwmYsKSW7fC6Q&usqp=CAU"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "roles": ["user"],
+      "roles": [
+        "user"
+      ],
       "avatar": "https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg"
     },
     {
       "id": "3",
       "username": "manager",
       "password": "123",
-      "roles": ["manager"],
+      "roles": [
+        "manager"
+      ],
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9r3ogaSmpwNYSaEKRifVaHjwmYsKSW7fC6Q&usqp=CAU"
     }
   ],

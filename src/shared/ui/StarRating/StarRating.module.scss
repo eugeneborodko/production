@@ -1,3 +1,7 @@
+.starRating:has(.active) {
+  pointer-events: none;
+}
+
 .starIcon {
   fill: none;
   stroke: currentcolor;

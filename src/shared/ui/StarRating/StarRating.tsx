@@ -16,7 +16,7 @@ export const StarRating: FC<StarRatingProps> = ({
   className,
   onSelect,
   size = 30,
-  selectedStars,
+  selectedStars = 0,
 }) => (
   <div className={classNames(classes.starRating, {}, [className])}>
     {stars.map((star) => (

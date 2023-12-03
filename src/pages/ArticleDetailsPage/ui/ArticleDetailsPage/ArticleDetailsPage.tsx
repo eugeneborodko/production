@@ -8,6 +8,7 @@ import { ArticleDetailsComments } from '@/widgets/ArticleDetailsComments/ui/Arti
 import { Page } from '@/widgets/Page';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import classes from './ArticleDetailsPage.module.scss';
+import { WriteArticleReview } from '@/features/WriteArticleReview';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -29,6 +30,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
     <Page className={classNames(classes.articleDetailsPage, {}, [className])}>
       <ArticleDetailsPageHeader />
       <ArticleDetails id={id} />
+      <WriteArticleReview id={id} />
       <ArticleRecommendationsList />
       <ArticleDetailsComments id={id} />
     </Page>
