@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import { FC, Suspense, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList/ui/ArticleRecommendationsList';
@@ -9,6 +9,7 @@ import { Page } from '@/widgets/Page';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import classes from './ArticleDetailsPage.module.scss';
 import { WriteArticleReview } from '@/features/WriteArticleReview';
+import { Loader } from '@/shared/ui';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -30,8 +31,10 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
     <Page className={classNames(classes.articleDetailsPage, {}, [className])}>
       <ArticleDetailsPageHeader />
       <ArticleDetails id={id} />
-      <WriteArticleReview id={id} />
-      <ArticleRecommendationsList />
+      <WriteArticleReview articleId={id} />
+      <Suspense fallback={<Loader />}>
+        <ArticleRecommendationsList />
+      </Suspense>
       <ArticleDetailsComments id={id} />
     </Page>
   );

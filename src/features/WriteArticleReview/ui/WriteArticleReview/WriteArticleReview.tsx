@@ -11,12 +11,12 @@ import {
 
 interface WriteArticleReviewProps {
   className?: string;
-  id: string;
+  articleId: string;
 }
 
 export const WriteArticleReview: FC<WriteArticleReviewProps> = ({
   className,
-  id,
+  articleId,
 }) => {
   const { t } = useTranslation('rating');
   const [review, setReview] = useState('');
@@ -25,7 +25,7 @@ export const WriteArticleReview: FC<WriteArticleReviewProps> = ({
   const authData = useSelector(getUserAuthData);
 
   const { data: rating } = useGetArticleRatingQuery({
-    articleId: id,
+    articleId,
     userId: authData?.id ?? '',
   });
 

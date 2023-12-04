@@ -55,6 +55,13 @@
       "rate": 3,
       "review": "three",
       "id": "knPeAmI"
+    },
+    {
+      "articleId": "9",
+      "userId": "1",
+      "rate": 3,
+      "review": "",
+      "id": "8pMLatm"
     }
   ],
   "notifications": [

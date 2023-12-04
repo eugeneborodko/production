@@ -25,9 +25,12 @@ export interface ArticleRecommendationsListProps {
 
 export const ArticleRecommendationsList: FC<ArticleRecommendationsListProps> = ({ className }) => {
   const { t } = useTranslation();
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
 
-  const { data: recommendations = [], isLoading } = useGetArticleRecommendationsQuery(4);
+  const {
+    data: recommendations = [],
+    isLoading,
+  } = useGetArticleRecommendationsQuery(4);
 
   // const recommendations = useSelector(getArticleRecommendations.selectAll);
   // const recommendationsIsLoading = useSelector(

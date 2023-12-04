@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { NotFoundPage } from './NotFoundPage';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 
 export default {
   title: 'pages/NotFoundPage',
@@ -12,3 +13,4 @@ const Template: ComponentStory<typeof NotFoundPage> = (args) => (
 
 export const Primary = Template.bind({});
 Primary.args = {};
+Primary.decorators = [StoreDecorator({})];

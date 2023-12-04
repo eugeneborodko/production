@@ -16,6 +16,5 @@
   "incorrect currency": "Несуществующая валюта",
   "no data": "Данные не введены. Пожалуйста заполните поля",
   "server error": "Серверная ошибка",
-  "incorrect age": "Неверный возраст",
-  "article does not exist": "Статья не существует"
+  "incorrect age": "Неверный возраст"
 }

@@ -1,9 +1,9 @@
-import { memo } from 'react';
+import { Suspense, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { AddCommentForm } from '@/features/AddCommentForm';
 import { CommentList } from '@/entities/Comment';
-import { Typography, VStack } from '@/shared/ui';
+import { Loader, Typography, VStack } from '@/shared/ui';
 import {
   ReducersList,
   useDynamicModuleLoader,
@@ -35,7 +35,10 @@ export const ArticleDetailsComments = memo(
       <VStack gap="8">
         <Typography title={t('comments')} />
         <VStack gap="16">
-          <AddCommentForm id={id} />
+          <Suspense fallback={<Loader />}>
+            <AddCommentForm id={id} />
+          </Suspense>
+
           <CommentList isLoading={commentsIsLoading} comments={comments} />
         </VStack>
       </VStack>
