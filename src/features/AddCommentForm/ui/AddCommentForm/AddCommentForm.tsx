@@ -8,11 +8,7 @@ import {
 } from '@/shared/lib/hooks/useDynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import {
-  getAddCommentFormError,
-  getAddCommentFormIsLoading,
-  getAddCommentFormText,
-} from '../../model/selectors/addCommentFormSelectors';
+import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 import {
   addCommentFormReducer,
   setCommentsFormText,

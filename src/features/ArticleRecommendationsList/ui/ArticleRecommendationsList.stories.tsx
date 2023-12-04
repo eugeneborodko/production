@@ -38,6 +38,7 @@ Primary.parameters = {
         { ...article, id: '2' },
         { ...article, id: '3' },
       ],
+      delay: 2000,
     },
   ],
 };
