@@ -1,7 +1,9 @@
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { renderComponent } from '@/shared/lib/tests/renderComponent/renderComponent';
+
 import { Sidebar } from './Sidebar';
+
+import { renderComponent } from '@/shared/lib/tests/renderComponent/renderComponent';
 
 describe('Sidebar', () => {
   it('should render sidebar', () => {

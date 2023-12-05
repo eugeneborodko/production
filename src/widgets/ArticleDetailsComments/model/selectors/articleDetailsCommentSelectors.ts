@@ -1,7 +1,8 @@
 import { createSelector } from '@reduxjs/toolkit';
+
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { getArticleDetailsData } from '@/entities/Article';
 import { getUserAuthData } from '@/entities/User';
-import { StateSchema } from '@/app/providers/StoreProvider';
 
 export const getArticleCommentsLoading = (state: StateSchema) => state.articleDetailsComments?.isLoading;
 export const getArticleCommentsError = (state: StateSchema) => state.articleDetailsComments?.error;

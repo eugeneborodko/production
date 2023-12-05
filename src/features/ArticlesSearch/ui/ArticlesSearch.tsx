@@ -1,19 +1,21 @@
 // import { setPage } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
+
+import { getArticlesSearch } from '../model/selectors/articlesSearchSelectors';
+import {
+  articlesSearchReducer,
+  setSearch,
+} from '../model/slice/articlesSearch';
+
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import {
   ReducersList,
   useDynamicModuleLoader,
 } from '@/shared/lib/hooks/useDynamicModuleLoader';
 import { Card, Input } from '@/shared/ui';
-import { getArticlesSearch } from '../model/selectors/articlesSearchSelectors';
-import {
-  articlesSearchReducer,
-  setSearch,
-} from '../model/slice/articlesSearch';
 
 export interface ArticlesSearchProps {
   fetchFiltersData: (...args: any[]) => void;

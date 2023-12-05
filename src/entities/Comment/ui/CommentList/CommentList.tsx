@@ -1,8 +1,10 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Typography, VStack } from '@/shared/ui';
+
 import { Comment } from '../../model/types/comment';
 import { CommentCard } from '../CommentCard/CommentCard';
+
+import { Typography, VStack } from '@/shared/ui';
 
 interface CommentListProps {
   comments?: Comment[];

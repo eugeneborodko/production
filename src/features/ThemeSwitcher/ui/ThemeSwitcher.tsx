@@ -1,8 +1,9 @@
 import { memo } from 'react';
-import { Button, ButtonVariants } from '@/shared/ui/Button';
+
 import Svg from '@/shared/assets/icons/theme.svg';
-import { useTheme } from '@/shared/lib/hooks/useTheme';
 import { Theme, ThemeIconColors } from '@/shared/consts/theme';
+import { useTheme } from '@/shared/lib/hooks/useTheme';
+import { Button, ButtonVariants } from '@/shared/ui/Button';
 
 interface ThemeSwitcherProps {
   themeColor?: string;

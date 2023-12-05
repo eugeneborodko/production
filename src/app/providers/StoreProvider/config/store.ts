@@ -4,11 +4,13 @@ import {
   Reducer,
   ReducersMapObject,
 } from '@reduxjs/toolkit';
+
+import { StateSchema, ThunkExtraArgs } from './StateSchema';
+import { createReducerManager } from './reducerManager';
+
 import { userReducer } from '@/entities/User';
 import { $api } from '@/shared/api/api';
 import { rtkApi } from '@/shared/api/rtkApi';
-import { createReducerManager } from './reducerManager';
-import { StateSchema, ThunkExtraArgs } from './StateSchema';
 import { pageReducer } from '@/widgets/Page';
 
 export const createReduxStore = (

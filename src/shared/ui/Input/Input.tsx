@@ -5,9 +5,12 @@ import {
   useEffect,
   useRef,
 } from 'react';
-import { classNames, Modes } from '@/shared/lib/classNames/classNames';
-import classes from './Input.module.scss';
+
 import { HStack } from '../Stack';
+
+import { classNames, Modes } from '@/shared/lib/classNames/classNames';
+
+import classes from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'>;
 

@@ -1,20 +1,22 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { Button, HStack, Input } from '@/shared/ui';
-import {
-  ReducersList,
-  useDynamicModuleLoader,
-} from '@/shared/lib/hooks/useDynamicModuleLoader';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+
 import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
 import {
   addCommentFormReducer,
   setCommentsFormText,
 } from '../../model/slice/addCommentFormSlice';
-import { addCommentForArticle } from '../../model/services/addCommentForArticle';
-import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
+
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import {
+  ReducersList,
+  useDynamicModuleLoader,
+} from '@/shared/lib/hooks/useDynamicModuleLoader';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { Button, HStack, Input } from '@/shared/ui';
 
 export interface AddCommentFormProps {
   id: string;

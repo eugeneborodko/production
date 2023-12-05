@@ -1,5 +1,7 @@
 import { ButtonHTMLAttributes, memo } from 'react';
+
 import { Modes, classNames } from '@/shared/lib/classNames/classNames';
+
 import classes from './Button.module.scss';
 
 export enum ButtonVariants {

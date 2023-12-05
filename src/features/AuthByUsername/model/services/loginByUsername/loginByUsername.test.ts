@@ -1,6 +1,7 @@
+import { loginByUsername, LoginByUsernameProps } from './loginByUsername';
+
 import { setAuthData, User } from '@/entities/User';
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { loginByUsername, LoginByUsernameProps } from './loginByUsername';
 
 describe('loginByUsername', () => {
   let user: User;

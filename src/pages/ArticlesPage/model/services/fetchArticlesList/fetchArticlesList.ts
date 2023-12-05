@@ -1,14 +1,16 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { URLSearchParamsInit } from 'react-router-dom';
-import { ThunkConfig } from '@/app/providers/StoreProvider';
-import { ArticleTypes, type Article } from '@/entities/Article';
-import { getArticlesOrder, getArticlesSort } from '@/features/ArticleSort';
-import { getArticlesType } from '@/features/SwitchArticlesType';
-import { getArticlesSearch } from '@/features/ArticlesSearch';
+
 import {
   getArticlesLimit,
   getArticlesPage,
 } from '../../selectors/articlesPageSelectors';
+
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { ArticleTypes, type Article } from '@/entities/Article';
+import { getArticlesOrder, getArticlesSort } from '@/features/ArticleSort';
+import { getArticlesSearch } from '@/features/ArticlesSearch';
+import { getArticlesType } from '@/features/SwitchArticlesType';
 
 interface FetchArticlesListProps {
   replace?: boolean;

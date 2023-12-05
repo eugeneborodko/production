@@ -1,5 +1,6 @@
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import { FC } from 'react';
+
 import { ArticleSort } from '@/features/ArticleSort';
 import { ArticlesSearch } from '@/features/ArticlesSearch';
 import { SwitchArticlesType } from '@/features/SwitchArticlesType';

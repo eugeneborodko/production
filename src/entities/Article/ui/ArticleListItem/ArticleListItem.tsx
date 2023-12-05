@@ -1,20 +1,23 @@
 import { FC, HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import {
-  AppLink, Avatar, Button, Card, Typography,
-} from '@/shared/ui';
-import EyeIcon from '@/shared/assets/icons/eye.svg';
-import { ButtonVariants } from '@/shared/ui/Button';
+
+import { ArticleBlocksTypes } from '../../../Article/model/consts/consts';
 import type {
   Article,
   ArticleTextBlock,
   ArticleView,
 } from '../../../Article/model/types/article';
-import { ArticleBlocksTypes } from '../../../Article/model/consts/consts';
-import classes from './ArticleListItem.module.scss';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+
+import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { RoutePaths } from '@/shared/consts/router';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import {
+  AppLink, Avatar, Button, Card, Typography,
+} from '@/shared/ui';
+import { ButtonVariants } from '@/shared/ui/Button';
+
+import classes from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {
   className?: string;

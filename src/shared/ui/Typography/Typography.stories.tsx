@@ -1,4 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { TextSize, Typography, TypographyVariants } from './Typography';
 
 export default {

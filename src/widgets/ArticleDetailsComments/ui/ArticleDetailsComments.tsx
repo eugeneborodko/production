@@ -1,18 +1,20 @@
 import { Suspense, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { AddCommentForm } from '@/features/AddCommentForm';
-import { CommentList } from '@/entities/Comment';
-import { Loader, Typography, VStack } from '@/shared/ui';
-import {
-  ReducersList,
-  useDynamicModuleLoader,
-} from '@/shared/lib/hooks/useDynamicModuleLoader';
+
 import { getArticleCommentsLoading } from '../model/selectors/articleDetailsCommentSelectors';
 import {
   articleDetailsCommentsReducer,
   getArticleComments,
 } from '../model/slices/articleDetailsCommentsSlice/articleDetailsCommentsSlice';
+
+import { CommentList } from '@/entities/Comment';
+import { AddCommentForm } from '@/features/AddCommentForm';
+import {
+  ReducersList,
+  useDynamicModuleLoader,
+} from '@/shared/lib/hooks/useDynamicModuleLoader';
+import { Loader, Typography, VStack } from '@/shared/ui';
 
 interface ArticleDetailsCommentsProps {
   id: string;

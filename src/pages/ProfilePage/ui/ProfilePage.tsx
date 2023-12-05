@@ -1,8 +1,10 @@
 import { useParams } from 'react-router-dom';
+
+import { ArticleDetailsParams } from '../../ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailsPage';
+
 import { EditableProfileCard } from '@/features/EditableProfileCard';
 import { VStack } from '@/shared/ui';
 import { Page } from '@/widgets/Page';
-import { ArticleDetailsParams } from '../../ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailsPage';
 
 const ProfilePage = () => {
   const { id } = useParams<ArticleDetailsParams>();

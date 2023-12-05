@@ -1,6 +1,7 @@
+import { getProfileData } from './getProfileData';
+
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { mockProfileData } from '@/shared/__mocks__/profileData';
-import { getProfileData } from './getProfileData';
 
 describe('getProfileData', () => {
   it('should return profile data', () => {

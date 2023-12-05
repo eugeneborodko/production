@@ -1,7 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import NotificationList from './NotificationList';
-import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+
 import { Notification } from '../../model/types/notification';
+
+import NotificationList from './NotificationList';
+
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 
 const notifications: Notification = {
   id: '1',

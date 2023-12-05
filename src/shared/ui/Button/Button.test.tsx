@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+
 import { Button, ButtonVariants } from './Button';
 
 describe('Button', () => {

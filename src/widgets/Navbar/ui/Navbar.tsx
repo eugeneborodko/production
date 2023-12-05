@@ -1,20 +1,22 @@
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
 import { getUserAuthData, logout } from '@/entities/User';
 import {
   LoginModal,
   getLoginError,
   resetLoginError,
 } from '@/features/AuthByUsername';
+import { ShowNotifications } from '@/features/ShowNotifications';
 import { LOCAL_STORAGE_USER_KEY } from '@/shared/consts/localStorage';
+import { RoutePaths } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { AppLink, Button, Typography } from '@/shared/ui';
 import { ButtonVariants } from '@/shared/ui/Button';
-import { ShowNotifications } from '@/features/ShowNotifications';
+
 import classes from './Navbar.module.scss';
-import { RoutePaths } from '@/shared/consts/router';
 
 interface NavBarProps {
   className?: string;

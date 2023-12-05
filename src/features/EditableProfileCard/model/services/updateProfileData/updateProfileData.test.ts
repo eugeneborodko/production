@@ -1,7 +1,9 @@
-import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { mockProfileData } from '@/shared/__mocks__/profileData';
-import { updateProfileData } from './updateProfileData';
 import { ValidateProfileErrors } from '../../consts/consts';
+
+import { updateProfileData } from './updateProfileData';
+
+import { mockProfileData } from '@/shared/__mocks__/profileData';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 
 describe('updateProfileData', () => {
   it('update profile data successful', async () => {

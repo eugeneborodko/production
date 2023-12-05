@@ -1,12 +1,14 @@
 import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+
+import { AppRouter } from './providers/router';
+
 import { getUserMounted, setAuthData, setUserMounted } from '@/entities/User';
 import { LOCAL_STORAGE_USER_KEY } from '@/shared/consts/localStorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
-import { AppRouter } from './providers/router';
 
 const App = () => {
   const dispatch = useAppDispatch();

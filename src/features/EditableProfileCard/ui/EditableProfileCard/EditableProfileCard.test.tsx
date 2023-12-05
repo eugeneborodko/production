@@ -1,12 +1,15 @@
-import userEvent from '@testing-library/user-event';
 import { screen } from '@testing-library/react';
-import { renderComponent } from '@/shared/lib/tests/renderComponent/renderComponent';
-import { Currencies } from '@/entities/Currency';
+import userEvent from '@testing-library/user-event';
+
+import { profileReducer } from '../../model/slice/profileSlice';
+
+import { EditableProfileCard } from './EditableProfileCard';
+
 import { Countries } from '@/entities/Country';
+import { Currencies } from '@/entities/Currency';
 import { Profile } from '@/entities/Profile';
 import { $api } from '@/shared/api/api';
-import { EditableProfileCard } from './EditableProfileCard';
-import { profileReducer } from '../../model/slice/profileSlice';
+import { renderComponent } from '@/shared/lib/tests/renderComponent/renderComponent';
 
 describe('EditableProfileCard', () => {
   const profile: Profile = {

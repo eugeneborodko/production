@@ -1,6 +1,8 @@
-import { mockProfileData } from '@/shared/__mocks__/profileData';
-import { validateProfileData } from './validateProfileData';
 import { ValidateProfileErrors } from '../../consts/consts';
+
+import { validateProfileData } from './validateProfileData';
+
+import { mockProfileData } from '@/shared/__mocks__/profileData';
 
 describe('validateProfileData', () => {
   it('correct data', () => {

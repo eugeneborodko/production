@@ -1,7 +1,14 @@
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import { FC, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
+
+import { getArticlesType } from '../../model/selectors/switchArticlesTypeSelectors';
+import {
+  setType,
+  switchArticlesTypeReducer,
+} from '../../model/slice/switchArticlesTypeSlice';
+
 import { ArticleTypes } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
@@ -11,11 +18,6 @@ import {
 } from '@/shared/lib/hooks/useDynamicModuleLoader';
 import { Tabs } from '@/shared/ui';
 import { Tab } from '@/shared/ui/Tabs';
-import {
-  setType,
-  switchArticlesTypeReducer,
-} from '../../model/slice/switchArticlesTypeSlice';
-import { getArticlesType } from '../../model/selectors/switchArticlesTypeSelectors';
 
 interface SwitchArticlesTypeProps {
   className?: string;

@@ -1,15 +1,17 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from '@/app/providers/StoreProvider';
-import { ArticleSortField, ArticleView } from '@/entities/Article';
-import { LOCAL_STORAGE_ARTICLES_VIEW } from '@/shared/consts/localStorage';
-import { setArticlesView } from '@/features/SwitchArticlesView';
-import { SortOrder } from '@/shared/types/sort';
-import { setSearch } from '@/features/ArticlesSearch';
+
 import { getArticlesPageInited } from '../../selectors/articlesPageSelectors';
 import { setInited, setLimit } from '../../slices/articlesPageSlice';
-import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 import { ArticlesSortParams } from '../../types/articlesPageSchema';
+import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
+
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { ArticleSortField, ArticleView } from '@/entities/Article';
 import { setOrder, setSort } from '@/features/ArticleSort';
+import { setSearch } from '@/features/ArticlesSearch';
+import { setArticlesView } from '@/features/SwitchArticlesView';
+import { LOCAL_STORAGE_ARTICLES_VIEW } from '@/shared/consts/localStorage';
+import { SortOrder } from '@/shared/types/sort';
 
 export const initArticlesPage = createAsyncThunk<
   void,

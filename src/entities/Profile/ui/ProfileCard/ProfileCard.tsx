@@ -1,13 +1,16 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { Profile } from '../../../Profile';
+
+import { Countries, CountrySelect } from '@/entities/Country';
+import { Currencies, CurrencySelect } from '@/entities/Currency';
 import { Modes, classNames } from '@/shared/lib/classNames/classNames';
 import {
   Avatar, HStack, Input, Loader, Typography, VStack,
 } from '@/shared/ui';
 import { TypographyVariants } from '@/shared/ui/Typography';
-import { Currencies, CurrencySelect } from '@/entities/Currency';
-import { Countries, CountrySelect } from '@/entities/Country';
-import { Profile } from '../../../Profile';
+
 import classes from './ProfileCard.module.scss';
 
 interface ProfileCardProps {

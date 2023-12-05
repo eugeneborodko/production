@@ -1,7 +1,9 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Select } from '@/shared/ui';
+
 import { Currencies } from '../../model/types/currency';
+
+import { Select } from '@/shared/ui';
 
 const currencies = [
   { value: Currencies.BYN, content: Currencies.BYN },

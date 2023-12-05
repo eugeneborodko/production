@@ -1,8 +1,20 @@
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
+import { ValidateProfileErrors } from '../../model/consts/consts';
+import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
+import { getProfileFormData } from '../../model/selectors/getProfileFormData/getProfileFormData';
+import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
+import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly';
+import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
+import { profileReducer, updateProfile } from '../../model/slice/profileSlice';
+import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
+
 import { Countries } from '@/entities/Country';
 import { Currencies } from '@/entities/Currency';
+import { ProfileCard } from '@/entities/Profile';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import {
   ReducersList,
@@ -11,16 +23,6 @@ import {
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { Typography, VStack } from '@/shared/ui';
 import { TypographyVariants } from '@/shared/ui/Typography';
-import { ProfileCard } from '@/entities/Profile';
-import { profileReducer, updateProfile } from '../../model/slice/profileSlice';
-import { getProfileFormData } from '../../model/selectors/getProfileFormData/getProfileFormData';
-import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
-import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
-import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
-import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
-import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
-import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/getProfileReadOnly';
-import { ValidateProfileErrors } from '../../model/consts/consts';
 
 export interface EditableProfileCardProps {
   id: string;

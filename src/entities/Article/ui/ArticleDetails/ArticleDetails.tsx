@@ -1,5 +1,19 @@
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
+
+import {
+  getArticleDetailsData,
+  getArticleDetailsError,
+  getArticleDetailsIsLoading,
+} from '../../../Article/model/selectors/articleDetails';
+import { fetchArticleById } from '../../../Article/model/services/fetchArticleById/fetchArticleById';
+import { articleDetailsReducer } from '../../../Article/model/slice/articleDetailsSlice';
+import { ArticleBlocksTypes } from '../../model/consts/consts';
+import type { ArticleBlock } from '../../model/types/article';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+
 import CalendarIcon from '@/shared/assets/icons/calendar.svg';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -14,18 +28,7 @@ import {
 } from '@/shared/ui';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { TextAlign, TextSize } from '@/shared/ui/Typography';
-import {
-  getArticleDetailsData,
-  getArticleDetailsError,
-  getArticleDetailsIsLoading,
-} from '../../../Article/model/selectors/articleDetails';
-import { fetchArticleById } from '../../../Article/model/services/fetchArticleById/fetchArticleById';
-import { articleDetailsReducer } from '../../../Article/model/slice/articleDetailsSlice';
-import { ArticleBlocksTypes } from '../../model/consts/consts';
-import type { ArticleBlock } from '../../model/types/article';
-import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+
 import classes from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {

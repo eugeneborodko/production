@@ -1,6 +1,17 @@
 import { FC, memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
+
+import { getArticlesPageIsLoading } from '../../model/selectors/articlesPageSelectors';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
+import {
+  articlesPageReducer,
+  getArticles,
+  setPage,
+} from '../../model/slices/articlesPageSlice';
+
 import { ArticleList } from '@/entities/Article';
 import { articleSortReducer } from '@/features/ArticleSort';
 import {
@@ -18,16 +29,6 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { VStack } from '@/shared/ui';
 import { ArticleDetailsFilters } from '@/widgets/ArticleDetailsFilters';
 import { Page } from '@/widgets/Page';
-import { getArticlesPageIsLoading } from '../../model/selectors/articlesPageSelectors';
-
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
-import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
-import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
-import {
-  articlesPageReducer,
-  getArticles,
-  setPage,
-} from '../../model/slices/articlesPageSlice';
 
 import classes from './ArticlesPage.module.scss';
 

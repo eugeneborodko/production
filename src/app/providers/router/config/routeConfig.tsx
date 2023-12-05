@@ -1,15 +1,15 @@
-import { RouteProps } from 'react-router-dom';
-import { AboutPage } from '@/pages/AboutPage';
-import { MainPage } from '@/pages/MainPage';
-import { ProfilePage } from '@/pages/ProfilePage';
-import { NotFoundPage } from '@/pages/NotFoundPage';
-import { ArticleEditPage } from '@/pages/ArticleEditPage';
-import { AdminPanelPage } from '@/pages/AdminPanelPage';
-import { ForbiddenPage } from '@/pages/ForbiddenPage';
-import { ArticlesPage } from '@/pages/ArticlesPage';
-import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
-import { AppRoutes, RoutePaths } from '@/shared/consts/router';
 import { AppRoutesProps } from '../types';
+
+import { AboutPage } from '@/pages/AboutPage';
+import { AdminPanelPage } from '@/pages/AdminPanelPage';
+import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
+import { ArticleEditPage } from '@/pages/ArticleEditPage';
+import { ArticlesPage } from '@/pages/ArticlesPage';
+import { ForbiddenPage } from '@/pages/ForbiddenPage';
+import { MainPage } from '@/pages/MainPage';
+import { NotFoundPage } from '@/pages/NotFoundPage';
+import { ProfilePage } from '@/pages/ProfilePage';
+import { AppRoutes, RoutePaths } from '@/shared/consts/router';
 
 export const routeConfig: AppRoutesProps[] = [
   {

@@ -19,6 +19,7 @@ module.exports = {
     'i18next',
     'react-hooks',
     'yauheni-baradzko-path-checker',
+    'unused-imports',
   ],
   rules: {
     'linebreak-style': 0,
@@ -69,7 +70,34 @@ module.exports = {
       'error',
       {
         alias: '@',
-        ignoreImportPatterns: ['**/StoreProvider', '**/testing', '**/ThemeProvider'],
+        ignoreImportPatterns: [
+          '**/StoreProvider',
+          '**/testing',
+          '**/ThemeProvider',
+        ],
+      },
+    ],
+    'unused-imports/no-unused-imports': 'error',
+    'import/order': [
+      'error',
+      {
+        pathGroups: [
+          {
+            pattern: '@/**',
+            group: 'internal',
+            position: 'after',
+          },
+          {
+            pattern: './**.module.*',
+            group: 'internal',
+            position: 'after',
+          },
+        ],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: false,
+        },
       },
     ],
   },
