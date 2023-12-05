@@ -1,7 +1,7 @@
 import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { getUserMounted, setAuthData, setUserMounted } from '@/entities/User';
-import { LOCAL_STORAGE_USER_KEY } from '@/shared/const/localstorage';
+import { LOCAL_STORAGE_USER_KEY } from '@/shared/consts/localstorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Navbar } from '@/widgets/Navbar';

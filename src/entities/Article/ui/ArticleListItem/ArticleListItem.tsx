@@ -6,7 +6,6 @@ import {
 } from '@/shared/ui';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { ButtonVariants } from '@/shared/ui/Button/Button';
-import { RoutePaths } from '@/shared/config/routeConfig/routeConfig';
 import type {
   Article,
   ArticleTextBlock,
@@ -15,6 +14,7 @@ import type {
 import { ArticleBlocksTypes } from '../../../Article/model/consts/consts';
 import classes from './ArticleListItem.module.scss';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { RoutePaths } from '@/shared/consts/router';
 
 interface ArticleListItemProps {
   className?: string;

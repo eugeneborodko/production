@@ -7,14 +7,14 @@ import {
   getLoginError,
   resetLoginError,
 } from '@/features/AuthByUsername';
-import { LOCAL_STORAGE_USER_KEY } from '@/shared/const/localstorage';
+import { LOCAL_STORAGE_USER_KEY } from '@/shared/consts/localstorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { AppLink, Button, Typography } from '@/shared/ui';
 import { ButtonVariants } from '@/shared/ui/Button/Button';
-import { RoutePaths } from '@/shared/config/routeConfig/routeConfig';
 import { ShowNotifications } from '@/features/ShowNotifications';
 import classes from './Navbar.module.scss';
+import { RoutePaths } from '@/shared/consts/router';
 
 interface NavBarProps {
   className?: string;
