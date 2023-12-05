@@ -1,3 +1,4 @@
+/* eslint-disable yauheni-baradzko-path-checker/layer-imports */
 /* eslint-disable max-len */
 import { ArticleBlocksTypes, ArticleTypes, Article } from '@/entities/Article'; // TODO: move __mocks__ into different folders
 

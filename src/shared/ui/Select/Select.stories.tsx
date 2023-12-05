@@ -1,4 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+// eslint-disable-next-line yauheni-baradzko-path-checker/layer-imports
 import { Currencies } from '@/entities/Currency';
 import { Select } from './Select';
 

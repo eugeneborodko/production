@@ -1,3 +1,4 @@
+/* eslint-disable yauheni-baradzko-path-checker/layer-imports */
 import { Countries } from '@/entities/Country';
 import { Currencies } from '@/entities/Currency';
 import { Profile } from '@/entities/Profile';

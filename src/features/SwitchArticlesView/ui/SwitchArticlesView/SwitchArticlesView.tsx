@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { ArticleView } from '@/entities/Article';
 import GridIcon from '@/shared/assets/icons/grid.svg';
 import TileIcon from '@/shared/assets/icons/tile.svg';
-import { LOCAL_STORAGE_ARTICLES_VIEW } from '@/shared/consts/localstorage';
+import { LOCAL_STORAGE_ARTICLES_VIEW } from '@/shared/consts/localStorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Button } from '@/shared/ui';

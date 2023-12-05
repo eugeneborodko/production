@@ -2,9 +2,9 @@ import { memo } from 'react';
 import { Modes, classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink, Avatar, Typography } from '@/shared/ui';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { RoutePaths } from '@/shared/config/routeConfig/routeConfig';
 import { Comment } from '../../index';
 import classes from './CommentCard.module.scss';
+import { RoutePaths } from '@/shared/consts/router';
 
 interface CommentCardProps {
   className?: string;

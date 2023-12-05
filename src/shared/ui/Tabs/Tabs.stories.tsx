@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { Tabs } from './Tabs';
+// eslint-disable-next-line yauheni-baradzko-path-checker/layer-imports
 import { ArticleTypes } from '@/entities/Article';
 
 export default {

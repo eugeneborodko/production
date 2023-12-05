@@ -10,7 +10,6 @@ import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from '@/entities/Article';
 import { UserSchema } from '@/entities/User';
 import { AddCommentFormSchema } from '@/features/AddCommentForm';
-// import { ArticleRecommendationsSchema } from 'features/ArticleRecommendationsList';
 import { ArticleSortSchema } from '@/features/ArticleSort';
 import { ArticlesSearchSchema } from '@/features/ArticlesSearch';
 import { LoginSchema } from '@/features/AuthByUsername';
@@ -31,7 +30,6 @@ export interface StateSchema {
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
-  // articleRecommendations?: ArticleRecommendationsSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
   articlesSearch?: ArticlesSearchSchema;
   switchArticlesType?: SwitchArticlesTypeSchema;

@@ -65,6 +65,13 @@ module.exports = {
         ],
       },
     ],
+    'yauheni-baradzko-path-checker/layer-imports': [
+      'error',
+      {
+        alias: '@',
+        ignoreImportPatterns: ['**/StoreProvider', '**/testing', '**/ThemeProvider'],
+      },
+    ],
   },
   globals: {
     __IS_DEV__: true,

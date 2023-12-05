@@ -7,7 +7,7 @@ import {
   getLoginError,
   resetLoginError,
 } from '@/features/AuthByUsername';
-import { LOCAL_STORAGE_USER_KEY } from '@/shared/consts/localstorage';
+import { LOCAL_STORAGE_USER_KEY } from '@/shared/consts/localStorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { AppLink, Button, Typography } from '@/shared/ui';

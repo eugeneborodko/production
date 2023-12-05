@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeIconColors } from '@/app/providers/ThemeProvider';
 import Svg from '@/shared/assets/icons/theme.svg';
 import { Button, ButtonSizes, ButtonVariants } from './Button';
+import { ThemeIconColors } from '@/shared/consts/theme';
 
 export default {
   title: 'shared/Button',
