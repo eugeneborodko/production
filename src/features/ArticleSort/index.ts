@@ -1,6 +1,10 @@
 export { ArticleSort } from './ui/ArticleSort/ArticleSort';
 export type { ArticleSortSchema } from './model/types/articleSortSchema';
-export { articleSortReducer } from './model/slice/articleSortSlice';
+export {
+  articleSortReducer,
+  setOrder,
+  setSort,
+} from './model/slice/articleSortSlice';
 export {
   getArticlesSort,
   getArticlesOrder,

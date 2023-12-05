@@ -1,9 +1,12 @@
 import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 import { articleDetailsReducer } from '@/entities/Article';
+// TODO: fix imports
+// eslint-disable-next-line yauheni-baradzko-path-checker/public-api-imports
 import { addCommentFormReducer } from '@/features/AddCommentForm/model/slice/addCommentFormSlice';
-// import { articleRecommendationsReducer } from 'features/ArticleRecommendationsList';
+// eslint-disable-next-line yauheni-baradzko-path-checker/public-api-imports
 import { articleSortReducer } from '@/features/ArticleSort/model/slice/articleSortSlice';
+// eslint-disable-next-line yauheni-baradzko-path-checker/public-api-imports
 import { loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice';
 import { profileReducer } from '@/features/EditableProfileCard';
 import { switchArticlesViewReducer } from '@/features/SwitchArticlesView';

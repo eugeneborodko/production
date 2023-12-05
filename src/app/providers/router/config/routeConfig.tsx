@@ -4,12 +4,12 @@ import { MainPage } from '@/pages/MainPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { AppRoutes, RoutePaths } from '@/shared/config/routeConfig/routeConfig';
-import ArticlesPage from '@/pages/ArticlesPage/ui/ArticlesPage/ArticlesPage';
-import ArticleDetailsPage from '@/pages/ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailsPage';
 import { ArticleEditPage } from '@/pages/ArticleEditPage';
 import { AdminPanelPage } from '@/pages/AdminPanelPage';
-import { UserRoles } from '@/entities/User/model/types/user';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
+import { ArticlesPage } from '@/pages/ArticlesPage';
+import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
+import { UserRoles } from '@/entities/User';
 
 export type AppRoutesProps = RouteProps & {
   // extend RouteProps

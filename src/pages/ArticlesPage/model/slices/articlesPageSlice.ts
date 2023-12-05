@@ -4,7 +4,7 @@ import {
   createSlice,
 } from '@reduxjs/toolkit';
 import { StateSchema } from '@/app/providers/StoreProvider';
-import { Article } from '@/entities/Article/model/types/article';
+import { Article } from '@/entities/Article';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 

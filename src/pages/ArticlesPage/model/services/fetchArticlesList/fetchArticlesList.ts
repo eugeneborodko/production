@@ -1,8 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { URLSearchParamsInit } from 'react-router-dom';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
-import type { Article } from '@/entities/Article/model/types/article';
-import { ArticleTypes } from '@/entities/Article/model/consts/consts';
+import { ArticleTypes, type Article } from '@/entities/Article';
 import { getArticlesOrder, getArticlesSort } from '@/features/ArticleSort';
 import { getArticlesType } from '@/features/SwitchArticlesType';
 import { getArticlesSearch } from '@/features/ArticlesSearch';

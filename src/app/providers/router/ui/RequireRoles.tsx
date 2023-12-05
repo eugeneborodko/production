@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
-import { getUserRoles } from '@/entities/User';
-import { UserRoles } from '@/entities/User/model/types/user';
+import { getUserRoles, UserRoles } from '@/entities/User';
 import { RoutePaths } from '@/shared/config/routeConfig/routeConfig';
 
 interface RequireRolesProps {

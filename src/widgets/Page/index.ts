@@ -4,3 +4,4 @@ export {
   getPageScrollPosition,
   getPageScrollPositionByPath,
 } from './model/selectors/scroll';
+export { pageReducer } from './model/slices/pageSlice';

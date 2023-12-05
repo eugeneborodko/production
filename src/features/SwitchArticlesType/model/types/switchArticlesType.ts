@@ -1,4 +1,4 @@
-import { ArticleTypes } from '@/entities/Article/model/consts/consts';
+import { ArticleTypes } from '@/entities/Article';
 
 export interface SwitchArticlesTypeSchema {
   type: ArticleTypes;

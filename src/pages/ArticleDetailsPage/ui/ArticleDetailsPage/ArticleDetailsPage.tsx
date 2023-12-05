@@ -1,15 +1,15 @@
 import { FC, Suspense, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList/ui/ArticleRecommendationsList';
+import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import { ArticleDetails } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ArticleDetailsComments } from '@/widgets/ArticleDetailsComments/ui/ArticleDetailsComments';
 import { Page } from '@/widgets/Page';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import classes from './ArticleDetailsPage.module.scss';
 import { WriteArticleReview } from '@/features/WriteArticleReview';
 import { Loader } from '@/shared/ui';
+import { ArticleDetailsComments } from '@/widgets/ArticleDetailsComments';
 
 interface ArticleDetailsPageProps {
   className?: string;

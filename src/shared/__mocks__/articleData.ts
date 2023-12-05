@@ -1,9 +1,5 @@
 /* eslint-disable max-len */
-import {
-  ArticleBlocksTypes,
-  ArticleTypes,
-} from '@/entities/Article/model/consts/consts'; // TODO: move __mocks__ into different folders
-import { Article } from '@/entities/Article';
+import { ArticleBlocksTypes, ArticleTypes, Article } from '@/entities/Article'; // TODO: move __mocks__ into different folders
 
 export const mockArticle: Article = {
   id: '1',

@@ -1,5 +1,5 @@
 import { EntityState } from '@reduxjs/toolkit';
-import { Article } from '@/entities/Article/model/types/article';
+import { Article } from '@/entities/Article';
 
 export interface ArticlesPageSchema extends EntityState<Article> {
   isLoading?: boolean;
@@ -10,4 +10,4 @@ export interface ArticlesPageSchema extends EntityState<Article> {
   inited: boolean;
 }
 
-export type ArticlesSortParams = 'order' | 'sort' | 'search'
+export type ArticlesSortParams = 'order' | 'sort' | 'search';
