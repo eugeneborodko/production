@@ -1,17 +1,15 @@
 import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-import { articleDetailsReducer } from '@/entities/Article';
-// TODO: fix imports
-// eslint-disable-next-line yauheni-baradzko-path-checker/public-api-imports
-import { addCommentFormReducer } from '@/features/AddCommentForm/model/slice/addCommentFormSlice';
-// eslint-disable-next-line yauheni-baradzko-path-checker/public-api-imports
-import { articleSortReducer } from '@/features/ArticleSort/model/slice/articleSortSlice';
-// eslint-disable-next-line yauheni-baradzko-path-checker/public-api-imports
-import { loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice';
-import { profileReducer } from '@/features/EditableProfileCard';
-import { switchArticlesViewReducer } from '@/features/SwitchArticlesView';
-import { ReducersList } from '@/shared/lib/hooks/useDynamicModuleLoader';
-import { articleDetailsCommentsReducer } from '@/widgets/ArticleDetailsComments';
+import { loginReducer } from '@/features/AuthByUsername/testing';
+// TODO: imports like import { profileReducer } from '@/features/EditableProfileCard still pass. To fix
+// TODO: import like import { ReducersList } from '@/shared/lib/hooks/useDynamicModuleLoader' still pass. To fix
+import { ReducersList } from '../../../lib/hooks/useDynamicModuleLoader';
+import { articleSortReducer } from '@/features/ArticleSort/testing';
+import { addCommentFormReducer } from '@/features/AddCommentForm/testing';
+import { articleDetailsReducer } from '@/entities/Article/testing';
+import { profileReducer } from '@/features/EditableProfileCard/testing';
+import { switchArticlesViewReducer } from '@/features/SwitchArticlesView/testing';
+import { articleDetailsCommentsReducer } from '@/widgets/ArticleDetailsComments/testing';
 
 const defaultAsyncReducers: ReducersList = {
   loginForm: loginReducer,
