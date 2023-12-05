@@ -1,8 +1,6 @@
 // @ts-nocheck
 import path from 'path';
-
 import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
-
 import { buildScssLoader } from '../build/loaders/buildScssLoader';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
 import { BuildPaths } from '../build/types/config';

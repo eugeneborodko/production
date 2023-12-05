@@ -2,7 +2,6 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
@@ -13,7 +12,6 @@ import {
   setPassword,
   setUsername,
 } from '../../model/slice/loginSlice';
-
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import {
   useDynamicModuleLoader,
@@ -21,7 +19,6 @@ import {
 } from '@/shared/lib/hooks/useDynamicModuleLoader';
 import { Button, Input, Typography } from '@/shared/ui';
 import { TypographyVariants } from '@/shared/ui/Typography';
-
 import classes from './LoginForm.module.scss';
 
 const initialReducers: ReducersList = {

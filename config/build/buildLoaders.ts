@@ -1,5 +1,4 @@
 import webpack from 'webpack';
-
 import { buildBabelLoader } from './loaders/buildBabelLoader';
 import { buildScssLoader } from './loaders/buildScssLoader';
 import { buildSvgLoader } from './loaders/buildSvgLoader';

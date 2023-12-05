@@ -1,7 +1,6 @@
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-
 import { ValidateProfileErrors } from '../../model/consts/consts';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileFormData } from '../../model/selectors/getProfileFormData/getProfileFormData';
@@ -11,7 +10,6 @@ import { getProfileValidateErrors } from '../../model/selectors/getProfileValida
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileReducer, updateProfile } from '../../model/slice/profileSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
-
 import { Countries } from '@/entities/Country';
 import { Currencies } from '@/entities/Currency';
 import { ProfileCard } from '@/entities/Profile';

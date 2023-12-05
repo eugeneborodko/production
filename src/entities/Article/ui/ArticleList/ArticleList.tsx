@@ -1,13 +1,10 @@
 import { FC, HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { Article, ArticleView } from '../../../Article/model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
-
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Typography } from '@/shared/ui';
-
 import classes from './ArticleList.module.scss';
 
 interface ArticleListProps {

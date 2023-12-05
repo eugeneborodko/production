@@ -1,6 +1,5 @@
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
-
 import {
   getArticleDetailsData,
   getArticleDetailsError,
@@ -13,7 +12,6 @@ import type { ArticleBlock } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-
 import CalendarIcon from '@/shared/assets/icons/calendar.svg';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -28,7 +26,6 @@ import {
 } from '@/shared/ui';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { TextAlign, TextSize } from '@/shared/ui/Typography';
-
 import classes from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {

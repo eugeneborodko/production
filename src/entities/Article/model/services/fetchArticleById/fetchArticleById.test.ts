@@ -1,5 +1,4 @@
 import { fetchArticleById } from './fetchArticleById';
-
 import { mockArticle } from '@/shared/__mocks__/articleData';
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 

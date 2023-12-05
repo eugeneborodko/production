@@ -1,7 +1,5 @@
 import { Story, ComponentMeta } from '@storybook/react';
-
 import ProfilePage from './ProfilePage';
-
 import { Countries } from '@/entities/Country';
 import { Currencies } from '@/entities/Currency';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';

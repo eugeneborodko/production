@@ -1,7 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-
 import { ArticlesViewSchema } from '../types/articlesViewSchema';
-
 import { ArticleView } from '@/entities/Article';
 
 const initialState: ArticlesViewSchema = {

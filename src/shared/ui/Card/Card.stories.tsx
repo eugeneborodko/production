@@ -1,7 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
 import { Typography } from '../Typography/Typography';
-
 import { Card } from './Card';
 
 export default {

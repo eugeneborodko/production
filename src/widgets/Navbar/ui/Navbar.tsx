@@ -1,7 +1,6 @@
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-
 import { getUserAuthData, logout } from '@/entities/User';
 import {
   LoginModal,
@@ -15,7 +14,6 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { AppLink, Button, Typography } from '@/shared/ui';
 import { ButtonVariants } from '@/shared/ui/Button';
-
 import classes from './Navbar.module.scss';
 
 interface NavBarProps {

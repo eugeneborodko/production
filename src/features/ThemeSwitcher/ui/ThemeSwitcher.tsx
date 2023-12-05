@@ -1,5 +1,4 @@
 import { memo } from 'react';
-
 import Svg from '@/shared/assets/icons/theme.svg';
 import { Theme, ThemeIconColors } from '@/shared/consts/theme';
 import { useTheme } from '@/shared/lib/hooks/useTheme';

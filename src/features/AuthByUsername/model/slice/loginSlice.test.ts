@@ -1,6 +1,5 @@
 import { loginByUsername } from '../services/loginByUsername/loginByUsername';
 import { LoginSchema } from '../types/loginSchema';
-
 import {
   loginReducer, resetLoginError, setPassword, setUsername,
 } from './loginSlice';

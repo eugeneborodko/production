@@ -1,8 +1,6 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { useGetArticleRecommendationsQuery } from '../api/articleRecommendationsListApi';
-
 import { ArticleList } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Typography } from '@/shared/ui';

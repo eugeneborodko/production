@@ -1,7 +1,5 @@
 import { FC, HTMLAttributes, ReactNode } from 'react';
-
 import { Modes, classNames } from '@/shared/lib/classNames/classNames';
-
 import classes from './Card.module.scss';
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {

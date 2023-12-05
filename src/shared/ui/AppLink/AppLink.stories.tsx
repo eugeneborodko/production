@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
 import { AppLink, AppLinkVariant } from './AppLink';
 
 export default {

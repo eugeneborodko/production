@@ -1,5 +1,4 @@
 import { fetchProfileData } from './fetchProfileData';
-
 import { mockProfileData } from '@/shared/__mocks__/profileData';
 import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 

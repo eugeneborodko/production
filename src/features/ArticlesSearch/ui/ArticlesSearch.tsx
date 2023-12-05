@@ -3,13 +3,11 @@ import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-
 import { getArticlesSearch } from '../model/selectors/articlesSearchSelectors';
 import {
   articlesSearchReducer,
   setSearch,
 } from '../model/slice/articlesSearch';
-
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import {
   ReducersList,

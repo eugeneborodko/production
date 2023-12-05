@@ -1,11 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { URLSearchParamsInit } from 'react-router-dom';
-
 import {
   getArticlesLimit,
   getArticlesPage,
 } from '../../selectors/articlesPageSelectors';
-
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { ArticleTypes, type Article } from '@/entities/Article';
 import { getArticlesOrder, getArticlesSort } from '@/features/ArticleSort';

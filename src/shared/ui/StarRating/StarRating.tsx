@@ -1,8 +1,6 @@
 import { FC } from 'react';
-
 import StarIcon from '@/shared/assets/icons/star.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
-
 import classes from './StarRating.module.scss';
 
 interface StarRatingProps {

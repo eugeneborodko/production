@@ -1,11 +1,8 @@
 import { FC } from 'react';
-
 import { useGetNotificationsQuery } from '../../api/notificationApi';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
-
 import { VStack } from '@/shared/ui';
 import { Skeleton } from '@/shared/ui/Skeleton';
-
 import classes from './NotificationList.module.scss';
 
 interface NotificationListProps {

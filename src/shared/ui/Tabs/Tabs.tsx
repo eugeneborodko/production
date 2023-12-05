@@ -1,10 +1,7 @@
 /* eslint-disable react/jsx-indent */
 import { ReactNode } from 'react';
-
 import { Button, ButtonVariants } from '../Button/Button';
-
 import { classNames } from '@/shared/lib/classNames/classNames';
-
 import classes from './Tabs.module.scss';
 
 export interface Tab<T extends string> {

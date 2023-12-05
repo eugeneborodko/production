@@ -1,9 +1,6 @@
 import { memo } from 'react';
-
 import { getDate } from '../../lib/helpers/getDate';
-
 import { classNames } from '@/shared/lib/classNames/classNames';
-
 import classes from './Typography.module.scss';
 
 export enum TypographyVariants {

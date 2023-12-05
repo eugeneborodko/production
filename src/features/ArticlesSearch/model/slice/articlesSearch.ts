@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
 import { ArticlesSearchSchema } from '../types/articlesSearch';
 
 const initialState: ArticlesSearchSchema = {

@@ -1,12 +1,10 @@
 import { FC, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-
 import {
   useAddArticleRatingMutation,
   useGetArticleRatingQuery,
 } from '../../api/writeArticleReview';
-
 import { getArticleDetailsData } from '@/entities/Article';
 import { RatingCard } from '@/entities/Rating';
 import { getUserAuthData } from '@/entities/User';

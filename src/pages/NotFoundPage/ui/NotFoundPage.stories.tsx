@@ -1,7 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
 import { NotFoundPage } from './NotFoundPage';
-
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 
 export default {

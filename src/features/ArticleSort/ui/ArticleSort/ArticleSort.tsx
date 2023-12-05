@@ -2,13 +2,11 @@ import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import { FC, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-
 import {
   getArticlesOrder,
   getArticlesSort,
 } from '../../model/selectors/articleSortSelectors';
 import { setOrder, setSort } from '../../model/slice/articleSortSlice';
-
 import { ArticleSortField } from '@/entities/Article';
 // import { setPage } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -16,7 +14,6 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { SortOrder } from '@/shared/types/sort';
 import { Select } from '@/shared/ui';
 import { SelectOptions } from '@/shared/ui/Select';
-
 import classes from './ArticleSort.module.scss';
 
 interface ArticleSortProps {

@@ -1,7 +1,6 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-
 import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId';
@@ -9,7 +8,6 @@ import {
   addCommentFormReducer,
   setCommentsFormText,
 } from '../../model/slice/addCommentFormSlice';
-
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import {
   ReducersList,

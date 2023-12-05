@@ -1,9 +1,7 @@
 import { FC, Suspense, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-
 import { ArticleDetails } from '@/entities/Article';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import { WriteArticleReview } from '@/features/WriteArticleReview';
@@ -11,7 +9,6 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Loader } from '@/shared/ui';
 import { ArticleDetailsComments } from '@/widgets/ArticleDetailsComments';
 import { Page } from '@/widgets/Page';
-
 import classes from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {

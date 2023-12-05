@@ -1,10 +1,7 @@
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-
 import { profileReducer } from '../../model/slice/profileSlice';
-
 import { EditableProfileCard } from './EditableProfileCard';
-
 import { Countries } from '@/entities/Country';
 import { Currencies } from '@/entities/Currency';
 import { Profile } from '@/entities/Profile';

@@ -2,7 +2,6 @@ import { ValidateProfileErrors } from '../consts/consts';
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { ProfileSchema } from '../types/editableProfileCard';
-
 import {
   cancelEdit,
   profileReducer,
@@ -10,7 +9,6 @@ import {
   setReadOnlyProfile,
   updateProfile,
 } from './profileSlice';
-
 import { mockProfileData } from '@/shared/__mocks__/profileData';
 
 describe('profileSlice', () => {

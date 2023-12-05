@@ -1,5 +1,4 @@
 import { getProfileFormData } from './getProfileFormData';
-
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { mockProfileData } from '@/shared/__mocks__/profileData';
 

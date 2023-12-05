@@ -1,7 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
-
 import { SidebarItemType } from '../types/sidebar';
-
 import { getUserAuthData, isUserAdmin, isUserManager } from '@/entities/User';
 import SVGAbout from '@/shared/assets/icons/about.svg';
 import SVGArticles from '@/shared/assets/icons/articles.svg';

@@ -1,7 +1,5 @@
 import { memo } from 'react';
-
 import LoaderIcon from '../../assets/icons/loader.svg';
-
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface LoaderProps {

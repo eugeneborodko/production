@@ -1,11 +1,8 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { ArticleTextBlock } from '../../../Article/model/types/article';
-
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Typography } from '@/shared/ui';
-
 import classes from './ArticleTextBlockComponent.module.scss';
 
 interface ArticleTextBlockComponentProps {

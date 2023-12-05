@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import { Button, ButtonVariants } from '@/shared/ui/Button';
 
 export const BugButton = () => {

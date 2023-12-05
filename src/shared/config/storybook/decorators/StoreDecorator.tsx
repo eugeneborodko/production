@@ -1,7 +1,5 @@
 import { Story } from '@storybook/react';
-
 import { ReducersList } from '../../../lib/hooks/useDynamicModuleLoader';
-
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 import { articleDetailsReducer } from '@/entities/Article/testing';
 import { addCommentFormReducer } from '@/features/AddCommentForm/testing';

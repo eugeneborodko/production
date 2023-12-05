@@ -1,9 +1,7 @@
 import { FC, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-
 import { getArticlesView } from '../../model/selectors/switchArticlesViewSelectors';
 import { setArticlesView } from '../../model/slice/switchArticlesViewSlice';
-
 import { ArticleView } from '@/entities/Article';
 import GridIcon from '@/shared/assets/icons/grid.svg';
 import TileIcon from '@/shared/assets/icons/tile.svg';
@@ -12,7 +10,6 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Button } from '@/shared/ui';
 import { ButtonVariants } from '@/shared/ui/Button';
-
 import classes from './SwitchArticlesView.module.scss';
 
 interface SwitchArticlesViewProps {

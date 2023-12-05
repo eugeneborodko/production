@@ -2,13 +2,11 @@ import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import { FC, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-
 import { getArticlesType } from '../../model/selectors/switchArticlesTypeSelectors';
 import {
   setType,
   switchArticlesTypeReducer,
 } from '../../model/slice/switchArticlesTypeSlice';
-
 import { ArticleTypes } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
