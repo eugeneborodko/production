@@ -11,7 +11,7 @@ import { LOCAL_STORAGE_USER_KEY } from '@/shared/consts/localStorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { AppLink, Button, Typography } from '@/shared/ui';
-import { ButtonVariants } from '@/shared/ui/Button/Button';
+import { ButtonVariants } from '@/shared/ui/Button';
 import { ShowNotifications } from '@/features/ShowNotifications';
 import classes from './Navbar.module.scss';
 import { RoutePaths } from '@/shared/consts/router';

@@ -12,8 +12,8 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import {
   Avatar, HStack, Typography, VStack,
 } from '@/shared/ui';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { TextAlign, TextSize } from '@/shared/ui/Typography/Typography';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { TextAlign, TextSize } from '@/shared/ui/Typography';
 import {
   getArticleDetailsData,
   getArticleDetailsError,

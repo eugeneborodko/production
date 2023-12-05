@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui';
-import { ButtonVariants } from '@/shared/ui/Button/Button';
+import { ButtonVariants } from '@/shared/ui/Button';
 import { getArticleDetailsData } from '@/entities/Article';
 import { getCanEditArticle } from '@/widgets/ArticleDetailsComments';
 import classes from './ArticleDetailsPageHeader.module.scss';

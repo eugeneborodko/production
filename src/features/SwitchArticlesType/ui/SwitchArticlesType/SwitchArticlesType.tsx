@@ -10,7 +10,7 @@ import {
   useDynamicModuleLoader,
 } from '@/shared/lib/hooks/useDynamicModuleLoader';
 import { Tabs } from '@/shared/ui';
-import { Tab } from '@/shared/ui/Tabs/Tabs';
+import { Tab } from '@/shared/ui/Tabs';
 import {
   setType,
   switchArticlesTypeReducer,

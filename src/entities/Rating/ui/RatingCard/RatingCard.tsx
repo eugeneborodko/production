@@ -10,7 +10,7 @@ import {
   Typography,
   VStack,
 } from '@/shared/ui';
-import { ButtonVariants } from '@/shared/ui/Button/Button';
+import { ButtonVariants } from '@/shared/ui/Button';
 
 interface RatingCardProps {
   rating: number;

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Button, Input, Typography } from '@/shared/ui';
-import { TypographyVariants } from '@/shared/ui/Typography/Typography';
+import { TypographyVariants } from '@/shared/ui/Typography';
 import {
   useDynamicModuleLoader,
   ReducersList,

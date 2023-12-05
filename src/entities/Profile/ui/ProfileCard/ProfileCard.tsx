@@ -4,7 +4,7 @@ import { Modes, classNames } from '@/shared/lib/classNames/classNames';
 import {
   Avatar, HStack, Input, Loader, Typography, VStack,
 } from '@/shared/ui';
-import { TypographyVariants } from '@/shared/ui/Typography/Typography';
+import { TypographyVariants } from '@/shared/ui/Typography';
 import { Currencies, CurrencySelect } from '@/entities/Currency';
 import { Countries, CountrySelect } from '@/entities/Country';
 import { Profile } from '../../../Profile';

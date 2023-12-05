@@ -8,7 +8,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { SortOrder } from '@/shared/types/sort';
 import { Select } from '@/shared/ui';
-import { SelectOptions } from '@/shared/ui/Select/Select';
+import { SelectOptions } from '@/shared/ui/Select';
 import {
   getArticlesOrder,
   getArticlesSort,

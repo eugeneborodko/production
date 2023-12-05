@@ -10,7 +10,7 @@ import {
 } from '@/shared/lib/hooks/useDynamicModuleLoader';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { Typography, VStack } from '@/shared/ui';
-import { TypographyVariants } from '@/shared/ui/Typography/Typography';
+import { TypographyVariants } from '@/shared/ui/Typography';
 import { ProfileCard } from '@/entities/Profile';
 import { profileReducer, updateProfile } from '../../model/slice/profileSlice';
 import { getProfileFormData } from '../../model/selectors/getProfileFormData/getProfileFormData';

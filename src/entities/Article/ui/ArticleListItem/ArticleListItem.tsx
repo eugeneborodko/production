@@ -5,7 +5,7 @@ import {
   AppLink, Avatar, Button, Card, Typography,
 } from '@/shared/ui';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
-import { ButtonVariants } from '@/shared/ui/Button/Button';
+import { ButtonVariants } from '@/shared/ui/Button';
 import type {
   Article,
   ArticleTextBlock,
