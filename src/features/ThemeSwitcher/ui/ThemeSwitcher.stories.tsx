@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeSwitcher } from './ThemeSwitcher';
-import { ThemeIconColors } from '@/app/providers/ThemeProvider';
+import { ThemeIconColors } from '@/shared/consts/theme';
 
 export default {
   title: 'features/ThemeSwitcher',

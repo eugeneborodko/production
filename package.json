@@ -24,7 +24,8 @@
     "analyze": "cross-env analyze=1 webpack --env mode=development",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "storybook:build": "build-storybook -c ./config/storybook",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "node ./scripts/clear-cache.ts"
   },
   "repository": {
     "type": "git",

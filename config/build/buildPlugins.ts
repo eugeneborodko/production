@@ -19,10 +19,6 @@ export const buildPlugins = ({
       template: paths.html,
     }),
     new webpack.ProgressPlugin(),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash:5].css',
-      chunkFilename: 'css/[name].[contenthash:5].css',
-    }),
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
@@ -53,6 +49,20 @@ export const buildPlugins = ({
       }),
     );
     plugins.push(new ReactRefreshWebpackPlugin());
+  }
+
+  if (!isDev) {
+    plugins.push(
+      new MiniCssExtractPlugin({
+        filename: 'css/[name].[contenthash:5].css',
+        chunkFilename: 'css/[name].[contenthash:5].css',
+      }),
+    );
+    plugins.push(
+      new CopyPlugin({
+        patterns: [{ from: paths.locales, to: paths.buildLocales }],
+      }),
+    );
   }
 
   return plugins;
