@@ -1,6 +1,7 @@
 import path from 'path';
+import type { Config } from 'jest';
 
-export default {
+const config: Config = {
   clearMocks: true,
   testEnvironment: 'jsdom',
   coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
@@ -33,3 +34,5 @@ export default {
     ],
   ],
 };
+
+export default config;
