@@ -11,52 +11,61 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle';
+import { TestProps } from '@/shared/types/tests';
 import classes from './Page.module.scss';
 
-interface PageProps {
+interface PageProps extends TestProps {
   className?: string;
   children: ReactNode;
   onScrollEnd?: () => void;
 }
 
-export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
-  const dispatch = useAppDispatch();
-  const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
-  const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
-  const { pathname } = useLocation();
+export const Page = memo(
+  ({
+    className,
+    children,
+    onScrollEnd,
+    'data-testid': dataTestId,
+  }: PageProps) => {
+    const dispatch = useAppDispatch();
+    const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
+    const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
+    const { pathname } = useLocation();
 
-  const scrollPosition = useSelector((state: StateSchema) => getPageScrollPositionByPath(state, pathname));
+    const scrollPosition = useSelector((state: StateSchema) => getPageScrollPositionByPath(state, pathname));
 
-  useInfiniteScroll({
-    triggerRef,
-    callback: onScrollEnd,
-  });
+    useInfiniteScroll({
+      triggerRef,
+      callback: onScrollEnd,
+    });
 
-  // TODO: fix saving scroll position for article/id
-  useInitialEffect(() => {
-    // think about using useLayoutEffect instead and create a copy of useInitialEffect with useLayoutEffect - 58 11:40 comment
-    wrapperRef.current.scrollTop = scrollPosition;
-  });
+    // TODO: fix saving scroll position for article/id
+    useInitialEffect(() => {
+      // think about using useLayoutEffect instead and create a copy of useInitialEffect with useLayoutEffect - 58 11:40 comment
+      wrapperRef.current.scrollTop = scrollPosition;
+    });
 
-  const onPageScroll = useThrottle((event: UIEvent<HTMLDivElement>) => {
-    dispatch(
-      setScrollPosition({
-        path: pathname,
-        scrollPosition: event.currentTarget.scrollTop,
-      }),
+    const onPageScroll = useThrottle((event: UIEvent<HTMLDivElement>) => {
+      dispatch(
+        setScrollPosition({
+          path: pathname,
+          scrollPosition: event.currentTarget.scrollTop,
+        }),
+      );
+    }, 500);
+
+    return (
+      <main
+        ref={wrapperRef}
+        className={classNames(classes.page, {}, [className])}
+        onScroll={onPageScroll}
+        data-testid={dataTestId}
+      >
+        {children}
+        {onScrollEnd ? (
+          <div className={classes.trigger} ref={triggerRef} />
+        ) : null}
+      </main>
     );
-  }, 500);
-
-  return (
-    <main
-      ref={wrapperRef}
-      className={classNames(classes.page, {}, [className])}
-      onScroll={onPageScroll}
-    >
-      {children}
-      {onScrollEnd ? (
-        <div className={classes.trigger} ref={triggerRef} />
-      ) : null}
-    </main>
-  );
-});
+  },
+);
