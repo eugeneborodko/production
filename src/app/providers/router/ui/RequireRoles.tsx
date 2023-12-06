@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
 import { getUserRoles, UserRoles } from '@/entities/User';
-import { RoutePaths } from '@/shared/consts/router';
+import { getRouteForbidden } from '@/shared/consts/router';
 
 interface RequireRolesProps {
   children: JSX.Element;
@@ -15,7 +15,7 @@ export const RequireRoles = ({ children, roles }: RequireRolesProps) => {
 
   if (!hasCommonRole) {
     return (
-      <Navigate to={RoutePaths.forbidden} state={{ from: location }} replace />
+      <Navigate to={getRouteForbidden()} state={{ from: location }} replace />
     );
   }
 

@@ -8,54 +8,64 @@ import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { MainPage } from '@/pages/MainPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
-import { AppRoutes, RoutePaths } from '@/shared/consts/router';
+import {
+  getRouteAbout,
+  getRouteAdminPanel,
+  getRouteArticleCreate,
+  getRouteArticleDetails,
+  getRouteArticleEdit,
+  getRouteArticles,
+  getRouteForbidden,
+  getRouteMain,
+  getRouteProfile,
+} from '@/shared/consts/router';
 
 export const routeConfig: AppRoutesProps[] = [
   {
-    path: RoutePaths[AppRoutes.MAIN],
+    path: getRouteMain(),
     element: <MainPage />,
   },
   {
-    path: RoutePaths[AppRoutes.ABOUT],
+    path: getRouteAbout(),
     element: <AboutPage />,
   },
   {
-    path: `${RoutePaths[AppRoutes.PROFILE]}:id`,
+    path: getRouteProfile(':id'),
     element: <ProfilePage />,
     authOnly: true,
   },
   {
-    path: RoutePaths[AppRoutes.ARTICLES],
+    path: getRouteArticles(),
     element: <ArticlesPage />,
     authOnly: true,
   },
   {
-    path: `${RoutePaths[AppRoutes.ARTICLE_DETAILS]}:id`,
+    path: getRouteArticleDetails(':id'),
     element: <ArticleDetailsPage />,
     authOnly: true,
   },
   {
-    path: `${RoutePaths[AppRoutes.ARTICLE_EDIT]}`,
+    path: getRouteArticleEdit(':id'),
     element: <ArticleEditPage />,
     authOnly: true,
   },
   {
-    path: `${RoutePaths[AppRoutes.ARTICLE_CREATE]}`,
+    path: getRouteArticleCreate(),
     element: <ArticleEditPage />,
     authOnly: true,
   },
   {
-    path: `${RoutePaths[AppRoutes.ADMIN_PANEL]}`,
+    path: getRouteAdminPanel(),
     element: <AdminPanelPage />,
     authOnly: true,
     roles: ['admin', 'manager'],
   },
   {
-    path: `${RoutePaths[AppRoutes.FORBIDDEN]}`,
+    path: getRouteForbidden(),
     element: <ForbiddenPage />,
   },
   {
-    path: RoutePaths[AppRoutes.NOT_FOUND],
+    path: '*',
     element: <NotFoundPage />,
   },
 ];

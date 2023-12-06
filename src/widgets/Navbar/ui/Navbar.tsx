@@ -9,7 +9,7 @@ import {
 } from '@/features/AuthByUsername';
 import { ShowNotifications } from '@/features/ShowNotifications';
 import { LOCAL_STORAGE_USER_KEY } from '@/shared/consts/localStorage';
-import { RoutePaths } from '@/shared/consts/router';
+import { getRouteArticleCreate } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { AppLink, Button, Typography } from '@/shared/ui';
@@ -49,7 +49,7 @@ export const Navbar = memo(({ className }: NavBarProps) => {
       {authData ? (
         <div className={classes.links}>
           <ShowNotifications />
-          <AppLink className={classes.link} to={RoutePaths.article_create}>
+          <AppLink className={classes.link} to={getRouteArticleCreate()}>
             <Button variant={ButtonVariants.OUTLINED_INVERTED}>
               {' '}
               {t('create article')}

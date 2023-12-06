@@ -3,7 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getArticleDetailsData } from '@/entities/Article';
-import { RoutePaths } from '@/shared/consts/router';
+import {
+  getRouteArticleEdit,
+  getRouteArticles,
+} from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui';
 import { ButtonVariants } from '@/shared/ui/Button';
@@ -23,11 +26,11 @@ export const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = ({
   const article = useSelector(getArticleDetailsData);
 
   const onBackToList = useCallback(() => {
-    navigate(RoutePaths.articles);
+    navigate(getRouteArticles());
   }, [navigate]);
 
   const onEditArticle = useCallback(() => {
-    navigate(`${RoutePaths.articles}/${article?.id}/edit`);
+    navigate(getRouteArticleEdit(article?.id || ''));
   }, [article?.id, navigate]);
 
   return (

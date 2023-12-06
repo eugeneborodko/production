@@ -8,7 +8,7 @@ import type {
 } from '../../../Article/model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
-import { RoutePaths } from '@/shared/consts/router';
+import { getRouteArticleDetails } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
   AppLink, Avatar, Button, Card, Typography,
@@ -84,10 +84,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
             />
           )}
           <footer className={classes.footer}>
-            <AppLink
-              to={RoutePaths.article_details + article.id}
-              target={target}
-            >
+            <AppLink to={getRouteArticleDetails(article.id)} target={target}>
               <Button variant={ButtonVariants.OUTLINED}>
                 {t('read more')}
               </Button>
@@ -106,7 +103,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
         className,
         classes[view],
       ])}
-      to={RoutePaths.article_details + article.id}
+      to={getRouteArticleDetails(article.id)}
       target={target}
     >
       <Card className={classes.card}>
