@@ -100,7 +100,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
       className={classNames(classes.articleDetails, {}, [className])}
     >
       <HStack justify="center">
-        <Avatar className={classes.avatar} src={article?.img} size={200} />
+        <Avatar className={classes.avatar} src={article?.img || ''} size={200} />
       </HStack>
       <Typography
         className={classes.title}

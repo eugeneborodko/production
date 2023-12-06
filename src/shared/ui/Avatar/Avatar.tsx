@@ -1,11 +1,13 @@
 import { CSSProperties, FC, useMemo } from 'react';
+import { AppImage } from '../AppImage';
+import { Skeleton } from '../Skeleton';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import classes from './Avatar.module.scss';
 
 interface AvatarProps {
   className?: string;
   size?: number;
-  src?: string;
+  src: string;
   alt?: string;
 }
 
@@ -24,11 +26,13 @@ export const Avatar: FC<AvatarProps> = ({
   );
 
   return (
-    <img
+    <AppImage
       className={classNames(classes.avatar, {}, [className])}
       style={styles}
       src={src}
       alt={alt}
+      fallback={<Skeleton width={size} height={size} borderRadius="50%" />}
+      errorFallback={<h2>...</h2>} // TODO: add fallback image
     />
   );
 };

@@ -12,3 +12,4 @@ export { Card } from './Card/Card';
 export { Tabs } from './Tabs/Tabs';
 export { HStack, VStack } from './Stack';
 export { StarRating } from './StarRating/StarRating';
+export { AppImage } from './AppImage/AppImage';

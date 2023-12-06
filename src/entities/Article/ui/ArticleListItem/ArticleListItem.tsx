@@ -11,9 +11,15 @@ import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { getRouteArticleDetails } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
-  AppLink, Avatar, Button, Card, Typography,
+  AppLink,
+  Avatar,
+  Button,
+  Card,
+  Typography,
+  AppImage,
 } from '@/shared/ui';
 import { ButtonVariants } from '@/shared/ui/Button';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import classes from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {
@@ -58,7 +64,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
           <header className={classes.header}>
             <Avatar
               className={classes.avatar}
-              src={article.user.avatar}
+              src={article.user.avatar || ''}
               alt={article.title}
               size={30}
             />
@@ -70,12 +76,14 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
           </header>
           <Typography className={classes.title} text={article.title} />
           {types}
-          <img
+          <AppImage
             className={classes.image}
             src={article.img}
             alt={article.title}
             width="100%"
             height="250"
+            fallback={<Skeleton width="100%" height={250} />}
+            errorFallback={<h2>...</h2>} // TODO: add fallback image
           />
           {textBlock && (
             <ArticleTextBlockComponent
@@ -89,7 +97,6 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
                 {t('read more')}
               </Button>
             </AppLink>
-
             {views}
           </footer>
         </Card>
@@ -108,12 +115,14 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
     >
       <Card className={classes.card}>
         <div className={classes.imageWrapper}>
-          <img
+          <AppImage
             className={classes.image}
             src={article.img}
             alt={article.title}
             width={200}
             height={200}
+            fallback={<Skeleton width={200} height={200} />}
+            errorFallback={<h2>...</h2>} // TODO: add fallback image
           />
           <Typography className={classes.date} date={article.createdAt} />
         </div>
