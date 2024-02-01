@@ -71,6 +71,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
     <Page
       onScrollEnd={onLoadMoreArticles}
       className={classNames('', {}, [className])}
+      data-testid="ArticlesPage"
     >
       <VStack gap="16">
         <ArticleDetailsFilters
