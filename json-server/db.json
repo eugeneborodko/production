@@ -1766,6 +1766,106 @@
           ]
         }
       ]
+    },
+    {
+      "title": "Javascript news first",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1022,
+      "createdAt": "26.02.2022",
+      "type": [
+        "IT"
+      ],
+      "user": {
+        "id": "4",
+        "username": "testuser",
+        "avatar": "",
+        "roles": [
+          "admin"
+        ]
+      },
+      "blocks": [],
+      "id": "uyA0J24"
+    },
+    {
+      "title": "Javascript news first",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1022,
+      "createdAt": "26.02.2022",
+      "type": [
+        "IT"
+      ],
+      "user": {
+        "id": "4",
+        "username": "testuser",
+        "avatar": "",
+        "roles": [
+          "admin"
+        ]
+      },
+      "blocks": [],
+      "id": "MWDnpws"
+    },
+    {
+      "title": "Javascript news first",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1022,
+      "createdAt": "26.02.2022",
+      "type": [
+        "IT"
+      ],
+      "user": {
+        "id": "4",
+        "username": "testuser",
+        "avatar": "",
+        "roles": [
+          "admin"
+        ]
+      },
+      "blocks": [],
+      "id": "PVGcgBy"
+    },
+    {
+      "title": "Javascript news first",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1022,
+      "createdAt": "26.02.2022",
+      "type": [
+        "IT"
+      ],
+      "user": {
+        "id": "4",
+        "username": "testuser",
+        "avatar": "",
+        "roles": [
+          "admin"
+        ]
+      },
+      "blocks": [],
+      "id": "c9doBKm"
+    },
+    {
+      "title": "Javascript news first",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1022,
+      "createdAt": "26.02.2022",
+      "type": [
+        "IT"
+      ],
+      "user": {
+        "id": "4",
+        "username": "testuser",
+        "avatar": "",
+        "roles": [
+          "admin"
+        ]
+      },
+      "blocks": [],
+      "id": "WhHicGg"
     }
   ],
   "comments": [
@@ -1919,13 +2019,13 @@
       "roles": [
         "admin"
       ],
-      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9r3ogaSmpwNYSaEKRifVaHjwmYsKSW7fC6Q&usqp=CAU"
+      "avatar": "https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg"
     }
   ],
   "profile": [
     {
       "id": "1",
-      "firstName": "ALEX",
+      "firstName": "ALEXX",
       "lastName": "THUNDERR",
       "age": 22,
       "currency": "EUR",
@@ -1943,6 +2043,28 @@
       "country": "Belarus",
       "city": "Minsk",
       "username": "usernameJohnSnow",
+      "avatar": "https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg"
+    },
+    {
+      "id": "3",
+      "firstName": "test",
+      "lastName": "user",
+      "age": 38,
+      "currency": "USD",
+      "country": "Belarus",
+      "city": "Minsk",
+      "username": "manager",
+      "avatar": "https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg"
+    },
+    {
+      "id": "4",
+      "firstName": "test1",
+      "lastName": "user1",
+      "age": 38,
+      "currency": "USD",
+      "country": "Belarus",
+      "city": "Minsk",
+      "username": "testuser",
       "avatar": "https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg"
     }
   ]

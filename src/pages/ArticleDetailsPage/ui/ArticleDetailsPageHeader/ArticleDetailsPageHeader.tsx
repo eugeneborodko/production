@@ -3,10 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getArticleDetailsData } from '@/entities/Article';
-import {
-  getRouteArticleEdit,
-  getRouteArticles,
-} from '@/shared/consts/router';
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui';
 import { ButtonVariants } from '@/shared/ui/Button';

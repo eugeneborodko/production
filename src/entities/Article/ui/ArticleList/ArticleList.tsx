@@ -50,6 +50,7 @@ export const ArticleList: FC<ArticleListProps> = ({
         className,
         classes[view],
       ])}
+      data-testid="ArticleList"
     >
       {articles.length > 0 ? articles.map(renderArticle) : null}
       {isLoading && getSkeletonsView(view)}

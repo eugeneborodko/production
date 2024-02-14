@@ -86,12 +86,12 @@ export const ProfileCard: FC<ProfileCardProps> = ({
               data-testid="ProfileCard.LastName"
             />
             <Input
-              type="number"
               value={String(data?.age)}
               placeholder={t('Your age')}
               onChange={onChangeAge}
               readOnly={readOnly}
               fullWidth
+              data-testid="ProfileCard.Age"
             />
             <Input
               value={data?.city}

@@ -59,6 +59,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
           className,
           classes[view],
         ])}
+        data-testid="ArticleListItem"
       >
         <Card className={classes.card}>
           <header className={classes.header}>
@@ -110,6 +111,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = ({
         className,
         classes[view],
       ])}
+      data-testid="ArticleListItem"
       to={getRouteArticleDetails(article.id)}
       target={target}
     >
