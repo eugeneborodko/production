@@ -54,9 +54,10 @@ const AddCommentForm: FC<AddCommentFormProps> = ({ id }) => {
         placeholder={t('enter your comment')}
         value={text}
         onChange={onCommentTextChange}
+        data-testid="AddCommentForm.Input"
         fullWidth
       />
-      <Button onClick={onSendHandler}>{t('send')}</Button>
+      <Button onClick={onSendHandler} data-testid="AddCommentForm.Button">{t('send')}</Button>
     </HStack>
   );
 };

@@ -43,7 +43,10 @@ export const CommentCard = memo(
     }
 
     return (
-      <div className={classNames(classes.commentCard, modes, [className])}>
+      <div
+        className={classNames(classes.commentCard, modes, [className])}
+        data-testid={`CommentCard${comment.id}`}
+      >
         <AppLink
           className={classes.header}
           to={getRouteProfile(comment.user.id)}
@@ -56,7 +59,11 @@ export const CommentCard = memo(
             title={comment.user.username}
           />
         </AppLink>
-        <Typography className={classes.text} text={comment.text} />
+        <Typography
+          className={classes.text}
+          text={comment.text}
+          data-testid={`CommentCard${comment.id}`}
+        />
       </div>
     );
   },

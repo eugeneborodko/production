@@ -15,7 +15,7 @@ export const ArticleRecommendationsList: FC<ArticleRecommendationsListProps> = (
   const { data: recommendations = [], isLoading } = useGetArticleRecommendationsQuery(4);
 
   return (
-    <div className={classNames('', {}, [className])}>
+    <div className={classNames('', {}, [className])} data-testid="ArticleRecommendationsList">
       <Typography title={t('we recommend')} />
       <ArticleList
         articles={recommendations}

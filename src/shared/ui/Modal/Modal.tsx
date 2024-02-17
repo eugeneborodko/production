@@ -68,7 +68,7 @@ export const Modal: FC<ModalProps> = ({
     <Portal>
       <div className={classNames(classes.modal, modes, [className])}>
         <div className={classes.overlay} onClick={onModalClose}>
-          <div className={classes.content} onClick={onContentClick}>
+          <div className={classes.content} onClick={onContentClick} data-testId="WriteArticleReview.Modal">
             {children}
           </div>
         </div>

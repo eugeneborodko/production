@@ -28,6 +28,8 @@ export const StarRating: FC<StarRatingProps> = ({
         height={size}
         key={star}
         onClick={onSelect(star)}
+        data-testid={`StarRating.rating-${star}`}
+        data-selected={star === selectedStars}
       />
     ))}
   </div>

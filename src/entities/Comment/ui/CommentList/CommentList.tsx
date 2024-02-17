@@ -23,7 +23,7 @@ export const CommentList: FC<CommentListProps> = ({ comments, isLoading }) => {
   }
 
   return (
-    <VStack gap="8">
+    <VStack gap="8" data-testId="CommentList">
       {comments?.length ? (
         comments.map((comment) => (
           <CommentCard
