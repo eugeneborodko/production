@@ -76,6 +76,26 @@
       "rate": 3,
       "review": "cypress test review",
       "id": "RlROc1g"
+    },
+    {
+      "articleId": "21",
+      "userId": "1",
+      "rate": 3,
+      "review": "12345678",
+      "id": "AHnxJfw"
+    },
+    {
+      "rate": 4,
+      "reviewText": "Test review text",
+      "userId": "4",
+      "id": "kE8w9rv"
+    },
+    {
+      "articleId": "test-article",
+      "rate": 4,
+      "reviewText": "Test review text",
+      "userId": "4",
+      "id": "zbMOfBs"
     }
   ],
   "notifications": [
@@ -2014,6 +2034,34 @@
       "userId": "1",
       "text": "123",
       "id": "dj2aWcp"
+    },
+    {
+      "articleId": "21",
+      "userId": "1",
+      "text": "comment",
+      "id": "8Z0BxZY"
+    },
+    {
+      "text": "Some test comment",
+      "userId": "4",
+      "id": "8z0-IVt"
+    },
+    {
+      "text": "Some test comment",
+      "userId": "4",
+      "id": "5DHBVu4"
+    },
+    {
+      "articleId": "22",
+      "userId": "1",
+      "text": "mock comment",
+      "id": "VR_n9-V"
+    },
+    {
+      "articleId": "test-article",
+      "text": "Some test comment",
+      "userId": "4",
+      "id": "vT1Mdv7"
     }
   ],
   "users": [
