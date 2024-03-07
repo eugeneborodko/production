@@ -8,7 +8,14 @@ const article: Article = {
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   createdAt: '',
   views: 123,
-  user: { id: '1', username: 'username' },
+  user: {
+    id: '1',
+    username: 'username',
+    features: {
+      isArticleRatingEnabled: true,
+      isArticleCommentsEnabled: true,
+    },
+  },
   blocks: [],
   type: [],
   title: 'title',

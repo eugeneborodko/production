@@ -10,6 +10,10 @@ describe('loginByUsername', () => {
     user = {
       username: 'user123',
       id: '1',
+      features: {
+        isArticleRatingEnabled: true,
+        isArticleCommentsEnabled: true,
+      },
     };
     userAuthData = {
       username: 'user12345',

@@ -26,6 +26,10 @@ Tile.args = {
         username: 'admin',
         avatar:
           'https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg',
+        features: {
+          isArticleRatingEnabled: true,
+          isArticleCommentsEnabled: true,
+        },
       },
       type: ['IT', 'Politics', 'adfdsaflkdsjf123', '213432'] as ArticleTypes[],
       blocks: [
@@ -109,6 +113,10 @@ Grid.args = {
         username: 'admin',
         avatar:
           'https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg',
+        features: {
+          isArticleRatingEnabled: true,
+          isArticleCommentsEnabled: true,
+        },
       },
       type: ['IT', 'Politics', 'adfdsaflkdsjf123', '213432'] as ArticleTypes[],
       blocks: [

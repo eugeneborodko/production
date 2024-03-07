@@ -21,6 +21,10 @@ Primary.args = {
         username: 'user1',
         avatar:
           'https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg',
+        features: {
+          isArticleRatingEnabled: true,
+          isArticleCommentsEnabled: true,
+        },
       },
     },
     {
@@ -31,6 +35,10 @@ Primary.args = {
         username: 'user2',
         avatar:
           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9r3ogaSmpwNYSaEKRifVaHjwmYsKSW7fC6Q&usqp=CAU',
+        features: {
+          isArticleRatingEnabled: true,
+          isArticleCommentsEnabled: true,
+        },
       },
     },
   ],

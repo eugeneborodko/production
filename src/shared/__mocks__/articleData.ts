@@ -12,6 +12,10 @@ export const mockArticle: Article = {
   user: {
     id: '1',
     username: 'admin',
+    features: {
+      isArticleRatingEnabled: true,
+      isArticleCommentsEnabled: true,
+    },
   },
   type: [ArticleTypes.IT],
   blocks: [

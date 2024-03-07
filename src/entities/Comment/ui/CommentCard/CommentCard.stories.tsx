@@ -20,6 +20,10 @@ Primary.args = {
       username: 'user2',
       avatar:
         'https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg',
+      features: {
+        isArticleRatingEnabled: true,
+        isArticleCommentsEnabled: true,
+      },
     },
   },
 };
@@ -34,6 +38,10 @@ Loading.args = {
       username: 'user2',
       avatar:
         'https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg',
+      features: {
+        isArticleRatingEnabled: true,
+        isArticleCommentsEnabled: true,
+      },
     },
   },
   isLoading: true,

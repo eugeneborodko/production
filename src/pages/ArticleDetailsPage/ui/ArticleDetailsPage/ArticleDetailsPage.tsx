@@ -6,6 +6,7 @@ import { ArticleDetails } from '@/entities/Article';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import { WriteArticleReview } from '@/features/WriteArticleReview';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { getFeatureFlag } from '@/shared/lib/helpers/featureFlags';
 import { Loader } from '@/shared/ui';
 import { ArticleDetailsComments } from '@/widgets/ArticleDetailsComments';
 import { Page } from '@/widgets/Page';
@@ -23,6 +24,9 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   const { t } = useTranslation('article-details');
   const { id } = useParams<ArticleDetailsParams>();
 
+  const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
+  const isArticleCommentsEnabled = getFeatureFlag('isArticleCommentsEnabled');
+
   if (!id) {
     return <h2>{t('article not found')}</h2>;
   }
@@ -31,11 +35,12 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
     <Page className={classNames(classes.articleDetailsPage, {}, [className])}>
       <ArticleDetailsPageHeader />
       <ArticleDetails id={id} />
-      <WriteArticleReview articleId={id} />
+      {isArticleRatingEnabled && <WriteArticleReview articleId={id} />}
+
       <Suspense fallback={<Loader />}>
         <ArticleRecommendationsList />
       </Suspense>
-      <ArticleDetailsComments id={id} />
+      {isArticleCommentsEnabled && <ArticleDetailsComments id={id} />}
     </Page>
   );
 };
