@@ -2076,6 +2076,9 @@
       "features": {
         "isArticleRatingEnabled": true,
         "isArticleCommentsEnabled": true
+      },
+      "jsonSettings": {
+        "theme": "orangeTheme"
       }
     },
     {
@@ -2089,6 +2092,9 @@
       "features": {
         "isArticleRatingEnabled": false,
         "isArticleCommentsEnabled": true
+      },
+      "jsonSettings": {
+        "theme": "lightTheme"
       }
     },
     {
@@ -2102,6 +2108,9 @@
       "features": {
         "isArticleRatingEnabled": false,
         "isArticleCommentsEnabled": false
+      },
+      "jsonSettings": {
+        "theme": "orangeTheme"
       }
     },
     {
@@ -2115,6 +2124,9 @@
       "features": {
         "isArticleRatingEnabled": true,
         "isArticleCommentsEnabled": false
+      },
+      "jsonSettings": {
+        "theme": "darkTheme"
       }
     }
   ],

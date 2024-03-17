@@ -1,3 +1,4 @@
+import { JsonSettings } from './json-settings';
 import { FeatureFlags } from '@/shared/types/featureFlags';
 
 export type UserRoles = 'admin' | 'manager' | 'user';
@@ -8,6 +9,7 @@ export interface User {
   avatar?: string;
   roles?: UserRoles[];
   features: FeatureFlags;
+  jsonSettings?: JsonSettings;
 }
 
 export interface UserSchema {

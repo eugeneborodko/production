@@ -1,4 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { initAuthData } from '../services/initAuthData';
+import { saveJsonSettings } from '../services/saveJsonSettings';
+import { JsonSettings } from '../types/json-settings';
 import { User, UserSchema } from '../types/user';
 import { setFeatureFlags } from '@/shared/lib/helpers/featureFlags';
 
@@ -14,14 +17,32 @@ export const userSlice = createSlice({
       state.authData = action.payload;
       setFeatureFlags(action.payload.features);
     },
-    setUserMounted: (state) => {
-      state.isMounted = true;
-    },
     logout: (state) => {
       state.authData = undefined;
     },
   },
+  extraReducers: (builder) => {
+    builder.addCase(
+      saveJsonSettings.fulfilled,
+      (state, { payload }: PayloadAction<JsonSettings>) => {
+        if (state.authData) {
+          state.authData.jsonSettings = payload;
+        }
+      },
+    );
+    builder.addCase(
+      initAuthData.fulfilled,
+      (state, { payload }: PayloadAction<User>) => {
+        state.authData = payload;
+        setFeatureFlags(payload.features);
+        state.isMounted = true;
+      },
+    );
+    builder.addCase(initAuthData.rejected, (state) => {
+      state.isMounted = true;
+    });
+  },
 });
 
-export const { setAuthData, logout, setUserMounted } = userSlice.actions;
+export const { logout, setAuthData } = userSlice.actions;
 export const { reducer: userReducer } = userSlice;

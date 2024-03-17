@@ -1,8 +1,9 @@
 import {
-  useState, useMemo, ReactNode,
+  useState, useMemo, ReactNode, useEffect,
 } from 'react';
+import { useSelector } from 'react-redux';
 import { ThemeContext } from '../../../../shared/lib/context/ThemeContext';
-import { LOCAL_STORAGE_THEME_KEY } from '@/shared/consts/localStorage';
+import { getJsonSettings } from '@/entities/User';
 import { Theme } from '@/shared/consts/theme';
 
 interface ThemeProviderProps {
@@ -10,10 +11,12 @@ interface ThemeProviderProps {
   children: ReactNode;
 }
 
-const defaultTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
-
 const ThemeProvider = ({ initialTheme, children }: ThemeProviderProps) => {
-  const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
+  const defaultTheme = useSelector(getJsonSettings).theme;
+  const [theme, setTheme] = useState<Theme>(
+    initialTheme || defaultTheme || Theme.LIGHT,
+  );
+  const [isThemeInited, setIsThemeInited] = useState(false);
 
   const defaultProps = useMemo(
     () => ({
@@ -22,6 +25,13 @@ const ThemeProvider = ({ initialTheme, children }: ThemeProviderProps) => {
     }),
     [theme],
   );
+
+  useEffect(() => {
+    if (!isThemeInited && defaultTheme) {
+      setTheme(defaultTheme);
+      setIsThemeInited(true);
+    }
+  }, [defaultTheme, isThemeInited]);
 
   return (
     <ThemeContext.Provider value={defaultProps}>
