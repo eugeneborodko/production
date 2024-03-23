@@ -45,7 +45,7 @@ module.exports = {
     'no-undef': 'off',
     'i18next/no-literal-string': [
       'error',
-      { markupOnly: true, ignoreAttribute: ['data-testid', 'to'] },
+      { markupOnly: true, ignoreAttribute: ['data-testid', 'to', 'feature'] },
     ],
     'max-len': ['error', { ignoreComments: true, code: 140 }],
     'jsx-a11y/click-events-have-key-events': 'off', // TODO: enable the rule

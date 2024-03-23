@@ -6,10 +6,7 @@ import { ArticleDetails } from '@/entities/Article';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import { WriteArticleReview } from '@/features/WriteArticleReview';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import {
-  getFeatureFlag,
-  toggleFeatures,
-} from '@/shared/lib/helpers/featureFlags';
+import { ToggleFeature, getFeatureFlag } from '@/shared/lib/featureFlags';
 import { Card, Loader } from '@/shared/ui';
 import { ArticleDetailsComments } from '@/widgets/ArticleDetailsComments';
 import { Page } from '@/widgets/Page';
@@ -34,15 +31,6 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
     return <h2>{t('article not found')}</h2>;
   }
 
-  const articleComments = toggleFeatures({
-    name: 'isArticleCommentsEnabled',
-    // TODO: fix
-    // eslint-disable-next-line react/no-unstable-nested-components
-    on: () => <ArticleDetailsComments id={id} />,
-    // eslint-disable-next-line react/no-unstable-nested-components
-    off: () => <Card>{t('Comments are disabled')}</Card>,
-  });
-
   return (
     <Page className={classNames(classes.articleDetailsPage, {}, [className])}>
       <ArticleDetailsPageHeader />
@@ -52,7 +40,11 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
       <Suspense fallback={<Loader />}>
         <ArticleRecommendationsList />
       </Suspense>
-      {articleComments}
+      <ToggleFeature
+        feature="isArticleCommentsEnabled"
+        on={<ArticleDetailsComments id={id} />}
+        off={<Card>{t('Comments are disabled')}</Card>}
+      />
     </Page>
   );
 };

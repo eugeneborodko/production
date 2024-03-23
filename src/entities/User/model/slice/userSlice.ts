@@ -3,7 +3,7 @@ import { initAuthData } from '../services/initAuthData';
 import { saveJsonSettings } from '../services/saveJsonSettings';
 import { JsonSettings } from '../types/json-settings';
 import { User, UserSchema } from '../types/user';
-import { setFeatureFlags } from '@/shared/lib/helpers/featureFlags';
+import { setFeatureFlags } from '@/shared/lib/featureFlags';
 
 const initialState: UserSchema = {
   isMounted: false,
