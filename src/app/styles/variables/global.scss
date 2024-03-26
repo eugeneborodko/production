@@ -32,4 +32,17 @@
   --red-dark: #ce0505;
   --green-dark: #24a64b;
   --black: #222;
+
+  // redesigned
+
+  --font-family-text-redesigned: "Nunito Sans", sans-serif;
+  --font-family-title-redesigned: "Roboto", sans-serif;
+  --font-small-redesigned: var(--font-size-small) / var(--font-line-small)
+    var(--font-family-text-redesigned);
+  --font-medium-redesigned: var(--font-size-medium) / var(--font-line-medium)
+    var(--font-family-text-redesigned);
+  --font-large-redesigned: var(--font-size-large) / var(--font-line-large)
+    var(--font-family-title-redesigned);
+  --font-extra-large-redesigned: var(--font-size-extra-large) /
+    var(--font-line-extra-large) var(--font-family-title-redesigned);
 }

@@ -1,0 +1,38 @@
+.mainLayout {
+  min-height: 100%;
+  display: grid;
+  grid-template-areas: "sidebar content rightbar";
+  grid-template-columns: 284px 1fr 176px;
+}
+
+.sidebar {
+  padding: 32px;
+  grid-area: sidebar;
+  justify-self: center;
+}
+
+.content {
+  max-width: 1200px;
+  padding: 32px;
+  grid-area: content;
+  justify-self: center;
+}
+
+.rightbar {
+  grid-area: rightbar;
+  justify-self: end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.sidebar,
+.rightbar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.toolbar {
+  height: 100%;
+}

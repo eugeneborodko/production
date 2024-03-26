@@ -2075,7 +2075,8 @@
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9r3ogaSmpwNYSaEKRifVaHjwmYsKSW7fC6Q&usqp=CAU",
       "features": {
         "isArticleRatingEnabled": true,
-        "isArticleCommentsEnabled": true
+        "isArticleCommentsEnabled": true,
+        "isAppRedesigned": true
       },
       "jsonSettings": {
         "theme": "orangeTheme"
@@ -2091,7 +2092,8 @@
       "avatar": "https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg",
       "features": {
         "isArticleRatingEnabled": false,
-        "isArticleCommentsEnabled": true
+        "isArticleCommentsEnabled": true,
+        "isAppRedesigned": false
       },
       "jsonSettings": {
         "theme": "lightTheme"
@@ -2107,7 +2109,8 @@
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9r3ogaSmpwNYSaEKRifVaHjwmYsKSW7fC6Q&usqp=CAU",
       "features": {
         "isArticleRatingEnabled": false,
-        "isArticleCommentsEnabled": false
+        "isArticleCommentsEnabled": false,
+        "isAppRedesigned": false
       },
       "jsonSettings": {
         "theme": "orangeTheme"
@@ -2123,7 +2126,8 @@
       "avatar": "https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg",
       "features": {
         "isArticleRatingEnabled": true,
-        "isArticleCommentsEnabled": false
+        "isArticleCommentsEnabled": false,
+        "isAppRedesigned": false
       },
       "jsonSettings": {
         "theme": "darkTheme"

@@ -3,7 +3,9 @@ import { useSelector } from 'react-redux';
 import { AppRouter } from './providers/router';
 import { getUserAuthData, getUserMounted, initAuthData } from '@/entities/User';
 import { LOCAL_STORAGE_USER_KEY } from '@/shared/consts/localStorage';
+import { MainLayout } from '@/shared/layouts/MainLayout';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Navbar } from '@/widgets/Navbar';
 import { PageLoader } from '@/widgets/PageLoader';
@@ -24,15 +26,32 @@ const App = () => {
   }
 
   return (
-    <div className={classNames('app', {}, [])}>
-      <Suspense fallback="">
-        <Navbar />
-        <div className="content-page">
-          <Sidebar />
-          {isMounted && <AppRouter />}
+    <ToggleFeature
+      feature="isAppRedesigned"
+      on={(
+        <div className={classNames('app_redesigned', {}, [])}>
+          <Suspense fallback="">
+            <MainLayout
+              header={<Navbar />}
+              content={<AppRouter />}
+              sidebar={<Sidebar />}
+              toolbar={<div>123</div>}
+            />
+          </Suspense>
         </div>
-      </Suspense>
-    </div>
+      )}
+      off={(
+        <div className={classNames('app', {}, [])}>
+          <Suspense fallback="">
+            <Navbar />
+            <div className="content-page">
+              <Sidebar />
+              <AppRouter />
+            </div>
+          </Suspense>
+        </div>
+      )}
+    />
   );
 };
 
