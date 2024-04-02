@@ -3,8 +3,3 @@ export enum Theme {
   DARK = 'darkTheme',
   ORANGE = 'orangeTheme',
 }
-
-export enum ThemeIconColors {
-  YELLOW = 'yellow',
-  BLUE = 'blue',
-}

@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Icon } from '../Icon';
 import { Button, ButtonSizes, ButtonVariants } from './Button';
-import Svg from '@/shared/assets/icons/theme.svg';
-import { ThemeIconColors } from '@/shared/consts/theme';
+import ThemeIcon from '@/shared/assets/icons/theme.svg';
 
 export default {
   title: 'shared/Button',
@@ -55,9 +55,9 @@ OutlinedSizeXL.args = {
   size: ButtonSizes.XL,
 };
 
-export const Icon = Template.bind({});
-Icon.args = {
-  children: <Svg fill={ThemeIconColors.YELLOW} />,
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+  children: <Icon Svg={ThemeIcon} />,
   variant: ButtonVariants.ICON,
 };
 
