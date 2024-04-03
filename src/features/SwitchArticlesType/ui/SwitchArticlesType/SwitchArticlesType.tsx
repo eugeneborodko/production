@@ -14,8 +14,8 @@ import {
   ReducersList,
   useDynamicModuleLoader,
 } from '@/shared/lib/hooks/useDynamicModuleLoader';
-import { Tabs } from '@/shared/ui';
-import { Tab } from '@/shared/ui/Tabs';
+import { Tabs } from '@/shared/ui/deprecated';
+import { Tab } from '@/shared/ui/deprecated/Tabs';
 
 interface SwitchArticlesTypeProps {
   className?: string;

@@ -4,7 +4,7 @@ import { Article, ArticleView } from '../../../Article/model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Typography } from '@/shared/ui';
+import { Typography } from '@/shared/ui/deprecated';
 import classes from './ArticleList.module.scss';
 
 interface ArticleListProps {

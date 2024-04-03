@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Notification } from '../../model/types/notification';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Typography } from '@/shared/ui';
+import { Typography } from '@/shared/ui/deprecated';
 import classes from './NotificationItem.module.scss';
 
 interface NotificationItemProps {

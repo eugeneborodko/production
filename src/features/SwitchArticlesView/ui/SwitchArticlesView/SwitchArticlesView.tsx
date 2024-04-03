@@ -8,8 +8,8 @@ import TileIcon from '@/shared/assets/icons/tile.svg';
 import { LOCAL_STORAGE_ARTICLES_VIEW } from '@/shared/consts/localStorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Button, Icon } from '@/shared/ui';
-import { ButtonVariants } from '@/shared/ui/Button';
+import { Button, Icon } from '@/shared/ui/deprecated';
+import { ButtonVariants } from '@/shared/ui/deprecated/Button';
 import classes from './SwitchArticlesView.module.scss';
 
 interface SwitchArticlesViewProps {

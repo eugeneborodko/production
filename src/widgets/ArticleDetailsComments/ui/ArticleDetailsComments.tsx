@@ -12,7 +12,7 @@ import {
   ReducersList,
   useDynamicModuleLoader,
 } from '@/shared/lib/hooks/useDynamicModuleLoader';
-import { Loader, Typography, VStack } from '@/shared/ui';
+import { Loader, Typography, VStack } from '@/shared/ui/deprecated';
 
 interface ArticleDetailsCommentsProps {
   id: string;

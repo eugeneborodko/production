@@ -6,8 +6,8 @@ import { LanguageSwitcher } from '@/features/LanguageSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeature } from '@/shared/lib/featureFlags';
-import { AppLogo, VStack } from '@/shared/ui';
-import { Button, ButtonSizes, ButtonVariants } from '@/shared/ui/Button';
+import { AppLogo, VStack } from '@/shared/ui/deprecated';
+import { Button, ButtonSizes, ButtonVariants } from '@/shared/ui/deprecated/Button';
 import classes from './Sidebar.module.scss';
 
 interface SidebarProps {

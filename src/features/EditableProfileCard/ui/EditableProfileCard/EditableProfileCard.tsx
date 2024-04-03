@@ -19,8 +19,8 @@ import {
   useDynamicModuleLoader,
 } from '@/shared/lib/hooks/useDynamicModuleLoader';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import { Typography, VStack } from '@/shared/ui';
-import { TypographyVariants } from '@/shared/ui/Typography';
+import { Typography, VStack } from '@/shared/ui/deprecated';
+import { TypographyVariants } from '@/shared/ui/deprecated/Typography';
 
 export interface EditableProfileCardProps {
   id: string;

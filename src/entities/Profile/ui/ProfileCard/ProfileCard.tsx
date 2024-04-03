@@ -6,8 +6,8 @@ import { Currencies, CurrencySelect } from '@/entities/Currency';
 import { Modes, classNames } from '@/shared/lib/classNames/classNames';
 import {
   Avatar, HStack, Input, Loader, Typography, VStack,
-} from '@/shared/ui';
-import { TypographyVariants } from '@/shared/ui/Typography';
+} from '@/shared/ui/deprecated';
+import { TypographyVariants } from '@/shared/ui/deprecated/Typography';
 import classes from './ProfileCard.module.scss';
 
 interface ProfileCardProps {

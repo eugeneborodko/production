@@ -24,7 +24,7 @@ import {
   useDynamicModuleLoader,
 } from '@/shared/lib/hooks/useDynamicModuleLoader';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import { VStack } from '@/shared/ui';
+import { VStack } from '@/shared/ui/deprecated';
 import { ArticleDetailsFilters } from '@/widgets/ArticleDetailsFilters';
 import { Page } from '@/widgets/Page';
 import classes from './ArticlesPage.module.scss';

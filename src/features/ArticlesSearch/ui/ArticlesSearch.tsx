@@ -13,7 +13,7 @@ import {
   ReducersList,
   useDynamicModuleLoader,
 } from '@/shared/lib/hooks/useDynamicModuleLoader';
-import { Card, Input } from '@/shared/ui';
+import { Card, Input } from '@/shared/ui/deprecated';
 
 export interface ArticlesSearchProps {
   fetchFiltersData: (...args: any[]) => void;

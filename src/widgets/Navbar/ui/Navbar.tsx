@@ -13,8 +13,8 @@ import { getRouteArticleCreate } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeature, toggleFeatures } from '@/shared/lib/featureFlags';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { AppLink, Button } from '@/shared/ui';
-import { ButtonVariants } from '@/shared/ui/Button';
+import { AppLink, Button } from '@/shared/ui/deprecated';
+import { ButtonVariants } from '@/shared/ui/deprecated/Button';
 import classes from './Navbar.module.scss';
 
 interface NavBarProps {

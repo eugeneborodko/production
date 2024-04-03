@@ -17,8 +17,8 @@ import {
   useDynamicModuleLoader,
   ReducersList,
 } from '@/shared/lib/hooks/useDynamicModuleLoader';
-import { Button, Input, Typography } from '@/shared/ui';
-import { TypographyVariants } from '@/shared/ui/Typography';
+import { Button, Input, Typography } from '@/shared/ui/deprecated';
+import { TypographyVariants } from '@/shared/ui/deprecated/Typography';
 import classes from './LoginForm.module.scss';
 
 const initialReducers: ReducersList = {

@@ -5,8 +5,8 @@ import ThemeIcon from '@/shared/assets/icons/theme.svg';
 import { Theme } from '@/shared/consts/theme';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
-import { Icon } from '@/shared/ui';
-import { Button, ButtonVariants } from '@/shared/ui/Button';
+import { Icon } from '@/shared/ui/deprecated';
+import { Button, ButtonVariants } from '@/shared/ui/deprecated/Button';
 
 export const ThemeSwitcher = memo(() => {
   const themeFromJsonSettings = useSelector(getJsonSettings).theme || Theme.LIGHT;

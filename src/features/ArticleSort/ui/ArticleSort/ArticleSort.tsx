@@ -12,8 +12,8 @@ import { ArticleSortField } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { SortOrder } from '@/shared/types/sort';
-import { Select } from '@/shared/ui';
-import { SelectOptions } from '@/shared/ui/Select';
+import { Select } from '@/shared/ui/deprecated';
+import { SelectOptions } from '@/shared/ui/deprecated/Select';
 import classes from './ArticleSort.module.scss';
 
 interface ArticleSortProps {

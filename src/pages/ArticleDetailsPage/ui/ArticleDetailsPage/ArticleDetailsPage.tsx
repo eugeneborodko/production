@@ -7,7 +7,7 @@ import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsLis
 import { WriteArticleReview } from '@/features/WriteArticleReview';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeature, getFeatureFlag } from '@/shared/lib/featureFlags';
-import { Card, Loader } from '@/shared/ui';
+import { Card, Loader } from '@/shared/ui/deprecated';
 import { ArticleDetailsComments } from '@/widgets/ArticleDetailsComments';
 import { Page } from '@/widgets/Page';
 import classes from './ArticleDetailsPage.module.scss';

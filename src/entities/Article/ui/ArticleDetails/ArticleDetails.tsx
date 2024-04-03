@@ -23,9 +23,9 @@ import {
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import {
   Avatar, HStack, Typography, VStack,
-} from '@/shared/ui';
-import { Skeleton } from '@/shared/ui/Skeleton';
-import { TextAlign, TextSize } from '@/shared/ui/Typography';
+} from '@/shared/ui/deprecated';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { TextAlign, TextSize } from '@/shared/ui/deprecated/Typography';
 import classes from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {

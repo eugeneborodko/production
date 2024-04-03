@@ -9,8 +9,8 @@ import {
   StarRating,
   Typography,
   VStack,
-} from '@/shared/ui';
-import { ButtonVariants } from '@/shared/ui/Button';
+} from '@/shared/ui/deprecated';
+import { ButtonVariants } from '@/shared/ui/deprecated/Button';
 
 interface RatingCardProps {
   rating: number;

@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { ArticleView } from '../../../Article/model/types/article';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/ui';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { Card } from '@/shared/ui/deprecated';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import classes from './ArticleListItem.module.scss';
 
 interface ArticleListItemSkeletonProps {

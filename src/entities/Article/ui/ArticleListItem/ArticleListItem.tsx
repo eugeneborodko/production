@@ -17,9 +17,9 @@ import {
   Card,
   Typography,
   AppImage,
-} from '@/shared/ui';
-import { ButtonVariants } from '@/shared/ui/Button';
-import { Skeleton } from '@/shared/ui/Skeleton';
+} from '@/shared/ui/deprecated';
+import { ButtonVariants } from '@/shared/ui/deprecated/Button';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import classes from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {

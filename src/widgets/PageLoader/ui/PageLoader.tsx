@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Loader } from '@/shared/ui';
+import { Loader } from '@/shared/ui/deprecated';
 import classes from './PageLoader.module.scss';
 
 interface PageLoaderProps {

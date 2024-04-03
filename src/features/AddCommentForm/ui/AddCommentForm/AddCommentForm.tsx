@@ -14,7 +14,7 @@ import {
   useDynamicModuleLoader,
 } from '@/shared/lib/hooks/useDynamicModuleLoader';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import { Button, HStack, Input } from '@/shared/ui';
+import { Button, HStack, Input } from '@/shared/ui/deprecated';
 
 export interface AddCommentFormProps {
   id: string;
