@@ -1,0 +1,43 @@
+.sidebar {
+  position: relative;
+  width: 220px;
+  height: 100%;
+  padding: 20px;
+  border-radius: 32px;
+  background: var(--light-bg-redesigned);
+
+  &.collapsed {
+    width: 70px;
+  }
+}
+
+.appLogo {
+  margin: 0 auto;
+  fill: var(--text-redesigned);
+}
+
+.linksTopMargin {
+  margin-top: 50px;
+}
+
+.collapseButton {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  rotate: 90deg;
+}
+
+.collapsed {
+  .appLogo {
+    width: 30px;
+  }
+
+  .collapseButton {
+    rotate: -90deg;
+    translate: -50%;
+  }
+
+  .links {
+    align-items: center;
+  }
+}

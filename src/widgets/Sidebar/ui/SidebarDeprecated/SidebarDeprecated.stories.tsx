@@ -1,14 +1,14 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Sidebar } from './Sidebar';
+import { SidebarDeprecated } from './SidebarDeprecated';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 
 export default {
   title: 'widgets/Sidebar',
-  component: Sidebar,
-} as ComponentMeta<typeof Sidebar>;
+  component: SidebarDeprecated,
+} as ComponentMeta<typeof SidebarDeprecated>;
 
-const Template: ComponentStory<typeof Sidebar> = (args) => (
-  <Sidebar {...args} />
+const Template: ComponentStory<typeof SidebarDeprecated> = (args) => (
+  <SidebarDeprecated {...args} />
 );
 
 export const Primary = Template.bind({});

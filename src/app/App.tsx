@@ -9,7 +9,7 @@ import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Navbar } from '@/widgets/Navbar';
 import { PageLoader } from '@/widgets/PageLoader';
-import { Sidebar } from '@/widgets/Sidebar';
+import { SidebarDeprecated, SidebarRedesigned } from '@/widgets/Sidebar';
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -34,7 +34,7 @@ const App = () => {
             <MainLayout
               header={<Navbar />}
               content={<AppRouter />}
-              sidebar={<Sidebar />}
+              sidebar={<SidebarRedesigned />}
               toolbar={<div>123</div>}
             />
           </Suspense>
@@ -45,7 +45,7 @@ const App = () => {
           <Suspense fallback="">
             <Navbar />
             <div className="content-page">
-              <Sidebar />
+              <SidebarDeprecated />
               <AppRouter />
             </div>
           </Suspense>

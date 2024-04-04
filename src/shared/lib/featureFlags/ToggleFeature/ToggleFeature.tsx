@@ -14,7 +14,8 @@ export const ToggleFeature = ({
   on,
   off,
 }: ToggleFeatureProps): ReactElement | null => {
+  // console.log({ feature, on, off });
+  // console.log(getFeatureFlag(feature));
   if (getFeatureFlag(feature)) return <>{on}</>;
-  if (getFeatureFlag(feature) === false) return <>{off}</>;
-  return null;
+  return <>{off}</>;
 };

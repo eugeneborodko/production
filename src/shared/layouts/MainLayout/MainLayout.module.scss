@@ -8,11 +8,11 @@
 .sidebar {
   padding: 32px;
   grid-area: sidebar;
-  justify-self: center;
 }
 
 .content {
   max-width: 1200px;
+  width: 100%;
   padding: 32px;
   grid-area: content;
   justify-self: center;

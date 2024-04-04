@@ -1,0 +1,22 @@
+.icon {
+  margin-right: 10px;
+  fill: var(--accent-redesigned);
+}
+
+.link {
+  color: var(--text-redesigned);
+}
+
+.item {
+  display: flex;
+}
+
+.collapsed {
+  .text {
+    display: none;
+  }
+
+  .icon {
+    margin: 0;
+  }
+}

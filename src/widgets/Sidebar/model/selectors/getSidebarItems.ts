@@ -1,10 +1,15 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { SidebarItemType } from '../types/sidebar';
 import { getUserAuthData, isUserAdmin, isUserManager } from '@/entities/User';
-import SVGAbout from '@/shared/assets/icons/about.svg';
-import SVGArticles from '@/shared/assets/icons/articles.svg';
-import SVGHome from '@/shared/assets/icons/home.svg';
-import SVGProfile from '@/shared/assets/icons/profile.svg';
+import AboutIconRedesigned from '@/shared/assets/icons/about-new.svg';
+import AboutIconDeprecated from '@/shared/assets/icons/about.svg';
+import AdminIconRedesigned from '@/shared/assets/icons/admin-new.svg';
+import ArticlesIconRedesigned from '@/shared/assets/icons/articles-new.svg';
+import ArticlesIconDeprecated from '@/shared/assets/icons/articles.svg';
+import HomeIconRedesigned from '@/shared/assets/icons/home-new.svg';
+import HomeIconDeprecated from '@/shared/assets/icons/home.svg';
+import ProfileIconRedesigned from '@/shared/assets/icons/profile-new.svg';
+import ProfileIconDeprecated from '@/shared/assets/icons/profile.svg';
 import {
   getRouteAbout,
   getRouteAdminPanel,
@@ -12,6 +17,7 @@ import {
   getRouteMain,
   getRouteProfile,
 } from '@/shared/consts/router';
+import { toggleFeatures } from '@/shared/lib/featureFlags';
 
 export const getSidebarItems = createSelector(
   [getUserAuthData, isUserAdmin, isUserManager],
@@ -19,12 +25,20 @@ export const getSidebarItems = createSelector(
     const sidebarItemsList: SidebarItemType[] = [
       {
         path: getRouteMain(),
-        Icon: SVGHome,
+        Icon: toggleFeatures({
+          name: 'isAppRedesigned',
+          on: () => HomeIconRedesigned,
+          off: () => HomeIconDeprecated,
+        }),
         text: 'main page',
       },
       {
         path: getRouteAbout(),
-        Icon: SVGAbout,
+        Icon: toggleFeatures({
+          name: 'isAppRedesigned',
+          on: () => AboutIconRedesigned,
+          off: () => AboutIconDeprecated,
+        }),
         text: 'about page',
       },
     ];
@@ -33,13 +47,21 @@ export const getSidebarItems = createSelector(
       sidebarItemsList.push(
         {
           path: getRouteProfile(userData.id),
-          Icon: SVGProfile,
+          Icon: toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => ProfileIconRedesigned,
+            off: () => ProfileIconDeprecated,
+          }),
           text: 'profile page',
           authOnly: true,
         },
         {
           path: getRouteArticles(),
-          Icon: SVGArticles,
+          Icon: toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => ArticlesIconRedesigned,
+            off: () => ArticlesIconDeprecated,
+          }),
           text: 'articles page',
           authOnly: true,
         },
@@ -48,7 +70,11 @@ export const getSidebarItems = createSelector(
       if (isUserAdmin || isUserManager) {
         sidebarItemsList.push({
           path: getRouteAdminPanel(),
-          Icon: SVGArticles,
+          Icon: toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => AdminIconRedesigned,
+            off: () => ProfileIconDeprecated,
+          }),
           text: 'admin page',
           authOnly: true,
         });
