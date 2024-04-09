@@ -1,7 +1,9 @@
 .button {
   padding: 6px 8px;
   color: var(--text-redesigned);
-  border: 0;
+  background-color: var(--bg-redesigned);
+  border: 1px solid var(--accent-redesigned);
+  border-radius: 12px;
   cursor: pointer;
 
   &:disabled {
