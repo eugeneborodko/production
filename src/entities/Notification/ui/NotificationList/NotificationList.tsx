@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { useGetNotificationsQuery } from '../../api/notificationApi';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
-import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { VStack } from '@/shared/ui/redesigned';
 import classes from './NotificationList.module.scss';
@@ -25,29 +24,11 @@ const NotificationList: FC<NotificationListProps> = ({ className }) => {
   }
 
   return (
-    <ToggleFeature
-      feature="isAppRedesigned"
-      on={(
-        <VStack className={classes.notificationListRedesigned}>
-          {notifications?.map((notification) => (
-            <NotificationItem
-              key={notification.id}
-              notification={notification}
-            />
-          ))}
-        </VStack>
-      )}
-      off={(
-        <VStack className={classes.notificationList} gap="16">
-          {notifications?.map((notification) => (
-            <NotificationItem
-              key={notification.id}
-              notification={notification}
-            />
-          ))}
-        </VStack>
-      )}
-    />
+    <VStack className={classes.notificationListRedesigned}>
+      {notifications?.map((notification) => (
+        <NotificationItem key={notification.id} notification={notification} />
+      ))}
+    </VStack>
   );
 };
 

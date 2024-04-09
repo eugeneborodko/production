@@ -8,7 +8,6 @@ import { getPageScrollPositionByPath } from '../model/selectors/scroll';
 import { setScrollPosition } from '../model/slices/pageSlice';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { toggleFeatures } from '@/shared/lib/featureFlags';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle';
@@ -35,11 +34,7 @@ export const Page = memo(
 
     const scrollPosition = useSelector((state: StateSchema) => getPageScrollPositionByPath(state, pathname));
 
-    const pageClassName = toggleFeatures({
-      name: 'isAppRedesigned',
-      on: () => classes.pageRedesigned,
-      off: () => classes.page,
-    });
+    const pageClassName = classes.pageRedesigned;
 
     useInfiniteScroll({
       triggerRef,

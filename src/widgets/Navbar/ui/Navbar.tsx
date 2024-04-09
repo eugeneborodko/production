@@ -11,7 +11,6 @@ import { ShowNotifications } from '@/features/ShowNotifications';
 import { LOCAL_STORAGE_USER_KEY } from '@/shared/consts/localStorage';
 import { getRouteArticleCreate } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ToggleFeature, toggleFeatures } from '@/shared/lib/featureFlags';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { AppLink, Button } from '@/shared/ui/deprecated';
 import { ButtonVariants } from '@/shared/ui/deprecated/Button';
@@ -44,65 +43,28 @@ export const Navbar = memo(({ className }: NavBarProps) => {
     localStorage.removeItem(LOCAL_STORAGE_USER_KEY);
   }, [dispatch]);
 
-  const navbarClassName = toggleFeatures({
-    name: 'isAppRedesigned',
-    on: () => classes.navbarRedesigned,
-    off: () => classes.navbar,
-  });
+  const navbarClassName = classes.navbarRedesigned;
 
   return (
     <nav className={classNames(navbarClassName, {}, [className])}>
-      <ToggleFeature
-        feature="isAppRedesigned"
-        on={
-          authData ? (
-            <div className={classes.links}>
-              <ShowNotifications />
-              <AppLink className={classes.link} to={getRouteArticleCreate()}>
-                <Button variant={ButtonVariants.OUTLINED_INVERTED}>+</Button>
-              </AppLink>
-              <Button
-                variant={ButtonVariants.OUTLINED_INVERTED}
-                onClick={onLogout}
-              >
-                {t('Log out')}
-              </Button>
-            </div>
-          ) : (
-            <Button
-              variant={ButtonVariants.OUTLINED_INVERTED}
-              onClick={onModalOpen}
-            >
-              {t('Log in')}
-            </Button>
-          )
-        }
-        off={
-          authData ? (
-            <div className={classes.links}>
-              <ShowNotifications />
-              <AppLink className={classes.link} to={getRouteArticleCreate()}>
-                <Button variant={ButtonVariants.OUTLINED_INVERTED}>
-                  {t('create article')}
-                </Button>
-              </AppLink>
-              <Button
-                variant={ButtonVariants.OUTLINED_INVERTED}
-                onClick={onLogout}
-              >
-                {t('Log out')}
-              </Button>
-            </div>
-          ) : (
-            <Button
-              variant={ButtonVariants.OUTLINED_INVERTED}
-              onClick={onModalOpen}
-            >
-              {t('Log in')}
-            </Button>
-          )
-        }
-      />
+      {authData ? (
+        <div className={classes.links}>
+          <ShowNotifications />
+          <AppLink className={classes.link} to={getRouteArticleCreate()}>
+            <Button variant={ButtonVariants.OUTLINED_INVERTED}>+</Button>
+          </AppLink>
+          <Button variant={ButtonVariants.OUTLINED_INVERTED} onClick={onLogout}>
+            {t('Log out')}
+          </Button>
+        </div>
+      ) : (
+        <Button
+          variant={ButtonVariants.OUTLINED_INVERTED}
+          onClick={onModalOpen}
+        >
+          {t('Log in')}
+        </Button>
+      )}
 
       <LoginModal isOpened={isLoginModalOpened} onClose={onModalClose} />
     </nav>
