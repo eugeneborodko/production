@@ -1,6 +1,6 @@
 .button {
   padding: 6px 8px;
-  color: var(--primary-color);
+  color: var(--text-redesigned);
   border: 0;
   cursor: pointer;
 
@@ -10,81 +10,48 @@
 
   &:hover {
     opacity: 0.8;
+    color: var(--accent-redesigned);
   }
 }
 
-.text {
+.empty {
   background: none;
   border: 0;
-}
-
-.outlined,
-.outlinedInverted {
-  background: none;
 }
 
 .outlined {
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
-}
-
-.outlinedInverted {
-  color: var(--inverted-primary-color);
-  border: 1px solid var(--inverted-primary-color);
-}
-
-.outlinedRed {
-  color: var(--red-dark);
-  border: 1px solid var(--red-dark);
-}
-
-.outlinedGreen {
-  color: var(--green-dark);
-  border: 1px solid var(--green-dark);
-}
-
-.contained {
-  color: var(--inverted-primary-color);
-  background: var(--inverted-bg-color);
-}
-
-.icon {
-  padding: 0;
-  border: 0;
   background: none;
-  outline: none;
 }
 
 .square {
   padding: 0;
 }
 
-.square.M {
+.square.m {
   width: var(--font-line-medium);
   height: var(--font-line-medium);
-  font-size: var(--font-size-medium);
 }
 
-.square.L {
+.square.l {
   height: var(--font-line-large);
   width: var(--font-line-large);
-  font-size: var(--font-size-large);
 }
 
-.square.XL {
+.square.xl {
   width: var(--font-line-extra-large);
   height: var(--font-line-extra-large);
-  font-size: var(--font-size-extra-large);
 }
 
-.M {
-  font-size: var(--font-size-medium);
+.m {
+  font: var(--font-medium-redesigned);
 }
 
-.L {
-  font-size: var(--font-size-large);
+.l {
+  font: var(--font-large-redesigned);
 }
 
-.XL {
-  font-size: var(--font-size-extra-large);
+.xl {
+  font: var(--font-extra-large-redesigned);
 }

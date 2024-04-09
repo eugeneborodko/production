@@ -1,7 +1,12 @@
 .showNotifications {
   position: relative;
+  display: flex;
 }
 
 .notificationIcon {
   fill: var(--inverted-primary-color);
+}
+
+.notificationIconRedesigned {
+  fill: var(--icon-redesigned);
 }

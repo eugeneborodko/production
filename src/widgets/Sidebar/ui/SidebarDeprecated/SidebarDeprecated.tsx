@@ -5,12 +5,12 @@ import { SidebarItemDeprecated } from '../SidebarItemDeprecated/SidebarItemDepre
 import { LanguageSwitcher } from '@/features/LanguageSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { VStack } from '@/shared/ui/deprecated';
 import {
   Button,
   ButtonSizes,
   ButtonVariants,
 } from '@/shared/ui/deprecated/Button';
+import { VStack } from '@/shared/ui/redesigned';
 import classes from './SidebarDeprecated.module.scss';
 
 interface SidebarProps {
@@ -36,7 +36,11 @@ export const SidebarDeprecated = memo(({ className }: SidebarProps) => {
     >
       <VStack className={classes.links} gap="8">
         {sidebarItemsList.map((item) => (
-          <SidebarItemDeprecated item={item} isCollapsed={isCollapsed} key={item.path} />
+          <SidebarItemDeprecated
+            item={item}
+            isCollapsed={isCollapsed}
+            key={item.path}
+          />
         ))}
       </VStack>
       <Button

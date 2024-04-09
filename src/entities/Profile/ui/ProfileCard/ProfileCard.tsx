@@ -4,10 +4,9 @@ import { Profile } from '../../../Profile';
 import { Countries, CountrySelect } from '@/entities/Country';
 import { Currencies, CurrencySelect } from '@/entities/Currency';
 import { Modes, classNames } from '@/shared/lib/classNames/classNames';
-import {
-  Avatar, HStack, Input, Loader, Typography, VStack,
-} from '@/shared/ui/deprecated';
+import { Input, Loader, Typography } from '@/shared/ui/deprecated';
 import { TypographyVariants } from '@/shared/ui/deprecated/Typography';
+import { Avatar, HStack, VStack } from '@/shared/ui/redesigned';
 import classes from './ProfileCard.module.scss';
 
 interface ProfileCardProps {

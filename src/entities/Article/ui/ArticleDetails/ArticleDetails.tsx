@@ -21,11 +21,10 @@ import {
   useDynamicModuleLoader,
 } from '@/shared/lib/hooks/useDynamicModuleLoader';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import {
-  Avatar, HStack, Typography, VStack,
-} from '@/shared/ui/deprecated';
+import { Typography } from '@/shared/ui/deprecated';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 import { TextAlign, TextSize } from '@/shared/ui/deprecated/Typography';
+import { Avatar, HStack, VStack } from '@/shared/ui/redesigned';
 import classes from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {

@@ -11,15 +11,11 @@ import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { getRouteArticleDetails } from '@/shared/consts/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
-  AppLink,
-  Avatar,
-  Button,
-  Card,
-  Typography,
-  AppImage,
+  AppLink, Button, Card, Typography,
 } from '@/shared/ui/deprecated';
 import { ButtonVariants } from '@/shared/ui/deprecated/Button';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { AppImage, Avatar } from '@/shared/ui/redesigned';
 import classes from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {

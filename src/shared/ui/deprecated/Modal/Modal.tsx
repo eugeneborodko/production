@@ -5,7 +5,7 @@ import {
   useCallback,
   useEffect,
 } from 'react';
-import { Portal } from '../Portal/Portal';
+import { Portal } from '../../redesigned/Portal/Portal';
 import { Modes, classNames } from '@/shared/lib/classNames/classNames';
 import classes from './Modal.module.scss';
 

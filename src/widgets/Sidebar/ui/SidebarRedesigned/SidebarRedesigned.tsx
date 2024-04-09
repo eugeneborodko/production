@@ -2,10 +2,11 @@ import { memo, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItemRedesigned } from '../SidebarItemRedesigned/SidebarItemRedesigned';
+import { LanguageSwitcher } from '@/features/LanguageSwitcher';
+import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import CollapseIcon from '@/shared/assets/icons/arrow-bottom.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { VStack } from '@/shared/ui/deprecated';
-import { AppLogo, Icon } from '@/shared/ui/redesigned';
+import { AppLogo, Icon, VStack } from '@/shared/ui/redesigned';
 import classes from './SidebarRedesigned.module.scss';
 
 interface SidebarProps {
@@ -42,7 +43,6 @@ export const SidebarRedesigned = memo(({ className }: SidebarProps) => {
           />
         ))}
       </VStack>
-
       <Icon
         className={classes.collapseButton}
         Svg={CollapseIcon}
@@ -50,6 +50,10 @@ export const SidebarRedesigned = memo(({ className }: SidebarProps) => {
         onClick={onToggle}
         clickable
       />
+      <div className={classes.settings}>
+        <ThemeSwitcher />
+        <LanguageSwitcher short={isCollapsed} />
+      </div>
     </section>
   );
 });

@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { HStack } from '../../deprecated/Stack';
 import { Icon } from '../Icon';
+import { HStack } from '../Stack';
 import AppLogoIcon from '@/shared/assets/icons/star.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 

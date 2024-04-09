@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { ArticleDetailsParams } from '../../ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailsPage';
 import { EditableProfileCard } from '@/features/EditableProfileCard';
-import { VStack } from '@/shared/ui/deprecated';
+import { VStack } from '@/shared/ui/redesigned';
 import { Page } from '@/widgets/Page';
 
 const ProfilePage = () => {

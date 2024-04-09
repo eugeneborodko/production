@@ -2,8 +2,9 @@ import { memo } from 'react';
 import { Comment } from '../../index';
 import { getRouteProfile } from '@/shared/consts/router';
 import { Modes, classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink, Avatar, Typography } from '@/shared/ui/deprecated';
+import { AppLink, Typography } from '@/shared/ui/deprecated';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Avatar } from '@/shared/ui/redesigned';
 import classes from './CommentCard.module.scss';
 
 interface CommentCardProps {

@@ -3,14 +3,13 @@ import { useTranslation } from 'react-i18next';
 import {
   Button,
   Card,
-  HStack,
   Input,
   Modal,
   StarRating,
   Typography,
-  VStack,
 } from '@/shared/ui/deprecated';
 import { ButtonVariants } from '@/shared/ui/deprecated/Button';
+import { HStack, VStack } from '@/shared/ui/redesigned';
 
 interface RatingCardProps {
   rating: number;

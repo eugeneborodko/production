@@ -1,6 +1,6 @@
 import { CSSProperties, FC, useMemo } from 'react';
+import { Skeleton } from '../../deprecated/Skeleton';
 import { AppImage } from '../AppImage';
-import { Skeleton } from '../Skeleton';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import classes from './Avatar.module.scss';
 
@@ -10,10 +10,6 @@ interface AvatarProps {
   src: string;
   alt?: string;
 }
-
-/**
- * @deprecated
- */
 
 export const Avatar: FC<AvatarProps> = ({
   className,

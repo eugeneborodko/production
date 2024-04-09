@@ -14,7 +14,8 @@ import {
   useDynamicModuleLoader,
 } from '@/shared/lib/hooks/useDynamicModuleLoader';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import { Button, HStack, Input } from '@/shared/ui/deprecated';
+import { Button, Input } from '@/shared/ui/deprecated';
+import { HStack } from '@/shared/ui/redesigned';
 
 export interface AddCommentFormProps {
   id: string;
@@ -57,7 +58,9 @@ const AddCommentForm: FC<AddCommentFormProps> = ({ id }) => {
         data-testid="AddCommentForm.Input"
         fullWidth
       />
-      <Button onClick={onSendHandler} data-testid="AddCommentForm.Button">{t('send')}</Button>
+      <Button onClick={onSendHandler} data-testid="AddCommentForm.Button">
+        {t('send')}
+      </Button>
     </HStack>
   );
 };

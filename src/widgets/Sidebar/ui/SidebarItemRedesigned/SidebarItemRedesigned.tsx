@@ -29,6 +29,7 @@ export const SidebarItemRedesigned = memo(
         })}
         to={path}
         variant="primary"
+        activeClassName={classes.active}
       >
         <Icon className={classes.icon} Svg={item.Icon} />
         <span className={classes.text}>{t(text)}</span>

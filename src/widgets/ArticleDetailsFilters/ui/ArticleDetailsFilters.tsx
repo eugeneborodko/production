@@ -4,7 +4,7 @@ import { ArticleSort } from '@/features/ArticleSort';
 import { ArticlesSearch } from '@/features/ArticlesSearch';
 import { SwitchArticlesType } from '@/features/SwitchArticlesType';
 import { SwitchArticlesView } from '@/features/SwitchArticlesView';
-import { HStack, VStack } from '@/shared/ui/deprecated';
+import { HStack, VStack } from '@/shared/ui/redesigned';
 
 export interface ArticleDetailsFiltersProps {
   fetchFiltersData: (...args: any[]) => void;

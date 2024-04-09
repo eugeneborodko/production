@@ -1,35 +1,22 @@
-import { ButtonHTMLAttributes, memo } from 'react';
+import { ButtonHTMLAttributes } from 'react';
 import { Modes, classNames } from '@/shared/lib/classNames/classNames';
 import classes from './Button.module.scss';
 
-export enum ButtonVariants {
-  TEXT = 'text',
-  CONTAINED = 'contained',
-  OUTLINED = 'outlined',
-  OUTLINED_INVERTED = 'outlinedInverted',
-  OUTLINED_RED = 'outlinedRed',
-  OUTLINED_GREEN = 'outlinedGreen',
-  ICON = 'icon',
-}
-
-export enum ButtonSizes {
-  M = 'M',
-  L = 'L',
-  XL = 'XL',
-}
+export type ButtonVariant = 'empty' | 'outlined';
+export type ButtonSize = 'm' | 'l' | 'xl';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
-  variant?: ButtonVariants;
+  variant?: ButtonVariant;
   square?: boolean;
-  size?: ButtonSizes;
+  size?: ButtonSize;
 }
 
-export const Button = memo(({
+export const Button = ({
   className,
-  variant = ButtonVariants.CONTAINED,
+  variant = 'outlined',
   square,
-  size = ButtonSizes.M,
+  size = 'm',
   children,
   ...props
 }: ButtonProps) => {
@@ -48,4 +35,4 @@ export const Button = memo(({
       {children}
     </button>
   );
-});
+};
