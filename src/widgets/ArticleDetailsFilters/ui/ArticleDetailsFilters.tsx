@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { ArticleSort } from '@/features/ArticleSort';
 import { ArticlesSearch } from '@/features/ArticlesSearch';
 import { SwitchArticlesType } from '@/features/SwitchArticlesType';
-import { SwitchArticlesView } from '@/features/SwitchArticlesView';
+import { SwitchArticlesViewDeprecated } from '@/features/SwitchArticlesView';
 import { HStack, VStack } from '@/shared/ui/redesigned';
 
 export interface ArticleDetailsFiltersProps {
@@ -18,7 +18,7 @@ export const ArticleDetailsFilters: FC<ArticleDetailsFiltersProps> = ({
   <VStack gap="16">
     <HStack justify="between">
       <ArticleSort fetchFiltersData={fetchFiltersData} setPage={setPage} />
-      <SwitchArticlesView />
+      <SwitchArticlesViewDeprecated />
     </HStack>
     <ArticlesSearch fetchFiltersData={fetchFiltersData} setPage={setPage} />
     <SwitchArticlesType fetchFiltersData={fetchFiltersData} setPage={setPage} />

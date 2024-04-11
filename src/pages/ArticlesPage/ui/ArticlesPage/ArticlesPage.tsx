@@ -13,10 +13,13 @@ import {
 import { ArticleList } from '@/entities/Article';
 import { articleSortReducer } from '@/features/ArticleSort';
 import {
+  SwitchArticlesViewRedesigned,
   getArticlesView,
   switchArticlesViewReducer,
 } from '@/features/SwitchArticlesView';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
 import {
@@ -27,7 +30,6 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { VStack } from '@/shared/ui/redesigned';
 import { ArticleDetailsFilters } from '@/widgets/ArticleDetailsFilters';
 import { Page } from '@/widgets/Page';
-import classes from './ArticlesPage.module.scss';
 
 interface ArticlesPageProps {
   className?: string;
@@ -67,26 +69,58 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
 
   // TODO: add ArticleInfiniteLIst feature instead of ArticleList entity
 
-  return (
-    <Page
-      onScrollEnd={onLoadMoreArticles}
-      className={classNames('', {}, [className])}
-      data-testid="ArticlesPage"
-    >
-      <VStack gap="16">
-        <ArticleDetailsFilters
-          fetchFiltersData={debouncedFetchFiltersData}
-          setPage={setPage} // TODO: refactor
+  const content = (
+    <ToggleFeature
+      feature="isAppRedesigned"
+      on={(
+        <StickyContentLayout
+          left={<SwitchArticlesViewRedesigned />}
+          content={(
+            <Page
+              onScrollEnd={onLoadMoreArticles}
+              className={classNames('', {}, [className])}
+              data-testid="ArticlesPage"
+            >
+              <VStack gap="16">
+                {/* <ArticleDetailsFilters
+                  fetchFiltersData={debouncedFetchFiltersData}
+                  setPage={setPage}
+                /> */}
+                <ArticleList
+                  view={view}
+                  isLoading={isLoading}
+                  articles={articles}
+                />
+              </VStack>
+            </Page>
+          )}
+          right={<div>345</div>}
         />
-        <ArticleList
-          className={classes.list}
-          view={view}
-          isLoading={isLoading}
-          articles={articles}
-        />
-      </VStack>
-    </Page>
+      )}
+      off={(
+        <Page
+          onScrollEnd={onLoadMoreArticles}
+          className={classNames('', {}, [className])}
+          data-testid="ArticlesPage"
+        >
+          <VStack gap="16">
+            <ArticleDetailsFilters
+              fetchFiltersData={debouncedFetchFiltersData}
+              setPage={setPage} // TODO: refactor
+            />
+            <ArticleList
+              view={view}
+              isLoading={isLoading}
+              articles={articles}
+            />
+          </VStack>
+        </Page>
+      )}
+    />
   );
+
+  // eslint-disable-next-line react/jsx-no-useless-fragment
+  return <>{content}</>;
 };
 
 export default memo(ArticlesPage);

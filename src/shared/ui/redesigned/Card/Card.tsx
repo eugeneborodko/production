@@ -3,6 +3,7 @@ import { Modes, classNames } from '@/shared/lib/classNames/classNames';
 import classes from './Card.module.scss';
 
 type CardPadding = '0' | '8' | '16' | '24';
+type CardBorder = 'round' | 'normal';
 
 const mapPaddingToClass: Record<CardPadding, string> = {
   0: 'gap_0',
@@ -16,6 +17,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   fullWidth?: boolean;
   padding?: CardPadding;
+  border?: CardBorder;
 }
 
 export const Card: FC<CardProps> = ({
@@ -23,6 +25,7 @@ export const Card: FC<CardProps> = ({
   children,
   fullWidth,
   padding = '0',
+  border = 'normal',
   ...props
 }) => {
   const paddingClassName = mapPaddingToClass[padding];
@@ -32,7 +35,11 @@ export const Card: FC<CardProps> = ({
   return (
     <div
       {...props}
-      className={classNames(classes.card, modes, [className, classes[paddingClassName]])}
+      className={classNames(classes.card, modes, [
+        className,
+        classes[paddingClassName],
+        classes[border],
+      ])}
     >
       {children}
     </div>

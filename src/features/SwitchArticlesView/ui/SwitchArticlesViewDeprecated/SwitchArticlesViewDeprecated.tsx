@@ -10,9 +10,9 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Button, Icon } from '@/shared/ui/deprecated';
 import { ButtonVariants } from '@/shared/ui/deprecated/Button';
-import classes from './SwitchArticlesView.module.scss';
+import classes from './SwitchArticlesViewDeprecated.module.scss';
 
-interface SwitchArticlesViewProps {
+interface SwitchArticlesViewDeprecatedProps {
   className?: string;
 }
 
@@ -32,9 +32,9 @@ const viewTypes = [
   },
 ] as viewTypesParams[];
 
-export const SwitchArticlesView: FC<SwitchArticlesViewProps> = ({
-  className,
-}) => {
+export const SwitchArticlesViewDeprecated: FC<
+  SwitchArticlesViewDeprecatedProps
+> = ({ className }) => {
   const dispatch = useAppDispatch();
   const view = useSelector(getArticlesView);
   const onChangeView = useCallback(
