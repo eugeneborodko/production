@@ -10,15 +10,12 @@ import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from '@/entities/Article';
 import { UserSchema } from '@/entities/User';
 import { AddCommentFormSchema } from '@/features/AddCommentForm';
-import { ArticleSortSchema } from '@/features/ArticleSort';
-import { ArticlesSearchSchema } from '@/features/ArticlesSearch';
 import { LoginSchema } from '@/features/AuthByUsername';
 import { ProfileSchema } from '@/features/EditableProfileCard';
-import { SwitchArticlesTypeSchema } from '@/features/SwitchArticlesType';
 import { ArticlesViewSchema } from '@/features/SwitchArticlesView';
-import { ArticlesPageSchema } from '@/pages/ArticlesPage';
 import { rtkApi } from '@/shared/api/rtkApi';
 import { ArticleDetailsCommentsSchema } from '@/widgets/ArticleDetailsComments';
+import { ArticleFiltersSchema } from '@/widgets/ArticleFilters';
 import { ScrollPositionSchema } from '@/widgets/Page';
 
 export interface StateSchema {
@@ -31,12 +28,9 @@ export interface StateSchema {
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
-  articlesSearch?: ArticlesSearchSchema;
-  switchArticlesType?: SwitchArticlesTypeSchema;
   addCommentForm?: AddCommentFormSchema;
-  articlesPage?: ArticlesPageSchema;
-  articleSort?: ArticleSortSchema;
   articlesView?: ArticlesViewSchema;
+  articleFilters?: ArticleFiltersSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

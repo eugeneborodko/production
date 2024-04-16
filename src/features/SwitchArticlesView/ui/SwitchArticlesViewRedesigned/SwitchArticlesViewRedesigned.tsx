@@ -1,7 +1,10 @@
 import { FC, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { getArticlesView } from '../../model/selectors/switchArticlesViewSelectors';
-import { setArticlesView } from '../../model/slice/switchArticlesViewSlice';
+import {
+  setArticlesView,
+  switchArticlesViewReducer,
+} from '../../model/slice/switchArticlesViewSlice';
 import { ArticleView } from '@/entities/Article';
 import GridIcon from '@/shared/assets/icons/burger.svg';
 import TileIcon from '@/shared/assets/icons/tiled.svg';
@@ -9,6 +12,10 @@ import { LOCAL_STORAGE_ARTICLES_VIEW } from '@/shared/consts/localStorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { getHStack } from '@/shared/lib/helpers/flex';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import {
+  ReducersList,
+  useDynamicModuleLoader,
+} from '@/shared/lib/hooks/useDynamicModuleLoader';
 import { Card, Icon } from '@/shared/ui/redesigned';
 import classes from './SwitchArticlesViewRedesigned.module.scss';
 
@@ -32,11 +39,18 @@ const viewTypes = [
   },
 ] as viewTypesParams[];
 
+const reducers: ReducersList = {
+  articlesView: switchArticlesViewReducer,
+};
+
 export const SwitchArticlesViewRedesigned: FC<
   SwitchArticlesViewRedesignedProps
 > = ({ className }) => {
   const dispatch = useAppDispatch();
   const view = useSelector(getArticlesView);
+
+  useDynamicModuleLoader(reducers);
+
   const onChangeView = useCallback(
     (view: ArticleView) => {
       dispatch(setArticlesView(view));

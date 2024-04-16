@@ -3,7 +3,6 @@ import { ReducersList } from '../../../lib/hooks/useDynamicModuleLoader';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 import { articleDetailsReducer } from '@/entities/Article/testing';
 import { addCommentFormReducer } from '@/features/AddCommentForm/testing';
-import { articleSortReducer } from '@/features/ArticleSort/testing';
 import { loginReducer } from '@/features/AuthByUsername/testing';
 // TODO: imports like import { profileReducer } from '@/features/EditableProfileCard still pass. To fix
 // TODO: import like import { ReducersList } from '@/shared/lib/hooks/useDynamicModuleLoader' still pass. To fix
@@ -17,8 +16,6 @@ const defaultAsyncReducers: ReducersList = {
   articleDetails: articleDetailsReducer,
   addCommentForm: addCommentFormReducer,
   articleDetailsComments: articleDetailsCommentsReducer,
-  // articleRecommendations: articleRecommendationsReducer,
-  articleSort: articleSortReducer,
   articlesView: switchArticlesViewReducer,
 };
 
