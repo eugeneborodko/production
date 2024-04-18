@@ -17,6 +17,11 @@
 .focused {
   outline: 0;
   border: 1px solid var(--accent-redesigned);
+
+  &.addonLeft svg,
+  &.addonRight svg {
+    fill: var(--accent-redesigned);
+  }
 }
 
 .rounded {

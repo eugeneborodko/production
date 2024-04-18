@@ -11,7 +11,7 @@ export const ArticlesSearch = ({
   search,
   onChangeSearch,
 }: ArticlesSearchProps) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('articles');
 
   return (
     <Input

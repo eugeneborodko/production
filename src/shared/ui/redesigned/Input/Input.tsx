@@ -67,9 +67,9 @@ export const Input = memo(
     const modes: Modes = {
       [classes.readOnly]: readOnly,
       [classes.fullWidth]: fullWidth,
-      [classes.withAddonLeft]: !!addonLeft,
-      [classes.withAddonRight]: !!addonRight,
       [classes.focused]: isFocused,
+      [classes.addonLeft]: !!addonLeft,
+      [classes.addonRight]: !!addonRight,
     };
 
     return (
