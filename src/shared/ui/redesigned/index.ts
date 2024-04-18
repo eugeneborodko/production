@@ -9,3 +9,4 @@ export { Portal } from './Portal/Portal';
 export { Typography } from './Typography/Typography';
 export { VStack, HStack } from './Stack';
 export { Input } from './Input/Input';
+export { Tabs } from './Tabs/Tabs';

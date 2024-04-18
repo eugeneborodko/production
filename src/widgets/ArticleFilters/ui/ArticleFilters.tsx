@@ -3,6 +3,7 @@ import { articleFilterReducer } from '../model/slices/articleFiltersSlice';
 import { ArticleSort } from '@/features/ArticleSort';
 import { ArticleTabs } from '@/features/ArticleTabs';
 import { ArticlesSearch } from '@/features/ArticlesSearch';
+import { getVStack } from '@/shared/lib/helpers/flex';
 import {
   ReducersList,
   useDynamicModuleLoader,
@@ -29,7 +30,12 @@ export const ArticleFilters = () => {
   } = useArticleFilters();
 
   return (
-    <Card padding="24" border="round" className={classes.articleFilters}>
+    <Card
+      className={classes.articleFilters}
+      padding="24"
+      border="round"
+      style={getVStack({ gap: '24' })}
+    >
       <ArticlesSearch search={search} onChangeSearch={onChangeSearch} />
       <ArticleTabs type={type} onChangeType={onChangeType} />
       <ArticleSort

@@ -21,10 +21,14 @@
   border: 0;
 }
 
-.outlined {
-  color: var(--primary-color);
-  border: 1px solid var(--primary-color);
+.contained {
   background: none;
+  border: 0;
+}
+
+.outlined {
+  background: none;
+  border: 1px solid var(--accent-redesigned);
 }
 
 .square {

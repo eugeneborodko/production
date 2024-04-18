@@ -7,10 +7,10 @@ type CardBorder = 'round' | 'normal';
 type CardVariant = 'light' | 'dark';
 
 const mapPaddingToClass: Record<CardPadding, string> = {
-  0: 'gap_0',
-  8: 'gap_8',
-  16: 'gap_16',
-  24: 'gap_24',
+  0: 'padding_0',
+  8: 'padding_8',
+  16: 'padding_16',
+  24: 'padding_24',
 };
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
