@@ -3,7 +3,6 @@ import { ReactNode } from 'react';
 import { Button } from '../Button';
 import { Flex, FlexAlign, FlexDirection } from '../Stack/Flex/Flex';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import classes from './Tabs.module.scss';
 
 export interface Tab<T extends string> {
   value: T;
@@ -28,7 +27,7 @@ export const Tabs = <T extends string>({
   align = 'start',
 }: TabsProps<T>) => (
     <Flex
-      className={classNames(classes.tabs, {}, [className])}
+      className={classNames('', {}, [className])}
       direction={direction}
       align={align}
     >

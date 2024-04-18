@@ -2,8 +2,13 @@ import { FC, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticleSortField } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { SortOrder } from '@/shared/types/sort';
-import { Select, SelectOptions } from '@/shared/ui/deprecated/Select';
+import {
+  Select as SelectDeprecated,
+  SelectOptions,
+} from '@/shared/ui/deprecated/Select';
+import { Select } from '@/shared/ui/redesigned';
 import classes from './ArticleSort.module.scss';
 
 interface ArticleSortProps {
@@ -60,21 +65,55 @@ export const ArticleSort: FC<ArticleSortProps> = ({
       className={classNames('', {}, [className])}
       role="search"
     >
-      <form>
-        <Select<ArticleSortField>
-          className={classes.sortBy}
-          label={t('sort by')}
-          options={sortOptions}
-          value={sort}
-          onChange={onChangeSort}
-        />
-        <Select<SortOrder>
-          label={t('by')}
-          options={orderOptions}
-          value={order}
-          onChange={onChangeOrder}
-        />
-      </form>
+      <ToggleFeature
+        feature="isAppRedesigned"
+        on={(
+          <form>
+            <label htmlFor="sort-select">
+              <span className={classes.label}>
+                {t('sort by')}
+                :
+              </span>
+              <Select
+                className={classes.sortBy}
+                options={sortOptions}
+                value={sort}
+                onChange={onChangeSort}
+                id="sort-select"
+              />
+            </label>
+            <label htmlFor="order-select">
+              <span className="visually-hidden">
+                {t('order by')}
+                :
+              </span>
+              <Select
+                options={orderOptions}
+                value={order}
+                onChange={onChangeOrder}
+                id="order-select"
+              />
+            </label>
+          </form>
+        )}
+        off={(
+          <form>
+            <SelectDeprecated<ArticleSortField>
+              className={classes.sortBy}
+              label={t('sort by')}
+              options={sortOptions}
+              value={sort}
+              onChange={onChangeSort}
+            />
+            <SelectDeprecated<SortOrder>
+              label={t('by')}
+              options={orderOptions}
+              value={order}
+              onChange={onChangeOrder}
+            />
+          </form>
+        )}
+      />
     </div>
   );
 };

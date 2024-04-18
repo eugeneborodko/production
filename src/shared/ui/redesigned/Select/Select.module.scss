@@ -1,0 +1,28 @@
+.select {
+  padding: 8px;
+  color: var(--text-redesigned);
+  background: none;
+  border: 1px solid var(--accent-redesigned);
+  outline: 0;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.rounded {
+  border-radius: 40px;
+}
+
+.label {
+  margin-right: 10px;
+}
+
+.readOnly {
+  opacity: 0.5;
+}
+
+.option {
+  color: var(--text-redesigned);
+  background-color: var(--light-bg-redesigned);
+}
