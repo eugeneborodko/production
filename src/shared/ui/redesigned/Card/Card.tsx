@@ -4,6 +4,7 @@ import classes from './Card.module.scss';
 
 type CardPadding = '0' | '8' | '16' | '24';
 type CardBorder = 'round' | 'normal';
+type CardVariant = 'light' | 'dark';
 
 const mapPaddingToClass: Record<CardPadding, string> = {
   0: 'gap_0',
@@ -15,6 +16,7 @@ const mapPaddingToClass: Record<CardPadding, string> = {
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
   children: ReactNode;
+  variant?: CardVariant;
   fullWidth?: boolean;
   padding?: CardPadding;
   border?: CardBorder;
@@ -23,6 +25,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 export const Card: FC<CardProps> = ({
   className,
   children,
+  variant = 'light',
   fullWidth,
   padding = '0',
   border = 'normal',
@@ -38,6 +41,7 @@ export const Card: FC<CardProps> = ({
       className={classNames(classes.card, modes, [
         className,
         classes[paddingClassName],
+        classes[variant],
         classes[border],
       ])}
     >

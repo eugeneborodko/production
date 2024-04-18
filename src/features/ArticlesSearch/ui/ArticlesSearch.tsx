@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { Input } from '@/shared/ui/deprecated';
+import SearchIcon from '@/shared/assets/icons/search.svg';
+import { Input, Icon } from '@/shared/ui/redesigned';
 
 interface ArticlesSearchProps {
   onChangeSearch: (newSearch: string) => void;
@@ -13,6 +14,11 @@ export const ArticlesSearch = ({
   const { t } = useTranslation();
 
   return (
-    <Input placeholder={t('search')} onChange={onChangeSearch} value={search} />
+    <Input
+      placeholder={t('search')}
+      onChange={onChangeSearch}
+      value={search}
+      addonLeft={<Icon Svg={SearchIcon} />}
+    />
   );
 };

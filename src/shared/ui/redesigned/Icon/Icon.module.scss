@@ -1,5 +1,5 @@
 .icon {
-  color: var(--icon-redesigned);
+  fill: var(--icon-redesigned);
 }
 
 .button {
@@ -12,5 +12,6 @@
 }
 
 .button:hover .icon {
-  color: var(--accent-redesigned);
+  display: block;
+  fill: var(--accent-redesigned);
 }

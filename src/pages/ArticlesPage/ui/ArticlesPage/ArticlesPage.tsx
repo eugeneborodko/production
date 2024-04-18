@@ -59,7 +59,6 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
               data-testid="ArticlesPage"
             >
               <VStack gap="16">
-                <ArticleFilters />
                 <ArticleList
                   view={view}
                   isLoading={isLoading}
@@ -68,7 +67,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
               </VStack>
             </Page>
           )}
-          right={<div>345</div>}
+          right={<ArticleFilters />}
         />
       )}
       off={(

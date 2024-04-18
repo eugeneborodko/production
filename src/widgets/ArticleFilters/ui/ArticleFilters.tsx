@@ -8,6 +8,7 @@ import {
   useDynamicModuleLoader,
 } from '@/shared/lib/hooks/useDynamicModuleLoader';
 import { Card } from '@/shared/ui/redesigned';
+import classes from './ArticleFilters.module.scss';
 
 const reducers: ReducersList = {
   articleFilters: articleFilterReducer,
@@ -28,7 +29,7 @@ export const ArticleFilters = () => {
   } = useArticleFilters();
 
   return (
-    <Card>
+    <Card padding="24" border="round" className={classes.articleFilters}>
       <ArticlesSearch search={search} onChangeSearch={onChangeSearch} />
       <ArticleTabs type={type} onChangeType={onChangeType} />
       <ArticleSort

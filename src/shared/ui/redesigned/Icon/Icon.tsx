@@ -31,7 +31,7 @@ export const Icon = memo((props: IconProps) => {
   } = props;
   const icon = (
     <Svg
-      className={classNames(classes.Icon, {}, [className])}
+      className={classNames(classes.icon, {}, [className])}
       width={width}
       height={height}
       {...otherProps}
