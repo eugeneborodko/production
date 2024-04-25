@@ -5,7 +5,8 @@ import { Countries, CountrySelect } from '@/entities/Country';
 import { Currencies, CurrencySelect } from '@/entities/Currency';
 import { Input, Loader, Typography } from '@/shared/ui/deprecated';
 import { TypographyVariants } from '@/shared/ui/deprecated/Typography';
-import { Card, HStack, VStack } from '@/shared/ui/redesigned';
+import { HStack } from '@/shared/ui/redesigned';
+import classes from './ProfileCardRedesigned.module.scss';
 
 interface ProfileCardRedesignedProps {
   className?: string;
@@ -41,7 +42,7 @@ export const ProfileCardRedesigned: FC<ProfileCardRedesignedProps> = ({
   const { t } = useTranslation('profile');
 
   return (
-    <Card>
+    <>
       {isLoading && <Loader />}
       {error && (
         <Typography
@@ -51,8 +52,8 @@ export const ProfileCardRedesigned: FC<ProfileCardRedesignedProps> = ({
         />
       )}
       {!isLoading && !error && (
-        <>
-          <VStack gap="16">
+        <HStack align="start">
+          <div className={classes.column}>
             <Input
               value={data?.firstName}
               placeholder={t('Your first name')}
@@ -84,6 +85,8 @@ export const ProfileCardRedesigned: FC<ProfileCardRedesignedProps> = ({
               readOnly={readOnly}
               fullWidth
             />
+          </div>
+          <div className={classes.column}>
             <Input
               value={data?.username}
               placeholder={t('Your username')}
@@ -98,8 +101,6 @@ export const ProfileCardRedesigned: FC<ProfileCardRedesignedProps> = ({
               readOnly={readOnly}
               fullWidth
             />
-          </VStack>
-          <HStack justify="between">
             <CurrencySelect
               value={data?.currency}
               onChange={onChangeCurrency}
@@ -110,9 +111,9 @@ export const ProfileCardRedesigned: FC<ProfileCardRedesignedProps> = ({
               onChange={onChangeCountry}
               readOnly={readOnly}
             />
-          </HStack>
-        </>
+          </div>
+        </HStack>
       )}
-    </Card>
+    </>
   );
 };

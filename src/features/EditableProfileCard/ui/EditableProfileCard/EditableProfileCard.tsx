@@ -26,7 +26,7 @@ import {
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { Typography } from '@/shared/ui/deprecated';
 import { TypographyVariants } from '@/shared/ui/deprecated/Typography';
-import { VStack } from '@/shared/ui/redesigned';
+import { Card } from '@/shared/ui/redesigned';
 
 export interface EditableProfileCardProps {
   id: string;
@@ -134,7 +134,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ id }) => {
   };
 
   return (
-    <VStack gap="16">
+    <Card padding="24" border="round">
       {validateErrors?.length
         && validateErrors.map((error) => (
           <Typography
@@ -161,6 +161,6 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ id }) => {
         on={<ProfileCardRedesigned {...profileCardProps} />}
         off={<ProfileCardDeprecated {...profileCardProps} />}
       />
-    </VStack>
+    </Card>
   );
 };
