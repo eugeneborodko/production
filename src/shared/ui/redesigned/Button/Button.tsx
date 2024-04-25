@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes } from 'react';
 import { Modes, classNames } from '@/shared/lib/classNames/classNames';
 import classes from './Button.module.scss';
 
-export type ButtonVariant = 'empty' | 'outlined' | 'contained';
+export type ButtonVariant = 'empty' | 'outlined' | 'contained' | 'cancel' | 'save'
 export type ButtonSize = 'm' | 'l' | 'xl';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

@@ -1,0 +1,23 @@
+.header {
+  padding: 20px;
+  width: 100%;
+  display: grid;
+  align-items: center;
+  grid-template-areas: "cancel avatar editable";
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cancel {
+  grid-area: cancel;
+  justify-self: flex-start;
+}
+
+.avatar {
+  grid-area: avatar;
+  justify-self: center;
+}
+
+.editable {
+  grid-area: editable;
+  justify-self: flex-end;
+}

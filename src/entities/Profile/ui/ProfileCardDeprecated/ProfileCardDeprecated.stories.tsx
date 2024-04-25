@@ -1,16 +1,16 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ProfileCard } from './ProfileCard';
+import { ProfileCardDeprecated } from './ProfileCardDeprecated';
 import { Countries } from '@/entities/Country';
 import { Currencies } from '@/entities/Currency';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 
 export default {
-  title: 'entities/ProfileCard',
-  component: ProfileCard,
-} as ComponentMeta<typeof ProfileCard>;
+  title: 'entities/ProfileCardDeprecated',
+  component: ProfileCardDeprecated,
+} as ComponentMeta<typeof ProfileCardDeprecated>;
 
-const Template: ComponentStory<typeof ProfileCard> = (args) => (
-  <ProfileCard {...args} />
+const Template: ComponentStory<typeof ProfileCardDeprecated> = (args) => (
+  <ProfileCardDeprecated {...args} />
 );
 
 export const Editable = Template.bind({});

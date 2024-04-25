@@ -26,7 +26,7 @@ export const Card: FC<CardProps> = ({
   className,
   children,
   variant = 'light',
-  fullWidth,
+  fullWidth = true,
   padding = '0',
   border = 'normal',
   ...props
@@ -38,7 +38,7 @@ export const Card: FC<CardProps> = ({
   return (
     <div
       {...props}
-      className={classNames(classes.card, modes, [
+      className={classNames('', modes, [
         className,
         classes[paddingClassName],
         classes[variant],

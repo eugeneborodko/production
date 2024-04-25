@@ -15,13 +15,13 @@ import { Button, Typography } from '@/shared/ui/deprecated';
 import { ButtonVariants } from '@/shared/ui/deprecated/Button';
 import { HStack } from '@/shared/ui/redesigned';
 
-interface EditableProfileCardHeaderProps {
+interface EditableProfileCardHeaderDeprecatedProps {
   className?: string;
 }
 
-export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
-  className,
-}) => {
+export const EditableProfileCardHeaderDeprecated: FC<
+  EditableProfileCardHeaderDeprecatedProps
+> = ({ className }) => {
   const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
   const readOnly = useSelector(getProfileReadOnly);

@@ -1,15 +1,13 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Profile } from '../../../Profile';
+import { Profile } from '../..';
 import { Countries, CountrySelect } from '@/entities/Country';
 import { Currencies, CurrencySelect } from '@/entities/Currency';
-import { Modes, classNames } from '@/shared/lib/classNames/classNames';
 import { Input, Loader, Typography } from '@/shared/ui/deprecated';
 import { TypographyVariants } from '@/shared/ui/deprecated/Typography';
-import { Avatar, HStack, VStack } from '@/shared/ui/redesigned';
-import classes from './ProfileCard.module.scss';
+import { Card, HStack, VStack } from '@/shared/ui/redesigned';
 
-interface ProfileCardProps {
+interface ProfileCardRedesignedProps {
   className?: string;
   data?: Profile | undefined;
   isLoading?: boolean;
@@ -25,7 +23,7 @@ interface ProfileCardProps {
   onChangeCountry?: (country?: Countries) => void;
 }
 
-export const ProfileCard: FC<ProfileCardProps> = ({
+export const ProfileCardRedesigned: FC<ProfileCardRedesignedProps> = ({
   className,
   data,
   isLoading,
@@ -42,16 +40,8 @@ export const ProfileCard: FC<ProfileCardProps> = ({
 }) => {
   const { t } = useTranslation('profile');
 
-  const modes: Modes = {
-    [classes.editing]: !readOnly,
-  };
-
   return (
-    <VStack
-      className={classNames(classes.profileCard, modes, [className])}
-      align="center"
-      gap="16"
-    >
+    <Card>
       {isLoading && <Loader />}
       {error && (
         <Typography
@@ -62,11 +52,6 @@ export const ProfileCard: FC<ProfileCardProps> = ({
       )}
       {!isLoading && !error && (
         <>
-          {data?.avatar && (
-            <HStack justify="center">
-              <Avatar src={data.avatar} alt={data?.username} />
-            </HStack>
-          )}
           <VStack gap="16">
             <Input
               value={data?.firstName}
@@ -128,6 +113,6 @@ export const ProfileCard: FC<ProfileCardProps> = ({
           </HStack>
         </>
       )}
-    </VStack>
+    </Card>
   );
 };

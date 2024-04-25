@@ -9,10 +9,15 @@ import { getProfileReadOnly } from '../../model/selectors/getProfileReadOnly/get
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileReducer, updateProfile } from '../../model/slice/profileSlice';
-import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
+import { EditableProfileCardHeaderDeprecated } from '../EditableProfileCardHeaderDeprecated/EditableProfileCardHeaderDeprecated';
+import { EditableProfileCardHeaderRedesigned } from '../EditableProfileCardHeaderRedesigned/EditableProfileCardHeaderRedesigned';
 import { Countries } from '@/entities/Country';
 import { Currencies } from '@/entities/Currency';
-import { ProfileCard } from '@/entities/Profile';
+import {
+  ProfileCardDeprecated,
+  ProfileCardRedesigned,
+} from '@/entities/Profile';
+import { ToggleFeature } from '@/shared/lib/featureFlags';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import {
   ReducersList,
@@ -113,9 +118,23 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ id }) => {
     dispatch(fetchProfileData(id));
   });
 
+  const profileCardProps = {
+    data: formData,
+    isLoading: isProfileLoading,
+    error: profileError,
+    readOnly,
+    onChangeFirstName,
+    onChangeLastName,
+    onChangeAge,
+    onChangeCity,
+    onChangeUsername,
+    onChangeAvatar,
+    onChangeCurrency,
+    onChangeCountry,
+  };
+
   return (
     <VStack gap="16">
-      <EditableProfileCardHeader />
       {validateErrors?.length
         && validateErrors.map((error) => (
           <Typography
@@ -125,19 +144,22 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = ({ id }) => {
             data-testid="EditableProfileCard.Error"
           />
         ))}
-      <ProfileCard
-        data={formData}
-        isLoading={isProfileLoading}
-        error={profileError}
-        readOnly={readOnly}
-        onChangeFirstName={onChangeFirstName}
-        onChangeLastName={onChangeLastName}
-        onChangeAge={onChangeAge}
-        onChangeCity={onChangeCity}
-        onChangeUsername={onChangeUsername}
-        onChangeAvatar={onChangeAvatar}
-        onChangeCurrency={onChangeCurrency}
-        onChangeCountry={onChangeCountry}
+
+      <ToggleFeature
+        feature="isAppRedesigned"
+        on={(
+          <EditableProfileCardHeaderRedesigned
+            avatar={profileCardProps.data?.avatar}
+            username={profileCardProps.data?.username}
+          />
+        )}
+        off={<EditableProfileCardHeaderDeprecated />}
+      />
+
+      <ToggleFeature
+        feature="isAppRedesigned"
+        on={<ProfileCardRedesigned {...profileCardProps} />}
+        off={<ProfileCardDeprecated {...profileCardProps} />}
       />
     </VStack>
   );

@@ -31,6 +31,16 @@
   border: 1px solid var(--accent-redesigned);
 }
 
+.cancel {
+  background: none;
+  border: 1px solid var(--cancel-redesigned);
+}
+
+.save {
+  background: none;
+  border: 1px solid var(--save-redesigned);
+}
+
 .square {
   padding: 0;
 }
